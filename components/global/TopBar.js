@@ -1,9 +1,13 @@
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Link,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import RouterLink from './RouterLinks';
-
-/* TODO Fix styles not working after page is reloaded */
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,16 +42,25 @@ const TopBar = () => {
           <Typography variant='h5' className={styles.title}>
             Freedom Evenden
           </Typography>
+          <Link color='secondary' className={styles.link}>
+            About Me
+          </Link>
           <RouterLink
             color='secondary'
-            href='/'
-            text='yeet'
+            href='/blog'
+            text='Blog'
             className={styles.link}
           />
           <RouterLink
             color='secondary'
-            href='/blog'
-            text='blog'
+            href='/videos'
+            text='Videos'
+            className={styles.link}
+          />
+          <RouterLink
+            color='secondary'
+            text='Portfolio'
+            href='/portfolio'
             className={styles.link}
           />
         </Toolbar>
