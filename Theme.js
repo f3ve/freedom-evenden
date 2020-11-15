@@ -4,7 +4,7 @@ const colors = {
   pimary: '#81c784',
   black: '#000000',
   white: '#ffffff',
-  darkOverlay: 'rgba(0, 0, 0, 0.7)',
+  overlay: 'rgba(0, 0, 0, 0.7)',
 };
 
 const theme = createMuiTheme({
