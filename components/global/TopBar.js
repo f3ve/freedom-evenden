@@ -3,11 +3,14 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Link,
+  useMediaQuery,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useState } from 'react';
 import RouterLink from './RouterLinks';
+import MobileDrawer from './MobileDrawer';
+import { colors } from '../../Theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,42 +30,48 @@ const useStyles = makeStyles((theme) => ({
 
 const TopBar = () => {
   const styles = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+  const [drawer, showDrawer] = useState(false);
 
   return (
     <div className={styles.root}>
-      <AppBar style={{ backgroundColor: '#000000' }}>
+      {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
+      <AppBar style={{ backgroundColor: colors.black }}>
         <Toolbar>
-          <IconButton
-            color='secondary'
-            edge='start'
-            className={styles.menuButton}
-          >
-            <MenuIcon color='inherit' />
-          </IconButton>
           <Typography variant='h5' className={styles.title}>
             Freedom Evenden
           </Typography>
-          <Link color='secondary' className={styles.link}>
-            About Me
-          </Link>
-          <RouterLink
-            color='secondary'
-            href='/blog'
-            text='Blog'
-            className={styles.link}
-          />
-          <RouterLink
-            color='secondary'
-            href='/videos'
-            text='Videos'
-            className={styles.link}
-          />
-          <RouterLink
-            color='secondary'
-            text='Portfolio'
-            href='/portfolio'
-            className={styles.link}
-          />
+          {!matches && (
+            <IconButton
+              color='primary'
+              edge='start'
+              className={styles.menuButton}
+              onClick={() => showDrawer((cur) => !cur)}
+            >
+              <MenuIcon color='inherit' />
+            </IconButton>
+          )}
+          {matches && (
+            <>
+              <RouterLink
+                href='/about'
+                text='About Me'
+                className={styles.link}
+              />
+              <RouterLink href='/blog' text='Blog' className={styles.link} />
+              <RouterLink
+                href='/videos'
+                text='Videos'
+                className={styles.link}
+              />
+              <RouterLink
+                text='Portfolio'
+                href='/portfolio'
+                className={styles.link}
+              />
+            </>
+          )}
         </Toolbar>
       </AppBar>
     </div>
