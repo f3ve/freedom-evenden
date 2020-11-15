@@ -3,6 +3,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import RouterLink from './RouterLinks';
 
+/* TODO Fix styles not working after page is reloaded */
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,7 +35,7 @@ const TopBar = () => {
           >
             <MenuIcon color='inherit' />
           </IconButton>
-          <Typography variant='h3' className={styles.title}>
+          <Typography variant='h5' className={styles.title}>
             Freedom Evenden
           </Typography>
           <RouterLink
