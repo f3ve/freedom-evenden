@@ -10,9 +10,9 @@ import {
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
-const ArticleCard = ({ post }) => {
+const ArticleCard = ({ post }, props) => {
   return (
-    <Grid item key={post.id}>
+    <Grid item key={post.id} {...props}>
       <Card variant='outlined'>
         <CardHeader title={post.title} />
         <CardMedia image='https://picsum.photos/seed/picsum/200/300' />
