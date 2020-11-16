@@ -15,7 +15,10 @@ const ArticleCard = ({ post }, props) => {
     <Grid item key={post.id} {...props}>
       <Card variant='outlined'>
         <CardHeader title={post.title} />
-        <CardMedia image='https://picsum.photos/seed/picsum/200/300' />
+        <CardMedia
+          image='https://picsum.photos/seed/picsum/200/300'
+          className={styles.media}
+        />
         <CardContent>
           <Typography variant='body1' component='p' gutterBottom>
             {post.content}
