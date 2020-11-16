@@ -5,6 +5,8 @@ import {
   Card,
   CardActionArea,
   CardContent,
+  CardHeader,
+  CardMedia,
   Container,
   Divider,
   Grid,
@@ -13,6 +15,7 @@ import {
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import TopBar from '../components/global/TopBar';
 import store from '../dummyStore';
+import ArticleCard from '../components/home/ArticleCard';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -37,35 +40,19 @@ export default function Home() {
       <Grid component='main' container justify='space-between' spacing={6}>
         <Grid item xs={12} sm={7}>
           <Typography
-            variant='h5'
+            variant='h4'
             component='h2'
             gutterBottom
             color='secondary'
           >
-            Recent Posts
+            Recent Articles
           </Typography>
           <Divider />
           <Grid container spacing={6} direction='column'>
             {posts.length > 0 && (
               <>
                 {posts.map((post) => {
-                  return (
-                    <Grid item key={post.id}>
-                      <Typography variant='h4' gutterBottom component='h2'>
-                        {post.title}
-                      </Typography>
-                      <Typography variant='body1' component='p' gutterBottom>
-                        {post.content}
-                      </Typography>
-                      <Button
-                        variant='contained'
-                        color='primary'
-                        endIcon={<ArrowRightAltIcon />}
-                      >
-                        Read More
-                      </Button>
-                    </Grid>
-                  );
+                  return <ArticleCard post={post} key={post.id} />;
                 })}
               </>
             )}
@@ -74,7 +61,12 @@ export default function Home() {
         <Grid item xs={12} sm={5}>
           <Grid container spacing={2} justify='center'>
             <Grid item>
-              <Typography variant='h5' gutterBottom component='h2'>
+              <Typography
+                variant='h4'
+                gutterBottom
+                component='h2'
+                color='secondary'
+              >
                 News Letter
               </Typography>
               <Divider />
@@ -86,7 +78,12 @@ export default function Home() {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant='h5' gutterBottom component='h2'>
+              <Typography
+                variant='h4'
+                gutterBottom
+                component='h2'
+                color='secondary'
+              >
                 Recent Videos
               </Typography>
               <Divider />

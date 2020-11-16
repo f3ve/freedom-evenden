@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import { Link } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
-const RouterLink = ({ href, color, text, className, variant }, props) => {
+const RouterLink = ({ href, text, className }, props) => {
   const router = useRouter();
 
   const handleLinkClick = (e) => {
@@ -9,16 +9,16 @@ const RouterLink = ({ href, color, text, className, variant }, props) => {
     router.push(href);
   };
   return (
-    <Link
+    <Button
       href={href}
-      color={color}
+      color='primary'
       {...props}
       onClick={handleLinkClick}
       className={className}
-      variant={variant}
+      variant='contained'
     >
       {text}
-    </Link>
+    </Button>
   );
 };
 

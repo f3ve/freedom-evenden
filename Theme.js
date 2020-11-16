@@ -1,9 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
-  // pimary: '#00c8ff',
-  primary: '#00ffb7',
-  secondary: '#0048ff',
+  primary: '#80cbc4',
+  secondary: '#5c6bc0',
   black: '#000000',
   white: '#ffffff',
   overlay: 'rgba(0, 0, 0, 0.7)',
@@ -16,6 +15,12 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: colors.secondary,
+    },
+    black: {
+      main: colors.black,
+    },
+    white: {
+      main: '#ffffff',
     },
   },
 });

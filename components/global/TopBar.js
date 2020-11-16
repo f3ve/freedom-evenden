@@ -15,18 +15,22 @@ import { colors } from '../../Theme';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginBottom: theme.spacing(10),
+    marginBottom: theme.spacing(20),
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-    color: colors.white,
   },
   link: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(2),
+  },
+  appBar: {
+    backgroundColor: colors.white,
+    boxShadow: `0 0 20px 20px ${colors.white}`,
+    width: '100%',
   },
 }));
 
@@ -39,7 +43,7 @@ const TopBar = () => {
   return (
     <div className={styles.root}>
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
-      <AppBar style={{ backgroundColor: colors.black }}>
+      <AppBar className={styles.appBar}>
         <Toolbar>
           <Typography variant='h5' className={styles.title}>
             Freedom Evenden
@@ -48,6 +52,7 @@ const TopBar = () => {
             <IconButton
               color='primary'
               edge='start'
+              variant='contained'
               className={styles.menuButton}
               onClick={() => showDrawer((cur) => !cur)}
             >
@@ -60,6 +65,8 @@ const TopBar = () => {
                 href='/about'
                 text='About Me'
                 className={styles.link}
+                variant='contained'
+                color='primary'
               />
               <RouterLink href='/blog' text='Blog' className={styles.link} />
               <RouterLink
