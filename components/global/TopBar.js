@@ -62,13 +62,6 @@ const TopBar = () => {
             )}
             {matches && (
               <>
-                {/* <RouterLink
-                  href='/about'
-                  text='About Me'
-                  className={styles.link}
-                  variant='contained'
-                  color='primary'
-                /> */}
                 <RouterLink href='/blog' text='Blog' className={styles.link} />
                 <RouterLink
                   href='/videos'
