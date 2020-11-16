@@ -4,6 +4,7 @@ import {
   Typography,
   IconButton,
   useMediaQuery,
+  Container,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -30,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: colors.white,
     boxShadow: `0 0 20px 20px ${colors.white}`,
-    width: '100%',
   },
 }));
 
@@ -44,44 +44,46 @@ const TopBar = () => {
     <div className={styles.root}>
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
       <AppBar className={styles.appBar}>
-        <Toolbar>
-          <Typography variant='h5' className={styles.title}>
-            Freedom Evenden
-          </Typography>
-          {!matches && (
-            <IconButton
-              color='primary'
-              edge='start'
-              variant='contained'
-              className={styles.menuButton}
-              onClick={() => showDrawer((cur) => !cur)}
-            >
-              <MenuIcon color='inherit' />
-            </IconButton>
-          )}
-          {matches && (
-            <>
-              <RouterLink
-                href='/about'
-                text='About Me'
-                className={styles.link}
-                variant='contained'
+        <Container maxWidth='md'>
+          <Toolbar>
+            <Typography variant='h5' className={styles.title} noWrap>
+              Freedom Evenden
+            </Typography>
+            {!matches && (
+              <IconButton
                 color='primary'
-              />
-              <RouterLink href='/blog' text='Blog' className={styles.link} />
-              <RouterLink
-                href='/videos'
-                text='Videos'
-                className={styles.link}
-              />
-              <RouterLink
-                text='Portfolio'
-                href='/portfolio'
-                className={styles.link}
-              />
-            </>
-          )}
-        </Toolbar>
+                edge='start'
+                variant='contained'
+                className={styles.menuButton}
+                onClick={() => showDrawer((cur) => !cur)}
+              >
+                <MenuIcon color='inherit' />
+              </IconButton>
+            )}
+            {matches && (
+              <>
+                {/* <RouterLink
+                  href='/about'
+                  text='About Me'
+                  className={styles.link}
+                  variant='contained'
+                  color='primary'
+                /> */}
+                <RouterLink href='/blog' text='Blog' className={styles.link} />
+                <RouterLink
+                  href='/videos'
+                  text='Videos'
+                  className={styles.link}
+                />
+                <RouterLink
+                  text='Portfolio'
+                  href='/portfolio'
+                  className={styles.link}
+                />
+              </>
+            )}
+          </Toolbar>
+        </Container>
       </AppBar>
     </div>
   );
