@@ -22,13 +22,7 @@ const ArticleCard = ({ post }, props) => {
           </Typography>
         </CardContent>
         <CardActionArea>
-          <Button
-            // variant='contained'
-            // color=''
-            endIcon={<ArrowRightAltIcon />}
-          >
-            Read More
-          </Button>
+          <Button endIcon={<ArrowRightAltIcon />}>Read More</Button>
         </CardActionArea>
       </Card>
     </Grid>
