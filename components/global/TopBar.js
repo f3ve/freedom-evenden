@@ -22,13 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    color: colors.white,
+    fontFamily: 'Noto Sarif',
   },
   link: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(2),
   },
   appBar: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.black,
     boxShadow: `0 0 20px 20px ${colors.white}`,
     width: '100%',
   },
@@ -45,7 +47,7 @@ const TopBar = () => {
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
       <AppBar className={styles.appBar}>
         <Toolbar>
-          <Typography variant='h5' className={styles.title}>
+          <Typography variant='h4' className={styles.title}>
             Freedom Evenden
           </Typography>
           {!matches && (

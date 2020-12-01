@@ -1,19 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-} from '@material-ui/core';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import TopBar from '../components/global/TopBar';
+import { Container, Divider, Grid, Typography } from '@material-ui/core';
 import store from '../dummyStore';
 import ArticleCard from '../components/home/ArticleCard';
 
@@ -36,7 +23,6 @@ export default function Home() {
         <title>Freedom Evenden</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <TopBar />
       <Grid component='main' container justify='space-between' spacing={6}>
         <Grid item xs={12} sm={7}>
           <Typography
