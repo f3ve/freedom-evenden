@@ -10,7 +10,7 @@ const portfolio = () => {
         <title>Freedom Evenden - Portfolio</title>
       </Head>
       <Fade in>
-        <Container>
+        <Container maxWidth='md' component='ul'>
           {projects.map((p) => {
             return <Project p={p} key={p.title} />;
           })}
