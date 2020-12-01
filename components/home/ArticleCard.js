@@ -10,25 +10,22 @@ import {
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
-const ArticleCard = ({ post }) => {
+const ArticleCard = ({ post }, props) => {
   return (
-    <Grid item key={post.id}>
+    <Grid item key={post.id} {...props}>
       <Card variant='outlined'>
         <CardHeader title={post.title} />
-        <CardMedia image='https://picsum.photos/seed/picsum/200/300' />
+        <CardMedia
+          image='https://picsum.photos/seed/picsum/200/300'
+          className={styles.media}
+        />
         <CardContent>
           <Typography variant='body1' component='p' gutterBottom>
             {post.content}
           </Typography>
         </CardContent>
         <CardActionArea>
-          <Button
-            // variant='contained'
-            // color=''
-            endIcon={<ArrowRightAltIcon />}
-          >
-            Read More
-          </Button>
+          <Button endIcon={<ArrowRightAltIcon />}>Read More</Button>
         </CardActionArea>
       </Card>
     </Grid>
