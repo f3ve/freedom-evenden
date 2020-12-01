@@ -9,6 +9,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useState } from 'react';
+import Link from 'next/link';
 import RouterLink from './RouterLinks';
 import MobileDrawer from './MobileDrawer';
 import { colors } from '../../Theme';
@@ -22,9 +23,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
     color: colors.white,
     fontFamily: 'Noto Sarif',
+  },
+  titleLink: {
+    flexGrow: 1,
   },
   link: {
     marginRight: theme.spacing(1),
@@ -48,9 +51,13 @@ const TopBar = () => {
       <AppBar className={styles.appBar}>
         <Container maxWidth='md'>
           <Toolbar>
-            <Typography variant='h4' className={styles.title} noWrap>
-              Freedom Evenden
-            </Typography>
+            <Link href='/'>
+              <a className={styles.titleLink}>
+                <Typography variant='h4' className={styles.title} noWrap>
+                  Freedom Evenden
+                </Typography>
+              </a>
+            </Link>
             {!matches && (
               <IconButton
                 color='primary'
