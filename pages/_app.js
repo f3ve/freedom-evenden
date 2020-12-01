@@ -2,7 +2,6 @@ import { ThemeProvider } from '@material-ui/core';
 import { theme } from '../Theme';
 import '../styles/globals.scss';
 import 'fontsource-roboto';
-import Head from 'next/head';
 import TopBar from '../components/global/TopBar';
 
 function MyApp({ Component, pageProps }) {
