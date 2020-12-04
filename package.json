@@ -15,7 +15,9 @@
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "sass": "^1.29.0"
+    "sass": "^1.29.0",
+    "slate": "^0.59.0",
+    "slate-react": "^0.59.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.26.6",
