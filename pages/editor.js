@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
 import { Container, Grid, TextField } from '@material-ui/core';
@@ -7,7 +6,7 @@ import CodeBlock from '../components/editor/CodeBlock';
 import Paragraph from '../components/editor/Paragraph';
 import Heading from '../components/editor/Heading';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   input: {
     width: '100%',
   },
