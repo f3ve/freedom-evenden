@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Paragraph = (props) => {
   const styles = useStyles();
-  console.log(props.node.children[0].value);
   return (
     <Typography
       variant='body1'
