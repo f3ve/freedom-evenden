@@ -1,27 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Grid, Typography, Fade } from '@material-ui/core';
 import ArticleList from './ArticleList';
-import store from '../../dummyStore';
+import { apiGet } from '../../services/ArticleApiService';
 
 const RecentArticles = () => {
-  const [posts, setPosts] = useState([]);
+  const [articles, setArticles] = useState([]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setPosts(store.posts);
-    }, 500);
-
-    return () => {
-      clearTimeout(timeout);
-    };
+  useEffect(async () => {
+    const res = await apiGet('articles');
+    setArticles(res);
   });
   return (
     <Grid item xs={12} sm={7}>
       <Typography variant='h4' component='h2' gutterBottom color='secondary'>
         Recent Articles
       </Typography>
-      <Fade in={posts.length > 0}>
-        <ArticleList posts={posts} />
+      <Fade in={articles.length > 0}>
+        <ArticleList posts={articles} />
       </Fade>
     </Grid>
   );
