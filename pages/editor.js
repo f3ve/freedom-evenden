@@ -2,7 +2,14 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
-import { Button, Container, Grid, Link, TextField } from '@material-ui/core';
+import {
+  Button,
+  Container,
+  Grid,
+  Link,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 import CodeBlock from '../components/editor/CodeBlock';
 import Paragraph from '../components/editor/Paragraph';
 import Heading from '../components/editor/Heading';
@@ -21,7 +28,7 @@ const useStyles = makeStyles(() => ({
 const editor = () => {
   const styles = useStyles();
   const [value, setValue] = useState(
-    '## Markup Text Editor\n\nStart by writing some markup in the input on the left'
+    'Start by writing some markup in the input on the left'
   );
   const [title, setTitle] = useState('Markup Text Editor');
   const today = format(new Date(), 'yyyy-MM-dd');
@@ -91,6 +98,7 @@ const editor = () => {
       </Grid>
       <Grid item xs={6}>
         <Container className={styles.grid}>
+          <Heading text={title} level={2} />
           <ReactMarkdown
             source={value}
             renderers={{
@@ -99,7 +107,6 @@ const editor = () => {
               heading: Heading,
               link: markdownLink,
             }}
-            // plugins={[gfm]}
           />
         </Container>
       </Grid>

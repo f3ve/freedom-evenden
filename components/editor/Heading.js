@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
@@ -15,7 +16,11 @@ const Heading = (props) => {
       gutterBottom
       className={styles.Heading}
     >
-      {props.node.children[0] ? props.node.children[0].value : ''}
+      {props.node && props.node.children[0]
+        ? props.node.children[0].value
+        : props.text
+        ? props.text
+        : ''}
     </Typography>
   );
 };
