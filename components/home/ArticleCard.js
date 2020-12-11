@@ -9,17 +9,19 @@ import {
   Button,
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import ReactMarkdown from 'react-markdown';
 
-const ArticleCard = ({ post }, props) => {
+const ArticleCard = ({ article }, props) => {
   return (
-    <Grid item key={post.id} {...props}>
+    <Grid item key={article.id} {...props}>
       <Card variant='outlined'>
-        <CardHeader title={post.title} />
+        <CardHeader title={article.title} />
         <CardMedia image='https://picsum.photos/seed/picsum/200/300' />
         <CardContent>
-          <Typography variant='body1' component='p' gutterBottom>
-            {post.content}
-          </Typography>
+          <ReactMarkdown source={article.content} sourcePos />
+          {/* <Typography variant='body1' component='p' gutterBottom>
+            {article.content}
+          </Typography> */}
         </CardContent>
         <CardActionArea>
           <Button endIcon={<ArrowRightAltIcon />}>Read More</Button>

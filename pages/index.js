@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useState } from 'react';
 import { Container, Fade, Grid } from '@material-ui/core';
 import NewsLetter from '../components/home/NewsLetter';
 import RecentVideos from '../components/home/RecentVideos';

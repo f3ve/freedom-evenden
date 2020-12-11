@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
-import { Button, Container, Grid, TextField } from '@material-ui/core';
+import { Button, Container, Grid, Link, TextField } from '@material-ui/core';
 import CodeBlock from '../components/editor/CodeBlock';
 import Paragraph from '../components/editor/Paragraph';
 import Heading from '../components/editor/Heading';
-import ArticleApiService from '../services/ArticleApiService';
+import { postArticle } from '../services/ArticleApiService';
+import markdownLink from '../components/editor/markdownLink';
 
 const useStyles = makeStyles(() => ({
   input: {
@@ -35,7 +36,7 @@ const editor = () => {
       publish_date,
     };
     console.log(data);
-    ArticleApiService.postArticle('articles', data)
+    postArticle('articles', data)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -96,7 +97,9 @@ const editor = () => {
               code: CodeBlock,
               paragraph: Paragraph,
               heading: Heading,
+              link: markdownLink,
             }}
+            // plugins={[gfm]}
           />
         </Container>
       </Grid>
