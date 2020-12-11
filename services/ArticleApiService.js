@@ -4,7 +4,7 @@ import config from '../config';
 const ArticleApiService = {
   postArticle(endpoint, data) {
     // return Axios.post(`${config.API_BASE_URL}/${endpoint}/`, data);
-    return fetch(`${config.API_BASE_URL}/${config.API_BASE_URL}/${endpoint}`, {
+    return fetch(`${config.API_BASE_URL}/${endpoint}/`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
