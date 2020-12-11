@@ -15,7 +15,7 @@ const Heading = (props) => {
       gutterBottom
       className={styles.Heading}
     >
-      {props.node.children[0].value || ''}
+      {props.node.children[0] ? props.node.children[0].value : ''}
     </Typography>
   );
 };

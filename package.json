@@ -12,6 +12,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "axios": "^0.21.0",
+    "date-fns": "^2.16.1",
     "fontsource-roboto": "^3.0.3",
     "next": "10.0.1",
     "react": "17.0.1",

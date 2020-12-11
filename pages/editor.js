@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
 import { Button, Container, Grid, TextField } from '@material-ui/core';
@@ -22,7 +23,8 @@ const editor = () => {
     '## Markup Text Editor\n\nStart by writing some markup in the input on the left'
   );
   const [title, setTitle] = useState('Markup Text Editor');
-  const [publish_date, setPublishDate] = useState(true);
+  const today = format(new Date(), 'yyyy-MM-dd');
+  const [publish_date, setPublishDate] = useState(today);
 
   const submitArticle = (draft) => {
     const data = {
@@ -77,6 +79,13 @@ const editor = () => {
           >
             Draft
           </Button>
+          <TextField
+            id='date'
+            label='Publish Date'
+            type='date'
+            defaultValue={today}
+            onChange={(e) => setPublishDate(e.target.value)}
+          />
         </Container>
       </Grid>
       <Grid item xs={6}>
