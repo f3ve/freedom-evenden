@@ -1,9 +1,22 @@
-import { Fade, Typography } from '@material-ui/core';
+import { Container, Fade, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import CodeBlock from '../../components/editor/CodeBlock';
+import Heading from '../../components/editor/Heading';
+import markdownLink from '../../components/editor/markdownLink';
+import Paragraph from '../../components/editor/Paragraph';
 import { apiGet } from '../../services/ArticleApiService';
 
+const useStyles = makeStyles(() => ({
+  mdWidth: {
+    maxWidth: 800,
+  },
+}));
+
 const ArticlePage = () => {
+  const styles = useStyles();
   const router = useRouter();
   const [article, setArticle] = useState(null);
   const [error, setError] = useState(null);
@@ -26,7 +39,27 @@ const ArticlePage = () => {
 
   return (
     <Fade in={!!article}>
-      <Typography>Article Page</Typography>
+      <Container
+        maxWidth='md'
+        classes={{
+          maxWidthMd: styles.mdWidth,
+        }}
+      >
+        {article && (
+          <>
+            <Heading text={article.title} level={2} />
+            <ReactMarkdown
+              source={article.content}
+              renderers={{
+                code: CodeBlock,
+                paragraph: Paragraph,
+                heading: Heading,
+                link: markdownLink,
+              }}
+            />
+          </>
+        )}
+      </Container>
     </Fade>
   );
 };
