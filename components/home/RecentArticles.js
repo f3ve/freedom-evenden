@@ -7,8 +7,9 @@ const RecentArticles = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(async () => {
-    const res = await apiGet('articles');
-    setArticles(res);
+    const res = await apiGet('articles/');
+    console.log(res);
+    setArticles(res.results);
   }, []);
 
   return (
