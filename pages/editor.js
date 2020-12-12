@@ -2,14 +2,7 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Button,
-  Container,
-  Grid,
-  Link,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Button, Container, Grid, TextField } from '@material-ui/core';
 import CodeBlock from '../components/editor/CodeBlock';
 import Paragraph from '../components/editor/Paragraph';
 import Heading from '../components/editor/Heading';
@@ -33,14 +26,19 @@ const editor = () => {
   const [title, setTitle] = useState('Markup Text Editor');
   const today = format(new Date(), 'yyyy-MM-dd');
   const [publish_date, setPublishDate] = useState(today);
+  const [summary, setSummary] = useState('');
 
   const submitArticle = (draft) => {
     const data = {
       title,
       content: value,
-      slug: title.toLowerCase().replace(/ /gi, '_'),
+      slug: title
+        .toLowerCase()
+        .replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '')
+        .replace(/ /gi, '_'),
       draft,
       publish_date,
+      summary,
     };
     console.log(data);
     postArticle('articles', data)
@@ -71,6 +69,20 @@ const editor = () => {
             onChange={(e) => {
               setValue(e.target.value);
             }}
+            className={styles.input}
+          />
+          <TextField
+            label='Summary'
+            color='secondary'
+            variant='filled'
+            multiline
+            defaultValue='Summurize your article. Keep in mind this is the first thing users will read.'
+            onChange={(e) => {
+              setSummary(e.target.value);
+            }}
+            maxlength={280}
+            error={summary.length >= 280}
+            helperText={`${summary.length}/280`}
             className={styles.input}
           />
           <Button
