@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     top: 0,
     zIndex: -1,
-    backgroundColor: colors.black,
+    backgroundColor: colors.secondary,
   },
 }));
 

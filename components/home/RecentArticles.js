@@ -14,7 +14,7 @@ const RecentArticles = () => {
 
   return (
     <Grid item xs={12} sm={7}>
-      <Typography variant='h4' component='h2' gutterBottom color='primary'>
+      <Typography variant='h4' component='h2' gutterBottom color='secondary'>
         Recent Articles
       </Typography>
       <ArticleList articles={articles} />

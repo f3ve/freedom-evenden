@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
   },
   appBar: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.background,
+    boxShadow: 'none',
   },
 }));
 
@@ -70,7 +71,12 @@ const TopBar = () => {
             )}
             {matches && (
               <>
-                <RouterLink href='/blog' text='Blog' className={styles.link} />
+                <RouterLink
+                  href='/blog'
+                  text='Blog'
+                  className={styles.link}
+                  variant=''
+                />
                 <RouterLink
                   text='Portfolio'
                   href='/portfolio'

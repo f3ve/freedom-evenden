@@ -10,12 +10,16 @@ import Paragraph from '../../components/editor/Paragraph';
 import { apiGet } from '../../services/ArticleApiService';
 import { colors } from '../../Theme';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   mdWidth: {
     maxWidth: 800,
-    backgroundColor: colors.black,
+  },
+  container: {
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    padding: theme.spacing(5),
     height: '100%',
-    color: 'white',
+    // color: 'white',
   },
 }));
 
@@ -45,6 +49,7 @@ const ArticlePage = () => {
     <Fade in={!!article}>
       <Container
         maxWidth='md'
+        className={styles.container}
         classes={{
           maxWidthMd: styles.mdWidth,
         }}
