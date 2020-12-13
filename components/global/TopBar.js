@@ -72,11 +72,6 @@ const TopBar = () => {
               <>
                 <RouterLink href='/blog' text='Blog' className={styles.link} />
                 <RouterLink
-                  href='/videos'
-                  text='Videos'
-                  className={styles.link}
-                />
-                <RouterLink
                   text='Portfolio'
                   href='/portfolio'
                   className={styles.link}

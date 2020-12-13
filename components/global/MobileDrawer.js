@@ -41,13 +41,6 @@ const MobileDrawer = ({ open, showDrawer }) => {
       />
       <Divider />
       <RouterLink
-        href='/videos'
-        text='Videos'
-        className={styles.link}
-        variant='h5'
-      />
-      <Divider />
-      <RouterLink
         text='Portfolio'
         href='/portfolio'
         className={styles.link}
