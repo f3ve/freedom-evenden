@@ -8,10 +8,14 @@ import Heading from '../../components/editor/Heading';
 import markdownLink from '../../components/editor/markdownLink';
 import Paragraph from '../../components/editor/Paragraph';
 import { apiGet } from '../../services/ArticleApiService';
+import { colors } from '../../Theme';
 
 const useStyles = makeStyles(() => ({
   mdWidth: {
     maxWidth: 800,
+    backgroundColor: colors.black,
+    height: '100%',
+    color: 'white',
   },
 }));
 

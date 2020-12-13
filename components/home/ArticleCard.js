@@ -6,6 +6,8 @@ import {
   CardContent,
   CardActionArea,
   Button,
+  Grow,
+  Slide,
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { useRouter } from 'next/router';
@@ -20,20 +22,22 @@ const ArticleCard = ({ article }, props) => {
   };
 
   return (
-    <Grid item key={article.id} {...props}>
-      <Card variant='outlined'>
-        <CardHeader title={article.title} />
-        <CardMedia image='https://picsum.photos/seed/picsum/200/300' />
-        <CardContent>
-          <ReactMarkdown source={article.summary} />
-        </CardContent>
-        <CardActionArea>
-          <Button onClick={handleClick} endIcon={<ArrowRightAltIcon />}>
-            Read More
-          </Button>
-        </CardActionArea>
-      </Card>
-    </Grid>
+    <Grow in>
+      <Grid item key={article.id} {...props}>
+        <Card variant='outlined'>
+          <CardHeader title={article.title} />
+          <CardMedia image='https://picsum.photos/seed/picsum/200/300' />
+          <CardContent>
+            <ReactMarkdown source={article.summary} />
+          </CardContent>
+          <CardActionArea>
+            <Button onClick={handleClick} endIcon={<ArrowRightAltIcon />}>
+              Read More
+            </Button>
+          </CardActionArea>
+        </Card>
+      </Grid>
+    </Grow>
   );
 };
 
