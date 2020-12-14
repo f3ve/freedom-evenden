@@ -13,14 +13,14 @@ import { colors } from '../../Theme';
 const useStyles = makeStyles((theme) => ({
   mdWidth: {
     maxWidth: 800,
-    borderWidth: 2,
-    borderStyle: 'solid',
   },
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.background,
     borderRadius: 10,
     padding: theme.spacing(5),
     height: '100%',
+    color: colors.white,
+    boxShadow: `0 0 200px 2px black`,
   },
 }));
 
