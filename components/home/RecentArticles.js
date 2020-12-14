@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Grid, Typography, Fade, Zoom } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import ArticleList from './ArticleList';
 import { apiGet } from '../../services/ArticleApiService';
 
@@ -14,9 +14,6 @@ const RecentArticles = () => {
 
   return (
     <Grid item xs={12} sm={7}>
-      <Typography variant='h4' component='h2' gutterBottom color='secondary'>
-        Recent Articles
-      </Typography>
       <ArticleList articles={articles} />
     </Grid>
   );

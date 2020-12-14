@@ -12,7 +12,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Fade in>
-        <Container maxWidth='md'>
+        <Container maxWidth='lg'>
           <Grid component='main' container justify='space-between' spacing={6}>
             <RecentArticles />
             <Grid item xs={12} sm={5}>

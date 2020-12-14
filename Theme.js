@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
   primary: '#ff6a3d',
-  secondary: '#9daaf2',
+  secondary: '#f4db7d',
   accent: '#ff6a3d',
   accent2: '#f4db7d',
   background: '#1a2238',
@@ -14,7 +14,7 @@ const colors = {
 
 const theme = createMuiTheme({
   palette: {
-    // type: 'dark',
+    type: 'dark',
     primary: {
       main: colors.primary,
     },
@@ -25,25 +25,12 @@ const theme = createMuiTheme({
       main: colors.black,
     },
     white: {
-      main: '#ffffff',
+      main: '#f8f8f8',
     },
   },
   overrides: {
     MuiCard: {
-      root: {
-        backgroundColor: 'transparent',
-        // color: colors.white,
-      },
-    },
-    // MuiTypography: {
-    //   root: {
-    //     color: colors.white,
-    //   },
-    // },
-    MuiButton: {
-      root: {
-        // color: colors.accent,
-      },
+      root: {},
     },
   },
 });

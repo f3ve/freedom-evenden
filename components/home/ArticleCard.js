@@ -1,19 +1,27 @@
 import {
   Grid,
-  Card,
-  CardHeader,
-  CardMedia,
-  CardContent,
-  CardActionArea,
   Button,
   Grow,
-  Slide,
+  Box,
+  Typography,
+  Divider,
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import { makeStyles } from '@material-ui/styles';
+import { format } from 'date-fns';
 import { useRouter } from 'next/router';
-import ReactMarkdown from 'react-markdown';
+import { colors } from '../../Theme';
+import Heading from '../editor/Heading';
+
+const useStyles = () =>
+  makeStyles(() => ({
+    body: {
+      color: colors.white,
+    },
+  }));
 
 const ArticleCard = ({ article }, props) => {
+  const styles = useStyles();
   const router = useRouter();
 
   const handleClick = (e) => {
@@ -21,21 +29,33 @@ const ArticleCard = ({ article }, props) => {
     router.push(`/articles/${article.slug}`);
   };
 
+  const date = format(new Date(article.publish_date), 'MMMM d, yyyy');
+
   return (
     <Grow in>
       <Grid item key={article.id} {...props}>
-        <Card variant='outlined'>
-          <CardHeader title={article.title} />
-          <CardMedia image='https://picsum.photos/seed/picsum/200/300' />
-          <CardContent>
-            <ReactMarkdown source={article.summary} />
-          </CardContent>
-          <CardActionArea>
-            <Button onClick={handleClick} endIcon={<ArrowRightAltIcon />}>
-              Read More
-            </Button>
-          </CardActionArea>
-        </Card>
+        <Box variant='outlined' className={styles.body}>
+          <Heading level={3} text={article.title} color='primary' />
+          <Typography variant='body2' color='textSecondary' gutterBottom>
+            {date} | Freeom Evenden
+          </Typography>
+          <Typography
+            variant='body1'
+            gutterBottom
+            className={styles.body}
+            color='textPrimary'
+          >
+            {article.summary}
+          </Typography>
+          <Button
+            onClick={handleClick}
+            endIcon={<ArrowRightAltIcon />}
+            color='secondary'
+          >
+            Read More
+          </Button>
+        </Box>
+        <Divider />
       </Grid>
     </Grow>
   );
