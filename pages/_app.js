@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <TopBar />
       <Component {...pageProps} />
-      <CustomBackground />
+      {/* <CustomBackground /> */}
     </ThemeProvider>
   );
 }

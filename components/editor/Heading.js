@@ -1,10 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+import { colors } from '../../Theme';
 
 const useStyles = makeStyles(() => ({
   Heading: {
-    fontFamily: 'Noto Sarif',
+    // fontFamily: 'Noto Sarif',
+    // color: colors.accent,
   },
 }));
 

@@ -12,7 +12,7 @@ const RouterLink = ({ href, text, className }, props) => {
     <Button
       href={href}
       color='secondary'
-      // variant='contained'
+      variant='contained'
       {...props}
       onClick={handleLinkClick}
       className={className}

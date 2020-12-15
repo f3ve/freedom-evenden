@@ -10,17 +10,9 @@ import Paragraph from '../../components/editor/Paragraph';
 import { apiGet } from '../../services/ArticleApiService';
 import { colors } from '../../Theme';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   mdWidth: {
     maxWidth: 800,
-  },
-  container: {
-    backgroundColor: colors.background,
-    borderRadius: 10,
-    padding: theme.spacing(5),
-    height: '100%',
-    color: colors.white,
-    boxShadow: `0 0 200px 2px black`,
   },
 }));
 

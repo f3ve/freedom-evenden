@@ -17,6 +17,12 @@ const useStyles = () =>
   makeStyles(() => ({
     body: {
       color: colors.white,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+    },
+    button: {
+      alignSelf: 'flex-end',
     },
   }));
 
@@ -35,7 +41,7 @@ const ArticleCard = ({ article }, props) => {
     <Grow in>
       <Grid item key={article.id} {...props}>
         <Box variant='outlined' className={styles.body}>
-          <Heading level={3} text={article.title} color='primary' />
+          <Heading level={3} text={article.title} />
           <Typography variant='body2' color='textSecondary' gutterBottom>
             {date} | Freeom Evenden
           </Typography>
@@ -49,13 +55,15 @@ const ArticleCard = ({ article }, props) => {
           </Typography>
           <Button
             onClick={handleClick}
+            variant='contained'
             endIcon={<ArrowRightAltIcon />}
             color='secondary'
+            className={styles.button}
           >
             Read More
           </Button>
+          <Divider />
         </Box>
-        <Divider />
       </Grid>
     </Grow>
   );

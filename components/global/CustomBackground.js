@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
     position: 'fixed',
     top: 0,
     zIndex: -1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.black,
   },
 }));
 
@@ -22,21 +22,35 @@ const CustomBackground = () => {
         params={{
           particles: {
             number: {
-              value: 100,
+              value: 30,
             },
             size: {
               value: 3,
             },
-            color: {
-              // value: colors.background,
+            move: {
+              speed: 1,
+              outMode: 'out',
             },
             lineLinked: {
-              // color: colors.background,
+              enable: false,
             },
+            polygon: {
+              nb_sides: 6,
+            },
+          },
+          interactivity: {
+            onHover: {
+              enabled: true,
+              mode: 'repluse',
+            },
+            onClick: {
+              enabled: true,
+              mode: 'repluse',
+            },
+            detectsOn: 'parent',
           },
         }}
         style={{
-          height: '10000px',
           position: 'absolute',
         }}
       />

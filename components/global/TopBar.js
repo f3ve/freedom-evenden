@@ -15,18 +15,18 @@ import Link from 'next/link';
 import RouterLink from './RouterLinks';
 import MobileDrawer from './MobileDrawer';
 import { colors } from '../../Theme';
+import CustomBackground from './CustomBackground';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginBottom: theme.spacing(15),
+    marginBottom: theme.spacing(5),
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     color: colors.white,
-    fontFamily: 'Noto Sarif',
   },
   titleLink: {
     flexGrow: 1,
@@ -36,9 +36,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
   },
   appBar: {
-    // backgroundColor: colors.background,
-    backgroundColor: 'transparent',
-    boxShadow: 'none',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backdropFilter: 'blur(3px)',
   },
 }));
 
@@ -54,7 +53,7 @@ const TopBar = ({ window }) => {
     <div className={styles.root}>
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
       <Slide appear={false} in={!trigger}>
-        <AppBar className={styles.appBar}>
+        <AppBar className={styles.appBar} position='static'>
           <Container maxWidth='lg'>
             <Toolbar>
               <Link href='/'>
@@ -92,6 +91,7 @@ const TopBar = ({ window }) => {
               )}
             </Toolbar>
           </Container>
+          <CustomBackground />
         </AppBar>
       </Slide>
     </div>

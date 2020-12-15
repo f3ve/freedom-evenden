@@ -8,13 +8,19 @@ import Paragraph from '../components/editor/Paragraph';
 import Heading from '../components/editor/Heading';
 import { postArticle } from '../services/ArticleApiService';
 import markdownLink from '../components/editor/markdownLink';
+import { colors } from '../Theme';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   input: {
     width: '100%',
   },
   grid: {
     padding: 50,
+    backgroundColor: colors.background,
+    borderRadius: 10,
+    height: '100%',
+    color: colors.white,
+    boxShadow: `0 0 50px 2px black`,
   },
 }));
 
@@ -47,7 +53,7 @@ const editor = () => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={8}>
       <Grid item xs={6}>
         <Container className={styles.grid}>
           <TextField

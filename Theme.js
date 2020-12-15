@@ -1,20 +1,18 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
-  primary: '#ff6a3d',
-  secondary: '#f4db7d',
-  accent: '#ff6a3d',
-  accent2: '#f4db7d',
-  background: '#1a2238',
+  secondary: '#8DB48E',
+  primary: '#4D724D',
+  accent: '#F4DB7D',
   black: '#000000',
   white: '#ffffff',
   overlay: 'rgba(0, 0, 0, 0.7)',
   darkGray: '#1f0530',
+  background: '#F5F5F5',
 };
 
 const theme = createMuiTheme({
   palette: {
-    type: 'dark',
     primary: {
       main: colors.primary,
     },
@@ -29,8 +27,32 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
-    MuiCard: {
-      root: {},
+    MuiTypography: {
+      body1: {
+        fontFamily: 'Roboto Condensed',
+        fontSize: 20,
+      },
+      body2: {
+        fontFamily: 'Roboto Condensed',
+      },
+      h1: {
+        fontFamily: 'Roboto Slab',
+      },
+      h2: {
+        fontFamily: 'Roboto Slab',
+      },
+      h3: {
+        fontFamily: 'Roboto Slab',
+      },
+      h4: {
+        fontFamily: 'Roboto Slab',
+      },
+      h5: {
+        fontFamily: 'Roboto Slab',
+      },
+      h6: {
+        fontFamily: 'Roboto Slab',
+      },
     },
   },
 });
