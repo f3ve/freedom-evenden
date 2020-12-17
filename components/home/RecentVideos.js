@@ -7,7 +7,10 @@ const RecentVideos = () => {
         Recent Videos
       </Typography>
       <Divider />
-      <Typography>I am also on YouTube! You can subscribe any time</Typography>
+      <Typography>
+        I am also on YouTube! You can subscribe any time. Similar to my blog
+        content I make tutorials and guides for developers of all levels
+      </Typography>
     </Grid>
   );
 };

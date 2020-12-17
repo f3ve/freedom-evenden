@@ -6,11 +6,11 @@ import { colors } from '../../Theme';
 const useStyles = makeStyles(() => ({
   Box: {
     width: '100%',
-    height: '100%',
+    height: '100vh',
     position: 'fixed',
     top: 0,
     zIndex: -1,
-    backgroundColor: colors.black,
+    backgroundColor: colors.background,
   },
 }));
 
@@ -22,36 +22,39 @@ const CustomBackground = () => {
         params={{
           particles: {
             number: {
-              value: 30,
+              value: 20,
+            },
+            color: {
+              value: '#ffffff',
             },
             size: {
-              value: 3,
+              value: 20,
             },
             move: {
               speed: 1,
-              outMode: 'out',
             },
             lineLinked: {
               enable: false,
             },
-            polygon: {
-              nb_sides: 6,
+            shape: {
+              type: 'images',
+              images: [
+                {
+                  src: '/images/javascript.png',
+                  width: 50,
+                  height: 50,
+                },
+                {
+                  src: '/images/python.png',
+                  width: 50,
+                  height: 50,
+                },
+                {
+                  src: '/images/react.png',
+                },
+              ],
             },
           },
-          interactivity: {
-            onHover: {
-              enabled: true,
-              mode: 'repluse',
-            },
-            onClick: {
-              enabled: true,
-              mode: 'repluse',
-            },
-            detectsOn: 'parent',
-          },
-        }}
-        style={{
-          position: 'absolute',
         }}
       />
     </Box>

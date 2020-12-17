@@ -1,18 +1,19 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
-  secondary: '#8DB48E',
-  primary: '#4D724D',
+  secondary: '#deb992',
+  primary: '#1ba098',
   accent: '#F4DB7D',
   black: '#000000',
   white: '#ffffff',
   overlay: 'rgba(0, 0, 0, 0.7)',
   darkGray: '#1f0530',
-  background: '#F5F5F5',
+  background: '#051622',
 };
 
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: {
       main: colors.primary,
     },

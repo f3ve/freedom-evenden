@@ -13,6 +13,7 @@ import { colors } from '../../Theme';
 const useStyles = makeStyles(() => ({
   mdWidth: {
     maxWidth: 800,
+    color: colors.white,
   },
 }));
 

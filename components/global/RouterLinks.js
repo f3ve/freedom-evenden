@@ -11,8 +11,8 @@ const RouterLink = ({ href, text, className }, props) => {
   return (
     <Button
       href={href}
-      color='secondary'
-      variant='contained'
+      color='primary'
+      // variant='contained'
       {...props}
       onClick={handleLinkClick}
       className={className}
