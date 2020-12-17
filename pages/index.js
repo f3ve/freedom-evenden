@@ -1,11 +1,17 @@
 import Head from 'next/head';
-import { Container, Fade, Grid } from '@material-ui/core';
-import NewsLetter from '../components/home/NewsLetter';
-import RecentVideos from '../components/home/RecentVideos';
-import RecentArticles from '../components/home/RecentArticles';
-import CustomBackground from '../components/global/CustomBackground';
+import { makeStyles } from '@material-ui/styles';
+import { Box, Container, Fade, Typography, Zoom } from '@material-ui/core';
+import RouterLink from '../components/global/RouterLinks';
+
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 250,
+    width: 250,
+  },
+}));
 
 export default function Home() {
+  const styles = useStyles();
   return (
     <>
       <Head>
@@ -14,14 +20,24 @@ export default function Home() {
       </Head>
       <Fade in>
         <Container maxWidth='md'>
-          <Grid component='main' container justify='space-between' spacing={6}>
-            <RecentArticles />
-            <Grid item xs={12} sm={5}>
-              <Grid container spacing={2} justify='center'>
-                <NewsLetter />
-              </Grid>
-            </Grid>
-          </Grid>
+          <Box
+            display='flex'
+            flexDirection='column'
+            paddingTop={10}
+            alignItems='center'
+            height='100%'
+            width='100%'
+          >
+            <Typography variant='h2' color='Secondary' gutterBottom>
+              Freedom Evenden
+            </Typography>
+            <Typography variant='body1' color='textPrimary'>
+              I write code and I love cats
+            </Typography>
+            <RouterLink href='/blog' text='Blog' />
+            <RouterLink href='/portfolio' text='Portfolio' />
+            <RouterLink href='/about' text='About Me' />
+          </Box>
         </Container>
       </Fade>
     </>

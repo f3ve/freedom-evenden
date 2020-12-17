@@ -5,13 +5,16 @@ import {
   IconButton,
   useMediaQuery,
   Container,
+  Box,
+  Slide,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import RouterLink from './RouterLinks';
 import MobileDrawer from './MobileDrawer';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,60 +38,72 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TopBar = () => {
+const TopBar = (props) => {
   const styles = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
   const [drawer, showDrawer] = useState(false);
+  const [topbar, showTopbar] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.pathname !== '/') {
+      showTopbar(true);
+    } else {
+      showTopbar(false);
+    }
+  });
 
   return (
-    <div className={styles.root}>
+    <Box className={styles.root}>
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
-      <AppBar className={styles.appBar} position='relative'>
-        <Container maxWidth='lg'>
-          <Toolbar>
-            <Link href='/'>
-              <a className={styles.titleLink}>
-                <Typography
-                  variant='h4'
-                  className={styles.title}
-                  noWrap
+      <Slide in={topbar}>
+        <AppBar className={styles.appBar} position='relative'>
+          <Container maxWidth='lg'>
+            <Toolbar>
+              <Link href='/'>
+                <a className={styles.titleLink}>
+                  <Typography
+                    variant='h4'
+                    className={styles.title}
+                    noWrap
+                    color='primary'
+                  >
+                    Freedom Evenden
+                  </Typography>
+                </a>
+              </Link>
+              {!matches && (
+                <IconButton
                   color='primary'
+                  edge='start'
+                  variant='contained'
+                  className={styles.menuButton}
+                  onClick={() => showDrawer((cur) => !cur)}
                 >
-                  Freedom Evenden
-                </Typography>
-              </a>
-            </Link>
-            {!matches && (
-              <IconButton
-                color='primary'
-                edge='start'
-                variant='contained'
-                className={styles.menuButton}
-                onClick={() => showDrawer((cur) => !cur)}
-              >
-                <MenuIcon color='inherit' />
-              </IconButton>
-            )}
-            {matches && (
-              <>
-                <RouterLink
-                  href='/blog'
-                  text='Blog'
-                  className={styles.link}
-                  variant=''
-                />
-                <RouterLink
-                  text='Portfolio'
-                  href='/portfolio'
-                  className={styles.link}
-                />
-              </>
-            )}
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </div>
+                  <MenuIcon color='inherit' />
+                </IconButton>
+              )}
+              {matches && (
+                <>
+                  <RouterLink
+                    href='/blog'
+                    text='Blog'
+                    className={styles.link}
+                    variant=''
+                  />
+                  <RouterLink
+                    text='Portfolio'
+                    href='/portfolio'
+                    className={styles.link}
+                  />
+                </>
+              )}
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </Slide>
+    </Box>
   );
 };
 
