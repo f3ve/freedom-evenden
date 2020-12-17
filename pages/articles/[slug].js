@@ -15,6 +15,12 @@ const useStyles = makeStyles(() => ({
     maxWidth: 800,
     color: colors.white,
   },
+
+  container: {
+    backgroundColor: colors.background,
+    boxShadow: `0 0 100px 100px ${colors.background}`,
+    borderRadius: 20,
+  },
 }));
 
 const ArticlePage = () => {

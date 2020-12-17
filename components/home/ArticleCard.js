@@ -41,8 +41,8 @@ const ArticleCard = ({ article }, props) => {
     <Grow in>
       <Grid item key={article.id} {...props}>
         <Box variant='outlined' className={styles.body}>
-          <Heading level={3} text={article.title} color='Secondary' />
-          <Typography variant='body2' color='primary' gutterBottom>
+          <Heading level={3} text={article.title} color='secondary' />
+          <Typography variant='body2' color='textSecondary' gutterBottom>
             {date} | Freeom Evenden
           </Typography>
           <Typography
@@ -55,7 +55,6 @@ const ArticleCard = ({ article }, props) => {
           </Typography>
           <Button
             onClick={handleClick}
-            variant='contained'
             endIcon={<ArrowRightAltIcon />}
             color='primary'
             className={styles.button}
