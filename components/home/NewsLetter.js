@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NewsLetter = () => {
+export default function NewsLetter() {
   const styles = useStyles();
   return (
     <Grid item className={styles.grid}>
@@ -32,6 +32,4 @@ const NewsLetter = () => {
       </Typography>
     </Grid>
   );
-};
-
-export default NewsLetter;
+}

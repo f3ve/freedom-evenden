@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MobileDrawer = ({ open, showDrawer }) => {
+export default function MobileDrawer({ open, showDrawer }) {
   const styles = useStyles();
   return (
     <Drawer
@@ -48,6 +48,4 @@ const MobileDrawer = ({ open, showDrawer }) => {
       />
     </Drawer>
   );
-};
-
-export default MobileDrawer;
+}

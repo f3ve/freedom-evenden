@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TopBar = () => {
+export default function TopBar() {
   const styles = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
@@ -110,6 +110,4 @@ const TopBar = () => {
       </Slide>
     </Box>
   );
-};
-
-export default TopBar;
+}

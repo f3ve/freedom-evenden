@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Paragraph = (props) => {
+export default function Paragraph(props) {
   const styles = useStyles();
   return (
     <Typography
@@ -53,6 +53,4 @@ const Paragraph = (props) => {
       })}
     </Typography>
   );
-};
-
-export default Paragraph;
+}

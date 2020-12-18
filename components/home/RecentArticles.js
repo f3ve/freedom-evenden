@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import ArticleList from './ArticleList';
 import { apiGet } from '../../services/ArticleApiService';
 
-const RecentArticles = () => {
+export default function RecentArticles() {
   const [articles, setArticles] = useState([]);
 
   useEffect(async () => {
@@ -17,6 +17,4 @@ const RecentArticles = () => {
       <ArticleList articles={articles} />
     </Grid>
   );
-};
-
-export default RecentArticles;
+}

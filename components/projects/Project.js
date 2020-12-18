@@ -30,8 +30,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Project = ({ p }) => {
+export default function Project({ p }) {
   const styles = useStyles();
+
   return (
     <Box className={styles.container}>
       <Card compont='li' className={styles.card}>
@@ -55,6 +56,4 @@ const Project = ({ p }) => {
       <Divider />
     </Box>
   );
-};
-
-export default Project;
+}

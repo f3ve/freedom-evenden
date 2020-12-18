@@ -28,7 +28,7 @@ const useStyles = () =>
     },
   }));
 
-const ArticleCard = ({ article }, props) => {
+export default function ArticleCard({ article }, props) {
   const styles = useStyles();
   const router = useRouter();
 
@@ -68,6 +68,4 @@ const ArticleCard = ({ article }, props) => {
       </Grid>
     </Grow>
   );
-};
-
-export default ArticleCard;
+}

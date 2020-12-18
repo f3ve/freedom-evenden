@@ -1,7 +1,6 @@
-import { Box, useMediaQuery, useTheme } from '@material-ui/core';
+import { useMediaQuery, useTheme } from '@material-ui/core';
 import Particles from 'react-particles-js';
 import { makeStyles } from '@material-ui/styles';
-import { colors } from '../../Theme';
 
 const useStyles = makeStyles(() => ({
   box: {
@@ -13,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CustomBackground = () => {
+export default function CustomBackground() {
   const styles = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
@@ -60,6 +59,4 @@ const CustomBackground = () => {
       }}
     />
   );
-};
-
-export default CustomBackground;
+}
