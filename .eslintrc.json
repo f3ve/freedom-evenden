@@ -11,7 +11,7 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "import", "react-hooks", "jsx-a11y"],
   "rules": {
     "prettier/prettier": [
       "error",
