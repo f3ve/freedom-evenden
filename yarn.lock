@@ -89,7 +89,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.0, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.7.5":
   version: 7.12.10
   resolution: "@babel/core@npm:7.12.10"
   dependencies:
@@ -748,7 +748,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/core@npm:^4.11.0":
+"@material-ui/core@npm:^4.11.2":
   version: 4.11.2
   resolution: "@material-ui/core@npm:4.11.2"
   dependencies:
@@ -775,7 +775,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/icons@npm:^4.9.1":
+"@material-ui/icons@npm:^4.11.2":
   version: 4.11.2
   resolution: "@material-ui/icons@npm:4.11.2"
   dependencies:
@@ -792,7 +792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/styles@npm:^4.10.0, @material-ui/styles@npm:^4.11.2":
+"@material-ui/styles@npm:^4.11.2":
   version: 4.11.2
   resolution: "@material-ui/styles@npm:4.11.2"
   dependencies:
@@ -932,7 +932,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^7.26.6, @testing-library/dom@npm:^7.28.1":
+"@testing-library/dom@npm:^7.28.1, @testing-library/dom@npm:^7.29.0":
   version: 7.29.0
   resolution: "@testing-library/dom@npm:7.29.0"
   dependencies:
@@ -964,7 +964,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^11.1.2":
+"@testing-library/react@npm:^11.2.2":
   version: 11.2.2
   resolution: "@testing-library/react@npm:11.2.2"
   dependencies:
@@ -1043,13 +1043,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/is-hotkey@npm:^0.1.1":
-  version: 0.1.2
-  resolution: "@types/is-hotkey@npm:0.1.2"
-  checksum: 74019efa56fe0b6913fcffc628613d78efc9e74211bb7575e6d2cdbc837ced252f9204b868036208fff4d62f648d103c77a50b12e5cd0cc9fde196fdaf1d1d08
-  languageName: node
-  linkType: hard
-
 "@types/istanbul-lib-coverage@npm:*, @types/istanbul-lib-coverage@npm:^2.0.0, @types/istanbul-lib-coverage@npm:^2.0.1":
   version: 2.0.3
   resolution: "@types/istanbul-lib-coverage@npm:2.0.3"
@@ -1096,13 +1089,6 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: 66e9ac0143ec521522c7bb670301e9836ee886207eeed1aab6d4854a1b19b404ab3a54cd8d449f9b1f13acc357f540be96f8ac2d1e86e301eab52ae0f9a4066f
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:^4.14.149":
-  version: 4.14.165
-  resolution: "@types/lodash@npm:4.14.165"
-  checksum: 525bfc34b0b591cc957125a961c70e63e5ad8b23cbd89b7594a5ea74823285b6d96993a7eec506e26b379ee52dc9dcd3a894ff210be4c97bccb536e62361dbc8
   languageName: node
   linkType: hard
 
@@ -2724,13 +2710,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compute-scroll-into-view@npm:^1.0.16":
-  version: 1.0.16
-  resolution: "compute-scroll-into-view@npm:1.0.16"
-  checksum: 5ba65c11c79a0accfced384842f40fc4e6d91d1308c0e49a5f9fa6a17160aef1cf4ea1cc854ecedd813ef8742b3b4d4e7dd8a14880aa39efc3359fb674bac8ba
-  languageName: node
-  linkType: hard
-
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -3323,15 +3302,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"direction@npm:^1.0.3":
-  version: 1.0.4
-  resolution: "direction@npm:1.0.4"
-  bin:
-    direction: cli.js
-  checksum: 7b19e04d9d8ab191328cdda1a9abb8c63ce346650e133d50ef7819160af0ab1d8522b0ec0caf52afca398c277f7862e64710228082139d348b15566918c2e39c
-  languageName: node
-  linkType: hard
-
 "doctrine@npm:1.5.0":
   version: 1.5.0
   resolution: "doctrine@npm:1.5.0"
@@ -3809,16 +3779,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^6.15.0":
-  version: 6.15.0
-  resolution: "eslint-config-prettier@npm:6.15.0"
-  dependencies:
-    get-stdin: ^6.0.0
+"eslint-config-prettier@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "eslint-config-prettier@npm:7.0.0"
   peerDependencies:
-    eslint: ">=3.14.1"
+    eslint: ">=7.0.0"
   bin:
-    eslint-config-prettier-check: bin/cli.js
-  checksum: a790bc61699e43a2edc5453488576cd977fad3b3cf99c129c10760ce6970d422923fddf80b65b2b10a93c00af0180a854e4b7824cc268e5957826cbe5b969e90
+    eslint-config-prettier: bin/cli.js
+  checksum: b7c543080e32829dba5f3db970c5f3c3b47f1de8df89b4226105afbecae561e026b6fe9f2cb16bf08ab1a6f1f544d9303c9c8c0919cbb51a9d2c8a640779624a
   languageName: node
   linkType: hard
 
@@ -3925,7 +3893,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^3.1.4":
+"eslint-plugin-prettier@npm:^3.3.0":
   version: 3.3.0
   resolution: "eslint-plugin-prettier@npm:3.3.0"
   dependencies:
@@ -4076,7 +4044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.13.0":
+"eslint@npm:^7.15.0":
   version: 7.15.0
   resolution: "eslint@npm:7.15.0"
   dependencies:
@@ -4587,7 +4555,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fontsource-roboto@npm:^3.0.3":
+"fontsource-roboto@npm:^3.1.5":
   version: 3.1.5
   resolution: "fontsource-roboto@npm:3.1.5"
   checksum: b27da86d862d3105662954a41a1b34961a4e352a8a826980e616e76a03ffd1a0f5471dab6b997642e1203c7eb19b9887f3b063b0bb8a2dd74775249bfe7c5055
@@ -4795,13 +4763,6 @@ fsevents@~2.1.2:
   version: 0.1.0
   resolution: "get-package-type@npm:0.1.0"
   checksum: a5b8beaf68d8bcdb507e23b3d2b6458e54b9061e84e2a8a94b846c8e1d794beb47fdcbda895da16ae59225bb3ea1608c0719e4f986e8a987ec2f228eaf00d78b
-  languageName: node
-  linkType: hard
-
-"get-stdin@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "get-stdin@npm:6.0.0"
-  checksum: b51d664838aef7f8353dc57371ce59cea54d8d584fec015a9d89d24561e95b97806d5b5ba120bc81574c9ed63cb3e210176ffa0ff9263c7e7ba4d56d0fe54913
   languageName: node
   linkType: hard
 
@@ -5642,13 +5603,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"is-hotkey@npm:^0.1.6":
-  version: 0.1.8
-  resolution: "is-hotkey@npm:0.1.8"
-  checksum: 711e7e4e7d59738dda34951a3d63c03519de5d1b36b4e45aa264b94ac539c4f57531e1896d655e5c6739f8393bdecacaa73e02ad6711a1b13db407b22e10494d
-  languageName: node
-  linkType: hard
-
 "is-in-browser@npm:^1.0.2, is-in-browser@npm:^1.1.3":
   version: 1.1.3
   resolution: "is-in-browser@npm:1.1.3"
@@ -5692,13 +5646,6 @@ fsevents@~2.1.2:
   dependencies:
     isobject: ^3.0.1
   checksum: 2f3232267366f3cdf13d53deda1b282ba7959f28ccb2ee8e0ca168f859f0d7126c27c846ebb7c2b9821a09bbda2e1835fd4020337ba666cf3c03dc256aab7ba1
-  languageName: node
-  linkType: hard
-
-"is-plain-object@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "is-plain-object@npm:3.0.1"
-  checksum: 53b6f5b558a494f20304aad4d484739c96826c4a7c89ef9c6479009df89e725d5a355f592ccba2cd9e94c36fda35d2d229d597f5ccd0c9deb8c8ccd0077ec617
   languageName: node
   linkType: hard
 
@@ -6771,7 +6718,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.11, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.4":
+"lodash@npm:^4.17.11, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19":
   version: 4.17.20
   resolution: "lodash@npm:4.17.20"
   checksum: c62101d2500c383b5f174a7e9e6fe8098149ddd6e9ccfa85f36d4789446195f5c4afd3cfba433026bcaf3da271256566b04a2bf2618e5a39f6e67f8c12030cb6
@@ -8349,7 +8296,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.1.2":
+"prettier@npm:^2.2.1":
   version: 2.2.1
   resolution: "prettier@npm:2.2.1"
   bin:
@@ -8593,7 +8540,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-dom@npm:17.0.1":
+"react-dom@npm:^17.0.1":
   version: 17.0.1
   resolution: "react-dom@npm:17.0.1"
   dependencies:
@@ -8660,7 +8607,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-syntax-highlighter@npm:^15.3.1":
+"react-syntax-highlighter@npm:^15.4.3":
   version: 15.4.3
   resolution: "react-syntax-highlighter@npm:15.4.3"
   dependencies:
@@ -8690,7 +8637,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react@npm:17.0.1":
+"react@npm:^17.0.1":
   version: 17.0.1
   resolution: "react@npm:17.0.1"
   dependencies:
@@ -9223,7 +9170,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.29.0":
+"sass@npm:^1.30.0":
   version: 1.30.0
   resolution: "sass@npm:1.30.0"
   dependencies:
@@ -9283,15 +9230,6 @@ fsevents@~2.1.2:
     ajv: ^6.12.5
     ajv-keywords: ^3.5.2
   checksum: a084f593f222560c412a4d8f40c92386c01c1c709f27c0672c2f02927a4d4d475f57f8b8e91198d0defb452add160476a03f07a05b26200a64b5124fa874e158
-  languageName: node
-  linkType: hard
-
-"scroll-into-view-if-needed@npm:^2.2.20":
-  version: 2.2.26
-  resolution: "scroll-into-view-if-needed@npm:2.2.26"
-  dependencies:
-    compute-scroll-into-view: ^1.0.16
-  checksum: 652f1924f5c60eebb019f6144d5cc884fda36413ff71a49ec5bed22455451bfe563e73a28dc76617f9778f6ae19c3c5bbf17378d0ab5bfce95d41ec9eb6dc623
   languageName: node
   linkType: hard
 
@@ -9515,37 +9453,37 @@ fsevents@~2.1.2:
   version: 0.0.0-use.local
   resolution: "site@workspace:."
   dependencies:
-    "@material-ui/core": ^4.11.0
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@testing-library/dom": ^7.26.6
+    "@babel/core": ^7.12.10
+    "@material-ui/core": ^4.11.2
+    "@material-ui/icons": ^4.11.2
+    "@material-ui/styles": ^4.11.2
+    "@testing-library/dom": ^7.29.0
     "@testing-library/jest-dom": ^5.11.6
-    "@testing-library/react": ^11.1.2
+    "@testing-library/react": ^11.2.2
     babel-jest: ^26.6.3
     date-fns: ^2.16.1
-    eslint: ^7.13.0
+    eslint: ^7.15.0
     eslint-config-airbnb: ^18.2.1
     eslint-config-node: ^4.1.0
-    eslint-config-prettier: ^6.15.0
+    eslint-config-prettier: ^7.0.0
     eslint-plugin-import: ^2.22.1
     eslint-plugin-jsx-a11y: ^6.4.1
     eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^3.1.4
+    eslint-plugin-prettier: ^3.3.0
     eslint-plugin-react: ^7.21.5
     eslint-plugin-react-hooks: ^4.2.0
-    fontsource-roboto: ^3.0.3
+    fontsource-roboto: ^3.1.5
     jest: ^26.6.3
     next: ^10.0.3
-    prettier: ^2.1.2
-    react: 17.0.1
-    react-dom: 17.0.1
+    prettier: ^2.2.1
+    react: ^17.0.1
+    react-dom: ^17.0.1
     react-markdown: ^5.0.3
     react-particles-js: ^3.4.1
-    react-syntax-highlighter: ^15.3.1
+    react-syntax-highlighter: ^15.4.3
     remark-gfm: ^1.0.0
     s: ^1.0.0
-    sass: ^1.29.0
-    slate-react: ^0.59.0
+    sass: ^1.30.0
     styled-jsx: ^3.3.2
   languageName: unknown
   linkType: soft
@@ -9554,25 +9492,6 @@ fsevents@~2.1.2:
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
   checksum: fc3e8597d822ee3ba6cd76e9b001cd5be315f9b81c3a03a29bb611c003d1484e3b29a9e7bc020298fa669b585ff7c9268f44513f60c186216eb6af3111a3e838
-  languageName: node
-  linkType: hard
-
-"slate-react@npm:^0.59.0":
-  version: 0.59.0
-  resolution: "slate-react@npm:0.59.0"
-  dependencies:
-    "@types/is-hotkey": ^0.1.1
-    "@types/lodash": ^4.14.149
-    direction: ^1.0.3
-    is-hotkey: ^0.1.6
-    is-plain-object: ^3.0.0
-    lodash: ^4.17.4
-    scroll-into-view-if-needed: ^2.2.20
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-    slate: ">=0.55.0"
-  checksum: 4ab995a5a3d0630997e8f569a00f3d1b839939950709f45efc28fd1d3e6d84fdbf0571ec8cc3404696a1a881a0ab8b0a897c434e9a3f2a7de6609abd5e45e9d0
   languageName: node
   linkType: hard
 
