@@ -10,19 +10,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const blog = () => {
+export default function blog({ data }) {
   const styles = useStyles();
-  const [data, setData] = useState(null);
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    apiGet('articles/?page_size=20')
-      .then((res) => setData(res))
-      .catch((err) => {
-        console.log('An error occured:', err);
-        setError(true);
-      });
-  }, []);
 
   return (
     <Fade in>
@@ -46,6 +36,11 @@ const blog = () => {
       </Container>
     </Fade>
   );
-};
+}
 
-export default blog;
+export async function getStaticProps(context) {
+  const data = await apiGet('articles/?page_size=20');
+  return {
+    props: { data },
+  };
+}
