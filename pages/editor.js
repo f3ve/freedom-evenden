@@ -10,17 +10,15 @@ import { postArticle } from '../services/ArticleApiService';
 import markdownLink from '../components/editor/markdownLink';
 import { colors } from '../Theme';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   input: {
     width: '100%',
   },
   grid: {
-    padding: 50,
     backgroundColor: colors.background,
-    borderRadius: 10,
     height: '100%',
     color: colors.white,
-    boxShadow: `0 0 50px 2px black`,
+    boxShadow: `0 0 100px 100px ${colors.background}`,
   },
 }));
 

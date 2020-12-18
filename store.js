@@ -2,11 +2,10 @@ export const projects = [
   {
     title: 'Blogium',
     img: '/images/blogium.png',
-    description: `Blogium is a blogging platform inspired by Medium. It features a
-    fully functional WYSIWYG text editor that I built from scratch. I
-    gave it a sleek and minimalist design to focus users attention on
-    reading and writing blog posts. It's a Full-Stack web app built
-    using Javascript, CSS, React, Node, Express, and PostgreSQL.`,
+    description: `Blogium is where I learned a lot of skills I applied to build 
+    this my current blog. It was inspired by Medium and features a fully 
+    functional text editor that I built from scratch. It was built with 
+    JavaScript, React, CSS, Node, Express, and PostgreSQL.`,
     clientRepo: 'https://github.com/f3ve/Blogium',
     apiRepo: 'https://github.com/f3ve/Blogium-api',
     live: 'https://blogium.now.sh/',

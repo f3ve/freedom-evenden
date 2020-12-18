@@ -9,12 +9,12 @@ import {
   Slide,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useRouter } from 'next/router';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import RouterLink from './RouterLinks';
 import MobileDrawer from './MobileDrawer';
-import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TopBar = (props) => {
+const TopBar = () => {
   const styles = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
@@ -95,6 +95,11 @@ const TopBar = (props) => {
                   <RouterLink
                     text='Portfolio'
                     href='/portfolio'
+                    className={styles.link}
+                  />
+                  <RouterLink
+                    href='/about'
+                    text='About'
                     className={styles.link}
                   />
                 </>
