@@ -1,6 +1,4 @@
-import { Collapse, Slide, ThemeProvider } from '@material-ui/core';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { ThemeProvider } from '@material-ui/core';
 import { theme } from '../Theme';
 import '../styles/globals.scss';
 import 'fontsource-roboto';
