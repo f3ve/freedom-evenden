@@ -8,9 +8,9 @@ import CustomBackground from '../components/global/CustomBackground';
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
+      <CustomBackground />
       <TopBar />
       <Component {...pageProps} />
-      <CustomBackground />
     </ThemeProvider>
   );
 }

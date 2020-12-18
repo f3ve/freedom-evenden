@@ -3,11 +3,14 @@ import { Avatar, Container, Fade, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    paddingBottom: theme.spacing(20),
+    postition: 'relative',
+    zIndex: 1,
   },
   img: {
     width: 200,
@@ -36,10 +39,10 @@ const about = () => {
             src='/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg'
             className={styles.img}
           />
-          <Typography color='secondary' variant='h2' gutterBottom>
+          <Typography color='secondary' variant='h2' gutterBottom zIndex={1}>
             About Me
           </Typography>
-          <Typography color='textPrimary'>
+          <Typography color='textPrimary' zIndex={1}>
             I am a Full-Stack Web Developer secializing in React and Python. I
             first learned how to code as an apprentice in Thinkful's Full-Stack
             Engineer course and after that landed a job as a Lead Engineer on

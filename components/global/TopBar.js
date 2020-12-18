@@ -64,10 +64,10 @@ const TopBar = () => {
               <Link href='/'>
                 <a className={styles.titleLink}>
                   <Typography
-                    variant='h4'
+                    variant={matches ? 'h4' : 'h5'}
                     className={styles.title}
-                    noWrap
                     color='primary'
+                    component='h1'
                   >
                     Freedom Evenden
                   </Typography>

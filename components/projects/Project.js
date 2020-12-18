@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     marginBottom: 50,
+    position: 'relative',
+    zIndex: 1,
   },
 }));
 

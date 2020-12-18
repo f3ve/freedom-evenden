@@ -1,63 +1,64 @@
-import { Box } from '@material-ui/core';
+import { Box, useMediaQuery, useTheme } from '@material-ui/core';
 import Particles from 'react-particles-js';
 import { makeStyles } from '@material-ui/styles';
 import { colors } from '../../Theme';
 
 const useStyles = makeStyles(() => ({
-  Box: {
-    width: '100%',
-    height: '100vh',
+  box: {
     position: 'fixed',
-    top: 0,
-    zIndex: -1,
-    backgroundColor: colors.background,
+    zIndex: 0,
+    backgroundColor: 'transparent',
+    width: '100%',
+    height: '100%',
   },
 }));
 
 const CustomBackground = () => {
   const styles = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
-    <Box className={styles.Box}>
-      <Particles
-        params={{
-          particles: {
-            number: {
-              value: 20,
-            },
-            color: {
-              value: '#ffffff',
-            },
-            size: {
-              value: 20,
-            },
-            move: {
-              speed: 1,
-            },
-            lineLinked: {
-              enable: false,
-            },
-            shape: {
-              type: 'images',
-              images: [
-                {
-                  src: '/images/javascript.png',
-                  width: 50,
-                  height: 50,
-                },
-                {
-                  src: '/images/python.png',
-                  width: 50,
-                  height: 50,
-                },
-                {
-                  src: '/images/react.png',
-                },
-              ],
-            },
+    <Particles
+      className={styles.box}
+      params={{
+        particles: {
+          number: {
+            value: matches ? 20 : 10,
           },
-        }}
-      />
-    </Box>
+          color: {
+            value: '#ffffff',
+          },
+          size: {
+            value: 20,
+          },
+          move: {
+            speed: 1,
+          },
+          lineLinked: {
+            enable: false,
+          },
+          shape: {
+            type: 'images',
+            images: [
+              {
+                src: '/images/javascript.png',
+                width: 50,
+                height: 50,
+              },
+              {
+                src: '/images/python.png',
+                width: 50,
+                height: 50,
+              },
+              {
+                src: '/images/react.png',
+              },
+            ],
+          },
+        },
+      }}
+    />
   );
 };
 

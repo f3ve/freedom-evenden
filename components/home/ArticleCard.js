@@ -16,10 +16,12 @@ import Heading from '../editor/Heading';
 const useStyles = () =>
   makeStyles(() => ({
     body: {
-      color: colors.white,
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'flex-end',
+      position: 'relative',
+      zIndex: 1,
+      backgroundColor: colors.background,
     },
     button: {
       alignSelf: 'flex-end',
@@ -39,8 +41,8 @@ const ArticleCard = ({ article }, props) => {
 
   return (
     <Grow in>
-      <Grid item key={article.id} {...props}>
-        <Box variant='outlined' className={styles.body}>
+      <Grid item key={article.id} {...props} className={styles.body}>
+        <Box className={styles.body} zIndex={1} position='relative'>
           <Heading level={3} text={article.title} color='secondary' />
           <Typography variant='body2' color='textSecondary' gutterBottom>
             {date} | Freeom Evenden

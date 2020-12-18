@@ -30,7 +30,12 @@ export default function Home() {
             height='100%'
             width='100%'
           >
-            <Typography variant='h2' color='Secondary' gutterBottom>
+            <Typography
+              variant='h2'
+              color='Secondary'
+              gutterBottom
+              align='center'
+            >
               Freedom Evenden
             </Typography>
             <Typography variant='body1' color='textPrimary'>
