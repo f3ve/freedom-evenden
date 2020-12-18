@@ -18,7 +18,6 @@ const Paragraph = (props) => {
       className={styles.paragraph}
     >
       {props.node.children.map((child) => {
-        console.log(child);
         if (child.type === 'link') {
           return (
             <Link href={child.url} color='secondary'>
