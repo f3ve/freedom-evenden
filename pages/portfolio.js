@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { projects } from '../store';
 import Project from '../components/projects/Project';
 
-const portfolio = () => {
+export default function portfolio() {
   return (
     <>
       <Head>
@@ -21,13 +21,11 @@ const portfolio = () => {
       </Head>
       <Fade in>
         <Container maxWidth='md' component='ul'>
-          {projects.map((p) => {
-            return <Project p={p} key={p.title} />;
-          })}
+          {projects.map((p) => (
+            <Project p={p} key={p.title} />
+          ))}
         </Container>
       </Fade>
     </>
   );
-};
-
-export default portfolio;
+}

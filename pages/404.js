@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const NotFound = () => {
+export default function NotFound() {
   const styles = useStyles();
 
   return (
@@ -42,6 +42,4 @@ const NotFound = () => {
       </Container>
     </Fade>
   );
-};
-
-export default NotFound;
+}

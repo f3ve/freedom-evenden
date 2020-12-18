@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Avatar, Container, Fade, Typography } from '@material-ui/core';
+import { Container, Fade, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+import Image from 'next/image';
 import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
   },
   img: {
-    width: 200,
-    height: 200,
+    borderRadius: 100,
+    objectFit: 'cover',
   },
 }));
 
@@ -35,9 +36,15 @@ const about = () => {
       </Head>
       <Fade in>
         <Container maxWidth='sm' className={styles.container}>
-          <Avatar
+          <Image
             src='/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg'
+            alt='a picture of Freeedom Evenden'
+            width={200}
+            height={200}
+            // quality={50}
+            priority
             className={styles.img}
+            // loading='eager'
           />
           <Typography color='secondary' variant='h2' gutterBottom zIndex={1}>
             About Me
@@ -54,10 +61,13 @@ const about = () => {
           <Typography color='textPrimary'>
             Also this is my cat, Oliver!
           </Typography>
-          <Avatar
+          <Image
             src='/images/IMG_1248.jpg'
+            alt="A picture of Freedom's cat"
+            width={200}
+            height={200}
+            priority
             className={styles.img}
-            variant='rounded'
           />
         </Container>
       </Fade>
