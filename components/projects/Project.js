@@ -38,7 +38,9 @@ export default function Project({ p }) {
     <Zoom in>
       <Box className={styles.container}>
         <Card compont="li" className={styles.card}>
-          <CardMedia image={p.img} className={styles.media} />
+          <Zoom in style={{ transitionDelay: '500ms' }}>
+            <CardMedia image={p.img} className={styles.media} />
+          </Zoom>
           <Divider />
           <CardHeader title={p.title} />
           <CardContent className={styles.content}>
