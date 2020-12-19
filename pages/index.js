@@ -18,6 +18,10 @@ export default function Home() {
           content="freedom evenden, freedom, evenden, react, javascript, python, django, rest, react native, how to, react-native, web development, web, development, web developer, developer, software engineer, engineer, software, code, coding, coder, how to code, react.js, js, java script, java, script, portfolio, freedoms portfolio, freedom portfolio, blog, freedoms blog, freedom blog, web developer blog, web development blog, coding blog, code blog"
           key="app"
         />
+        <meta
+          name="google-site-verification"
+          content="Lp9a1YPrBv963HrvdTAhuI1-nyyOZq1nNVRqA8lC1ao"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Zoom in>
