@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, Container, Fade, Typography } from '@material-ui/core';
+import { Box, Container, Typography, Zoom } from '@material-ui/core';
 import RouterLink from '../components/global/RouterLinks';
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Fade in>
+      <Zoom in>
         <Container maxWidth="md">
           <Box
             display="flex"
@@ -46,7 +46,7 @@ export default function Home() {
             <RouterLink href="/about" text="About Me" />
           </Box>
         </Container>
-      </Fade>
+      </Zoom>
     </>
   );
 }

@@ -1,7 +1,6 @@
 import {
   CircularProgress,
   Container,
-  Slide,
   Typography,
   Zoom,
 } from '@material-ui/core';
@@ -63,7 +62,7 @@ export default function ArticlePage({ article }) {
         <meta name="author" content="Freedom Evenden" />
         <meta name="keywords" content={article.keywords} />
       </Head>
-      <Slide direction="up" in>
+      <Zoom in>
         <Container
           maxWidth="md"
           className={styles.container}
@@ -86,7 +85,7 @@ export default function ArticlePage({ article }) {
             </>
           )}
         </Container>
-      </Slide>
+      </Zoom>
     </>
   );
 }

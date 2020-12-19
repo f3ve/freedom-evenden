@@ -1,17 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Container, Fade, Typography } from '@material-ui/core';
+import { Container, Typography, Zoom } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Image from 'next/image';
 import Head from 'next/head';
+import { colors } from '../Theme';
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    position: 'relative',
+    zIndex: 1,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: theme.spacing(20),
-    postition: 'relative',
-    zIndex: 1,
+    background: colors.background,
+    boxShadow: `0 0 50px 50px ${colors.background}`,
   },
   img: {
     borderRadius: 100,
@@ -19,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const about = () => {
+export default function About() {
   const styles = useStyles();
   return (
     <>
@@ -34,22 +37,20 @@ const about = () => {
           content="freedom evenden, freedom, evenden, react, javascript, python, django, rest, react native, how to, react-native, web development, web, development, web developer, developer, software engineer, engineer, software, code, coding, coder, how to code, react.js, js, java script, java, script, portfolio, freedoms portfolio, freedom portfolio, blog, freedoms blog, freedom blog, web developer blog, web development blog, coding blog, code blog, about freedom evenden, contact freedom evenden, contact, about, about freedom, contact freedom"
         />
       </Head>
-      <Fade in>
+      <Zoom in>
         <Container maxWidth="sm" className={styles.container}>
           <Image
             src="/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg"
             alt="a picture of Freeedom Evenden"
             width={200}
             height={200}
-            // quality={50}
             priority
             className={styles.img}
-            // loading='eager'
           />
           <Typography color="secondary" variant="h2" gutterBottom zIndex={1}>
             About Me
           </Typography>
-          <Typography color="textPrimary" zIndex={1}>
+          <Typography color="textPrimary" zIndex={1} gutterBottom>
             I am a Full-Stack Web Developer secializing in React and Python. I
             first learned how to code as an apprentice in Thinkful's Full-Stack
             Engineer course and after that landed a job as a Lead Engineer on
@@ -70,9 +71,7 @@ const about = () => {
             className={styles.img}
           />
         </Container>
-      </Fade>
+      </Zoom>
     </>
   );
-};
-
-export default about;
+}
