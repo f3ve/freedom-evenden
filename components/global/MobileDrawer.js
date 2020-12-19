@@ -21,30 +21,30 @@ export default function MobileDrawer({ open, showDrawer }) {
     <Drawer
       open={open}
       onClose={() => showDrawer(false)}
-      anchor='left'
+      anchor="left"
       classes={{
         paper: styles.paper,
       }}
     >
       <RouterLink
-        href='/about'
-        text='About Me'
+        href="/about"
+        text="About Me"
         className={styles.link}
-        variant='h5'
+        variant="h5"
       />
       <Divider />
       <RouterLink
-        href='/blog'
-        text='Blog'
+        href="/blog"
+        text="Blog"
         className={styles.link}
-        variant='h5'
+        variant="h5"
       />
       <Divider />
       <RouterLink
-        text='Portfolio'
-        href='/portfolio'
+        text="Portfolio"
+        href="/portfolio"
         className={styles.link}
-        variant='h5'
+        variant="h5"
       />
     </Drawer>
   );

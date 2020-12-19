@@ -46,10 +46,10 @@ export default function ArticlePage({ article }) {
     return (
       <Zoom in>
         <Container className={styles.loading}>
-          <Typography variant='h2' color='secondary' gutterBottom>
+          <Typography variant="h2" color="secondary" gutterBottom>
             This should only take a second
           </Typography>
-          <CircularProgress color='primary' />;
+          <CircularProgress color="primary" />;
         </Container>
       </Zoom>
     );
@@ -59,13 +59,13 @@ export default function ArticlePage({ article }) {
     <>
       <Head>
         <title>{article.title}</title>
-        <meta name='description' content={article.summary} />
-        <meta name='author' content='Freedom Evenden' />
-        <meta name='keywords' content={article.keywords} />
+        <meta name="description" content={article.summary} />
+        <meta name="author" content="Freedom Evenden" />
+        <meta name="keywords" content={article.keywords} />
       </Head>
-      <Slide direction='up' in>
+      <Slide direction="up" in>
         <Container
-          maxWidth='md'
+          maxWidth="md"
           className={styles.container}
           classes={{
             maxWidthMd: styles.mdWidth,

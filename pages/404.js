@@ -25,20 +25,20 @@ export default function NotFound() {
 
   return (
     <Fade in>
-      <Container maxWidth='md' className={styles.container}>
-        <Typography variant='h2' color='secondary' gutterBottom>
+      <Container maxWidth="md" className={styles.container}>
+        <Typography variant="h2" color="secondary" gutterBottom>
           404
         </Typography>
-        <Typography variant='body1' color='textPrimary' gutterBottom>
+        <Typography variant="body1" color="textPrimary" gutterBottom>
           Oops, Looks like this page doesn't exist. But don't worry! Here is a
           picture of my cat.
         </Typography>
         <Avatar
-          src='/images/IMG_1248.jpg'
+          src="/images/IMG_1248.jpg"
           className={styles.img}
-          variant='rounded'
+          variant="rounded"
         />
-        <RouterLinks text='Click here to go back to the site' href='/' />
+        <RouterLinks text="Click here to go back to the site" href="/" />
       </Container>
     </Fade>
   );

@@ -58,16 +58,16 @@ export default function TopBar() {
     <Box className={styles.root}>
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
       <Slide in={topbar}>
-        <AppBar className={styles.appBar} position='relative'>
-          <Container maxWidth='lg'>
+        <AppBar className={styles.appBar} position="relative">
+          <Container maxWidth="lg">
             <Toolbar>
-              <Link href='/'>
+              <Link href="/">
                 <a className={styles.titleLink}>
                   <Typography
                     variant={matches ? 'h4' : 'h5'}
                     className={styles.title}
-                    color='primary'
-                    component='h1'
+                    color="primary"
+                    component="h1"
                   >
                     Freedom Evenden
                   </Typography>
@@ -75,31 +75,31 @@ export default function TopBar() {
               </Link>
               {!matches && (
                 <IconButton
-                  color='primary'
-                  edge='start'
-                  variant='contained'
+                  color="primary"
+                  edge="start"
+                  variant="contained"
                   className={styles.menuButton}
                   onClick={() => showDrawer((cur) => !cur)}
                 >
-                  <MenuIcon color='inherit' />
+                  <MenuIcon color="inherit" />
                 </IconButton>
               )}
               {matches && (
                 <>
                   <RouterLink
-                    href='/blog'
-                    text='Blog'
+                    href="/blog"
+                    text="Blog"
                     className={styles.link}
-                    variant=''
+                    variant=""
                   />
                   <RouterLink
-                    text='Portfolio'
-                    href='/portfolio'
+                    text="Portfolio"
+                    href="/portfolio"
                     className={styles.link}
                   />
                   <RouterLink
-                    href='/about'
-                    text='About'
+                    href="/about"
+                    text="About"
                     className={styles.link}
                   />
                 </>

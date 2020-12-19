@@ -42,23 +42,23 @@ export default function ArticleCard({ article }, props) {
   return (
     <Grow in>
       <Grid item key={article.id} {...props} className={styles.body}>
-        <Box className={styles.body} zIndex={1} position='relative'>
-          <Heading level={3} text={article.title} color='secondary' />
-          <Typography variant='body2' color='textSecondary' gutterBottom>
+        <Box className={styles.body} zIndex={1} position="relative">
+          <Heading level={3} text={article.title} color="secondary" />
+          <Typography variant="body2" color="textSecondary" gutterBottom>
             {date} | Freeom Evenden
           </Typography>
           <Typography
-            variant='body1'
+            variant="body1"
             gutterBottom
             className={styles.body}
-            color='textPrimary'
+            color="textPrimary"
           >
             {article.summary}
           </Typography>
           <Button
             onClick={handleClick}
             endIcon={<ArrowRightAltIcon />}
-            color='primary'
+            color="primary"
             className={styles.button}
           >
             Read More

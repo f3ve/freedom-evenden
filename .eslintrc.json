@@ -16,7 +16,8 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "jsxSingleQuote": false
       }
     ],
     "react/jsx-curly-newline": "off",

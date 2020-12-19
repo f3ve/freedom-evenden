@@ -11,7 +11,7 @@ export default function RouterLink({ href, text, className }, props) {
   return (
     <Button
       href={href}
-      color='primary'
+      color="primary"
       {...props}
       onClick={handleLinkClick}
       className={className}

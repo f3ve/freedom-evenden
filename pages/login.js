@@ -22,23 +22,23 @@ const login = () => {
   const [password, setPassword] = useState('');
 
   return (
-    <Container maxWidth='md'>
-      <Typography variant='h2' color='secondary' align='center'>
+    <Container maxWidth="md">
+      <Typography variant="h2" color="secondary" align="center">
         Login
       </Typography>
-      <Box component='form' className={styles.form}>
+      <Box component="form" className={styles.form}>
         <TextField
-          label='Email'
-          type='email'
+          label="Email"
+          type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
-          label='password'
-          type='password'
+          label="password"
+          type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button
-          color='primary'
+          color="primary"
           onClick={(e) => {
             e.preventDefault();
             console.log(email, password);

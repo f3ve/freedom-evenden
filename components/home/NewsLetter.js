@@ -21,11 +21,11 @@ export default function NewsLetter() {
   return (
     <Grid item className={styles.grid}>
       <Avatar
-        alt='Freedom Evenden'
-        src='/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg'
+        alt="Freedom Evenden"
+        src="/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg"
         className={styles.avatar}
       />
-      <Typography variant='body1' color='textPrimary'>
+      <Typography variant="body1" color="textPrimary">
         My goal with this blog is to provide free tutorials and tips for
         developers of all levels. By subscribing below you will get updates
         anytime I post something new. No Spam. Unsubscribe anytime

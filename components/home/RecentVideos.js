@@ -3,7 +3,7 @@ import { Grid, Typography, Divider } from '@material-ui/core';
 export default function RecentVideos() {
   return (
     <Grid item>
-      <Typography variant='h4' gutterBottom component='h2' color='primary'>
+      <Typography variant="h4" gutterBottom component="h2" color="primary">
         Recent Videos
       </Typography>
       <Divider />

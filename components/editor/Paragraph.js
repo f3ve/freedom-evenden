@@ -12,15 +12,15 @@ export default function Paragraph(props) {
   const styles = useStyles();
   return (
     <Typography
-      variant='body1'
-      component='p'
+      variant="body1"
+      component="p"
       gutterBottom
       className={styles.paragraph}
     >
       {props.node.children.map((child) => {
         if (child.type === 'link') {
           return (
-            <Link href={child.url} color='secondary'>
+            <Link href={child.url} color="secondary">
               {child.children[0] ? child.children[0].value : ''}
             </Link>
           );

@@ -35,20 +35,20 @@ export default function Project({ p }) {
 
   return (
     <Box className={styles.container}>
-      <Card compont='li' className={styles.card}>
+      <Card compont="li" className={styles.card}>
         <CardMedia image={p.img} className={styles.media} />
         <Divider />
         <CardHeader title={p.title} />
         <CardContent className={styles.content}>
-          <Typography variant='body1' component='p'>
+          <Typography variant="body1" component="p">
             {p.description}
           </Typography>
         </CardContent>
         <CardActionArea>
-          <IconButton color='primary'>
+          <IconButton color="primary">
             <GitHubIcon />
           </IconButton>
-          <IconButton color='primary'>
+          <IconButton color="primary">
             <WebIcon />
           </IconButton>
         </CardActionArea>
