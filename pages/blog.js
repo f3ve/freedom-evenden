@@ -3,10 +3,17 @@ import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import ArticleCard from '../components/home/ArticleCard';
 import { apiGet } from '../services/ArticleApiService';
+import { colors } from '../Theme';
 
 const useStyles = makeStyles((theme) => ({
   box: {
     margin: theme.spacing(2),
+  },
+  container: {
+    position: 'relative',
+    zIndex: 1,
+    backgroundColor: colors.background,
+    boxShadow: `0 0 50px 50px ${colors.background}`,
   },
 }));
 
@@ -29,14 +36,12 @@ export default function blog({ data }) {
         />
       </Head>
       <Fade in>
-        <Container maxWidth="md">
+        <Container maxWidth="md" component="ul" className={styles.container}>
           {data &&
             data.results.map((article) => (
-              <>
-                <Box className={styles.box}>
-                  <ArticleCard article={article} />
-                </Box>
-              </>
+              <Box className={styles.box} component="li" key={article.id}>
+                <ArticleCard article={article} />
+              </Box>
             ))}
         </Container>
       </Fade>
