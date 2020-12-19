@@ -1,9 +1,9 @@
-import React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheets } from '@material-ui/styles'
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheets } from '@material-ui/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
-const theme = responsiveFontSizes(createMuiTheme())
+const theme = responsiveFontSizes(createMuiTheme());
 
 class MyDocument extends Document {
   render() {
@@ -22,22 +22,22 @@ class MyDocument extends Document {
           />
           <style jsx global>
             {`
-html,
-body {
-height: 100%;
-width: 100%;
-}
-*,
-*:after,
-*:before {
-box-sizing: border-box;
-}
-body {
-font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-font-size: 1rem;
-margin: 0;
-}
-`}
+              html,
+              body {
+                height: 100%;
+                width: 100%;
+              }
+              *,
+              *:after,
+              *:before {
+                box-sizing: border-box;
+              }
+              body {
+                font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                font-size: 1rem;
+                margin: 0;
+              }
+            `}
           </style>
         </Head>
         <body>
@@ -45,32 +45,31 @@ margin: 0;
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-MyDocument.getInitialProps = async ctx => {
-  
-  const sheets = new ServerStyleSheets()
-  const originalRenderPage = ctx.renderPage
+MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets();
+  const originalRenderPage = ctx.renderPage;
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: App => props => sheets.collect(<App {...props} />)
-    })
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+    });
 
-  const initialProps = await Document.getInitialProps(ctx)
+  const initialProps = await Document.getInitialProps(ctx);
 
   return {
     ...initialProps,
-    
+
     styles: [
       <React.Fragment key="styles">
         {initialProps.styles}
         {sheets.getStyleElement()}
-      </React.Fragment>
-    ]
-  }
-}
+      </React.Fragment>,
+    ],
+  };
+};
 
-export default MyDocument
+export default MyDocument;
