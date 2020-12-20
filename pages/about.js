@@ -1,5 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Container, Typography, Zoom } from '@material-ui/core';
+import {
+  Box,
+  Container,
+  IconButton,
+  Typography,
+  Zoom,
+} from '@material-ui/core';
+import LinkedIn from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import EmailIcon from '@material-ui/icons/Email';
 import { makeStyles } from '@material-ui/styles';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -75,7 +84,6 @@ export default function About() {
               className={styles.img}
             />
           </Box>
-          \{' '}
         </Container>
       </noscript>
       <Zoom in>
@@ -95,15 +103,30 @@ export default function About() {
           <Typography color="secondary" variant="h2" gutterBottom zIndex={1}>
             About Me
           </Typography>
+          <Box component="address">
+            <IconButton
+              color="primary"
+              href="https://www.linkedin.com/in/freedom-evenden-dev/"
+            >
+              <LinkedIn />
+            </IconButton>
+            <IconButton color="primary" href="https://github.com/f3ve">
+              <GitHubIcon />
+            </IconButton>
+            <IconButton color="primary" href="mailto:free.eve@pm.me">
+              <EmailIcon />
+            </IconButton>
+          </Box>
           <Typography color="textPrimary" zIndex={1} gutterBottom>
-            I am a Full-Stack Web Developer secializing in React and Python. I
+            I am a Full-Stack Web Developer specializing in React and Python. I
             first learned how to code as an apprentice in Thinkful's Full-Stack
-            Engineer course and after that landed a job as a Lead Engineer on
-            subscription based video streaming service. Lately I have been
-            working on mobile app development with React-Native and in my free
-            time I have been experimenting with web design and UX. I like to
-            share my knowledge via my blog and making tutorials on YouTube.
+            Engineer course and then landed my first job as a Lead Engineer to a
+            subscription-based video streaming service. Lately I have been
+            working on mobile app development with React Native and
+            experimenting with web design and UX. I like sharing my knowledge
+            via my blog and making tutorials on YouTube.
           </Typography>
+
           <Zoom in style={{ transitionDelay: '1000ms' }}>
             <Box>
               <Typography color="textPrimary">
