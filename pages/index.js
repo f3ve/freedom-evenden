@@ -48,6 +48,10 @@ export default function Home() {
           name="google-site-verification"
           content="Lp9a1YPrBv963HrvdTAhuI1-nyyOZq1nNVRqA8lC1ao"
         />
+        <meta
+          property="og:image"
+          content="/Screenshot from 2020-12-20 12-51-49.png"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <noscript>
