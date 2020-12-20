@@ -13,7 +13,6 @@ import {
 import { makeStyles } from '@material-ui/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import WebIcon from '@material-ui/icons/Web';
-import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -34,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Project({ p }) {
   const styles = useStyles();
-  const router = useRouter();
 
   return (
     <>

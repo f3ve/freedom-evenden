@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import RouterLink from './RouterLinks';
 import MobileDrawer from './MobileDrawer';
+import { colors } from '../../Theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,8 +34,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
   },
   appBar: {
-    backgroundColor: 'transparent',
-    boxShadow: 'none',
+    backgroundColor: colors.background,
+    boxShadow: `0 0 10px 10px ${colors.background}`,
+    zIndex: 2,
   },
 }));
 
@@ -58,7 +60,7 @@ export default function TopBar() {
     <Box className={styles.root}>
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
       <noscript>
-        <AppBar className={styles.appBar} position="relative">
+        <AppBar className={styles.appBar} position="fixed">
           <Container maxWidth="lg">
             <Toolbar>
               <Link href="/">
@@ -96,7 +98,16 @@ export default function TopBar() {
         </AppBar>
       </noscript>
       <Slide in={topbar}>
-        <AppBar className={styles.appBar} position="relative">
+        <AppBar
+          className={styles.appBar}
+          position={
+            router.pathname.includes('portfolio') ||
+            router.pathname.includes('articles') ||
+            router.pathname.includes('blog')
+              ? 'fixed'
+              : 'relative'
+          }
+        >
           <Container maxWidth="lg">
             <Toolbar>
               <Link href="/">

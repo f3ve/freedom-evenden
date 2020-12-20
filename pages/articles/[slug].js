@@ -3,13 +3,10 @@ import {
   Container,
   Typography,
   Zoom,
-  Fab,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';
-import NavigationIcon from '@material-ui/icons/Navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from '../../components/editor/CodeBlock';
@@ -42,7 +39,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function ArticlePage({ article, slug }) {
+export default function ArticlePage({ article }) {
   const styles = useStyles();
   const router = useRouter();
 
@@ -120,11 +117,6 @@ export default function ArticlePage({ article, slug }) {
           )}
         </Container>
       </Zoom>
-      <Link href={`/articles/${slug}/#`} scroll>
-        <Fab>
-          <NavigationIcon />
-        </Fab>
-      </Link>
     </>
   );
 }
@@ -142,6 +134,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const data = await apiGet(`articles/${params.slug}`);
   return {
-    props: { article: data, slug: params.slug },
+    props: { article: data },
   };
 }
