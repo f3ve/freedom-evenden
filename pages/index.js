@@ -2,13 +2,11 @@ import Head from 'next/head';
 import {
   Box,
   Container,
-  Grid,
   makeStyles,
   Typography,
   Zoom,
 } from '@material-ui/core';
 import RouterLink from '../components/global/RouterLinks';
-import { colors } from '../Theme';
 
 const useStyles = makeStyles((theme) => ({
   link: {

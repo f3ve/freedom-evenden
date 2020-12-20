@@ -1,5 +1,14 @@
 export const projects = [
   {
+    title: 'Avybe',
+    img: '/images/Screenshot from 2020-12-20 12-14-41.png',
+    description:
+      'Avybe is a subscription-based video streaming service. As the first Engineer on this project I set up the boiler plate for the website, mobile app, and API. Eventually more engineers were hired on and my role evolved into a lead engineer. I led daily standup meetings and performed code review for the project. In addition to helping other engineers with their tasks I also did an extensive amount of work on the mobile app in React Native. The project was built using NextJS and Django.',
+    clientRepo: null,
+    apiRepo: null,
+    live: 'https://avybe.com',
+  },
+  {
     title: 'Blogium',
     img: '/images/blogium.png',
     description: `Blogium is one of the first projects I completed and was a huge learning experience for me. It was inspired by Medium and features a fully 

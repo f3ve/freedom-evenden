@@ -75,9 +75,11 @@ export default function Project({ p }) {
               </Typography>
             </CardContent>
             <CardActionArea>
-              <IconButton href={p.clientRepo} color="primary">
-                <GitHubIcon />
-              </IconButton>
+              {p.clientRepo !== null && (
+                <IconButton href={p.clientRepo} color="primary">
+                  <GitHubIcon />
+                </IconButton>
+              )}
               <IconButton href={p.live} color="primary">
                 <WebIcon />
               </IconButton>
