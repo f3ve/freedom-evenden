@@ -24,6 +24,33 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <noscript>
+        <Container maxWidth="md">
+          <Box
+            display="flex"
+            flexDirection="column"
+            paddingTop={10}
+            alignItems="center"
+            height="100%"
+            width="100%"
+          >
+            <Typography
+              variant="h2"
+              color="Secondary"
+              gutterBottom
+              align="center"
+            >
+              Freedom Evenden
+            </Typography>
+            <Typography variant="body1" color="textPrimary">
+              I write code and I love cats
+            </Typography>
+            <RouterLink href="/blog" text="Blog" />
+            <RouterLink href="/portfolio" text="Portfolio" />
+            <RouterLink href="/about" text="About Me" />
+          </Box>
+        </Container>
+      </noscript>
       <Zoom in>
         <Container maxWidth="md">
           <Box

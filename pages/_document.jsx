@@ -20,12 +20,17 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
           />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Nova+Round&family=Roboto+Condensed&display=swap"
+          />
           <style jsx global>
             {`
               html,
               body {
                 height: 100%;
                 width: 100%;
+                background-color: #051622;
               }
               *,
               *:after,
@@ -36,6 +41,10 @@ class MyDocument extends Document {
                 font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
                 font-size: 1rem;
                 margin: 0;
+              }
+              a {
+                color: inherit;
+                text-decoration: none;
               }
             `}
           </style>

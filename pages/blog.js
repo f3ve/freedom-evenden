@@ -8,6 +8,7 @@ import { colors } from '../Theme';
 const useStyles = makeStyles((theme) => ({
   box: {
     margin: theme.spacing(2),
+    listStyle: 'none',
   },
   container: {
     position: 'relative',
@@ -35,6 +36,16 @@ export default function blog({ data }) {
           key="app"
         />
       </Head>
+      <noscript>
+        <Container maxWidth="md" component="ul" className={styles.container}>
+          {data &&
+            data.results.map((article) => (
+              <Box className={styles.box} component="li" key={article.id}>
+                <ArticleCard article={article} />
+              </Box>
+            ))}
+        </Container>
+      </noscript>
       <Fade in>
         <Container maxWidth="md" component="ul" className={styles.container}>
           {data &&

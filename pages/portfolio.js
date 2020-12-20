@@ -19,6 +19,13 @@ export default function portfolio() {
           key="app"
         />
       </Head>
+      <noscript>
+        <Container maxWidth="md" component="ul">
+          {projects.map((p) => (
+            <Project p={p} key={p.title} />
+          ))}
+        </Container>
+      </noscript>
       <Fade in>
         <Container maxWidth="md" component="ul">
           {projects.map((p) => (

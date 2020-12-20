@@ -57,6 +57,44 @@ export default function TopBar() {
   return (
     <Box className={styles.root}>
       {!matches && <MobileDrawer open={drawer} showDrawer={showDrawer} />}
+      <noscript>
+        <AppBar className={styles.appBar} position="relative">
+          <Container maxWidth="lg">
+            <Toolbar>
+              <Link href="/">
+                <a className={styles.titleLink}>
+                  <Typography
+                    variant="h"
+                    className={styles.title}
+                    color="primary"
+                    component="h1"
+                  >
+                    Freedom Evenden
+                  </Typography>
+                </a>
+              </Link>
+              <>
+                <RouterLink
+                  href="/blog"
+                  text="Blog"
+                  className={styles.link}
+                  variant=""
+                />
+                <RouterLink
+                  text="Portfolio"
+                  href="/portfolio"
+                  className={styles.link}
+                />
+                <RouterLink
+                  href="/about"
+                  text="About"
+                  className={styles.link}
+                />
+              </>
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </noscript>
       <Slide in={topbar}>
         <AppBar className={styles.appBar} position="relative">
           <Container maxWidth="lg">
