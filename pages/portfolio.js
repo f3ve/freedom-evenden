@@ -1,4 +1,4 @@
-import { Container, Fade } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import Head from 'next/head';
 import { projects } from '../store';
 import Project from '../components/projects/Project';
@@ -19,20 +19,11 @@ export default function portfolio() {
           key="app"
         />
       </Head>
-      <noscript>
-        <Container maxWidth="md" component="ul">
-          {projects.map((p) => (
-            <Project p={p} key={p.title} />
-          ))}
-        </Container>
-      </noscript>
-      <Fade in>
-        <Container maxWidth="md" component="ul">
-          {projects.map((p) => (
-            <Project p={p} key={p.title} />
-          ))}
-        </Container>
-      </Fade>
+      <Container maxWidth="md" component="ul">
+        {projects.map((p) => (
+          <Project p={p} key={p.title} />
+        ))}
+      </Container>
     </>
   );
 }

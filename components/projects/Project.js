@@ -8,7 +8,6 @@ import {
   Divider,
   IconButton,
   Typography,
-  Zoom,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -35,57 +34,28 @@ export default function Project({ p }) {
   const styles = useStyles();
 
   return (
-    <>
-      <noscript>
-        <Box className={styles.container}>
-          <Card compont="li" className={styles.card}>
-            <CardMedia image={p.img} className={styles.media} />
-            <Divider />
-            <CardHeader title={p.title} />
-            <CardContent className={styles.content}>
-              <Typography variant="body1" component="p">
-                {p.description}
-              </Typography>
-            </CardContent>
-            <CardActionArea>
-              <IconButton href={p.clientRepo} color="primary">
-                <GitHubIcon />
-              </IconButton>
-              <IconButton href={p.live} color="primary">
-                <WebIcon />
-              </IconButton>
-            </CardActionArea>
-          </Card>
-          <Divider />
-        </Box>
-      </noscript>
-      <Zoom in>
-        <Box className={styles.container}>
-          <Card compont="li" className={styles.card}>
-            <Zoom in style={{ transitionDelay: '500ms' }}>
-              <CardMedia image={p.img} className={styles.media} />
-            </Zoom>
-            <Divider />
-            <CardHeader title={p.title} />
-            <CardContent className={styles.content}>
-              <Typography variant="body1" component="p">
-                {p.description}
-              </Typography>
-            </CardContent>
-            <CardActionArea>
-              {p.clientRepo !== null && (
-                <IconButton href={p.clientRepo} color="primary">
-                  <GitHubIcon />
-                </IconButton>
-              )}
-              <IconButton href={p.live} color="primary">
-                <WebIcon />
-              </IconButton>
-            </CardActionArea>
-          </Card>
-          <Divider />
-        </Box>
-      </Zoom>
-    </>
+    <Box className={styles.container}>
+      <Card compont="li" className={styles.card}>
+        <CardMedia image={p.img} className={styles.media} />
+        <Divider />
+        <CardHeader title={p.title} />
+        <CardContent className={styles.content}>
+          <Typography variant="body1" component="p">
+            {p.description}
+          </Typography>
+        </CardContent>
+        <CardActionArea>
+          {p.clientRepo !== null && (
+            <IconButton href={p.clientRepo} color="primary">
+              <GitHubIcon />
+            </IconButton>
+          )}
+          <IconButton href={p.live} color="primary">
+            <WebIcon />
+          </IconButton>
+        </CardActionArea>
+      </Card>
+      <Divider />
+    </Box>
   );
 }

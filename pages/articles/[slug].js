@@ -1,12 +1,6 @@
-import {
-  CircularProgress,
-  Container,
-  Typography,
-  Zoom,
-} from '@material-ui/core';
+import { CircularProgress, Container, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from '../../components/editor/CodeBlock';
@@ -45,14 +39,12 @@ export default function ArticlePage({ article }) {
 
   if (router.isFallback) {
     return (
-      <Zoom in>
-        <Container className={styles.loading}>
-          <Typography variant="h2" color="secondary" gutterBottom>
-            This should only take a second
-          </Typography>
-          <CircularProgress color="primary" />;
-        </Container>
-      </Zoom>
+      <Container className={styles.loading}>
+        <Typography variant="h2" color="secondary" gutterBottom>
+          This should only take a second
+        </Typography>
+        <CircularProgress color="primary" />;
+      </Container>
     );
   }
 
@@ -64,59 +56,28 @@ export default function ArticlePage({ article }) {
         <meta name="author" content="Freedom Evenden" />
         <meta name="keywords" content={article.keywords} />
       </Head>
-      <noscript>
-        <Container
-          maxWidth="md"
-          className={styles.container}
-          classes={{
-            maxWidthMd: styles.mdWidth,
-          }}
-        >
-          {article && (
-            <>
-              <Heading text={article.title} level={2} />
-              <ReactMarkdown
-                source={article.content}
-                renderers={{
-                  code: CodeBlock,
-                  paragraph: Paragraph,
-                  heading: Heading,
-                  link: markdownLink,
-                }}
-              />
-            </>
-          )}
-          <Image
-            src="/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg"
-            width={100}
-            height={100}
-          />
-        </Container>
-      </noscript>
-      <Zoom in>
-        <Container
-          maxWidth="md"
-          className={styles.container}
-          classes={{
-            maxWidthMd: styles.mdWidth,
-          }}
-        >
-          {article && (
-            <>
-              <Heading text={article.title} level={2} />
-              <ReactMarkdown
-                source={article.content}
-                renderers={{
-                  code: CodeBlock,
-                  paragraph: Paragraph,
-                  heading: Heading,
-                  link: markdownLink,
-                }}
-              />
-            </>
-          )}
-        </Container>
-      </Zoom>
+      <Container
+        maxWidth="md"
+        className={styles.container}
+        classes={{
+          maxWidthMd: styles.mdWidth,
+        }}
+      >
+        {article && (
+          <>
+            <Heading text={article.title} level={2} />
+            <ReactMarkdown
+              source={article.content}
+              renderers={{
+                code: CodeBlock,
+                paragraph: Paragraph,
+                heading: Heading,
+                link: markdownLink,
+              }}
+            />
+          </>
+        )}
+      </Container>
     </>
   );
 }

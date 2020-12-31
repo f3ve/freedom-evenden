@@ -1,4 +1,4 @@
-import { Box, Container, Fade } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import ArticleCard from '../components/home/ArticleCard';
@@ -36,26 +36,14 @@ export default function blog({ data }) {
           key="app"
         />
       </Head>
-      <noscript>
-        <Container maxWidth="md" component="ul" className={styles.container}>
-          {data &&
-            data.results.map((article) => (
-              <Box className={styles.box} component="li" key={article.id}>
-                <ArticleCard article={article} />
-              </Box>
-            ))}
-        </Container>
-      </noscript>
-      <Fade in>
-        <Container maxWidth="md" component="ul" className={styles.container}>
-          {data &&
-            data.results.map((article) => (
-              <Box className={styles.box} component="li" key={article.id}>
-                <ArticleCard article={article} />
-              </Box>
-            ))}
-        </Container>
-      </Fade>
+      <Container maxWidth="md" component="ul" className={styles.container}>
+        {data &&
+          data.results.map((article) => (
+            <Box className={styles.box} component="li" key={article.id}>
+              <ArticleCard article={article} />
+            </Box>
+          ))}
+      </Container>
     </>
   );
 }

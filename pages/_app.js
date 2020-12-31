@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         <Typography color="textPrimary">
           It looks like JavaScript has been disabled in your browser. This site
           runs better with JavaScript! consider renabling it to experience it as
-          it was intended
+          it was intended!
         </Typography>
       </noscript>
       <CustomBackground />

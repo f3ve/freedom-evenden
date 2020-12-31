@@ -1,14 +1,4 @@
-import {
-  Grid,
-  Button,
-  Grow,
-  Typography,
-  Divider,
-  Zoom,
-  Box,
-  Link,
-} from '@material-ui/core';
-import { Link as nextLink } from 'next/link';
+import { Grid, Button, Typography, Divider, Box } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { makeStyles } from '@material-ui/styles';
 import { format } from 'date-fns';
@@ -34,54 +24,26 @@ export default function ArticleCard({ article }, props) {
 
   return (
     <>
-      <noscript>
-        <Grid item {...props}>
-          <Heading level={3} text={article.title} color="secondary" />
-          <Box>
-            <Typography variant="body2" color="textSecondary" gutterBottom>
-              {date} | Freeom Evenden
-            </Typography>
-            <Typography variant="body1" gutterBottom color="textPrimary">
-              {article.summary}
-            </Typography>
-          </Box>
-          <Link
-            href={`articles/${article.slug}`}
-            color="primary"
-            className={styles.button}
-            component={nextLink}
-          >
-            Read More
-          </Link>
-          <Divider />
-        </Grid>
-      </noscript>
-      <Grow in>
-        <Grid item {...props}>
-          <Heading level={3} text={article.title} color="secondary" />
-          <Zoom in style={{ transitionDelay: '400ms' }}>
-            <Box>
-              <Typography variant="body2" color="textSecondary" gutterBottom>
-                {date} | Freeom Evenden
-              </Typography>
-              <Typography variant="body1" gutterBottom color="textPrimary">
-                {article.summary}
-              </Typography>
-            </Box>
-          </Zoom>
-          <Zoom in style={{ transitionDelay: '800ms' }}>
-            <Button
-              onClick={handleClick}
-              endIcon={<ArrowRightAltIcon />}
-              color="primary"
-              className={styles.button}
-            >
-              Read More
-            </Button>
-          </Zoom>
-          <Divider />
-        </Grid>
-      </Grow>
+      <Grid item {...props}>
+        <Heading level={3} text={article.title} color="secondary" />
+        <Box>
+          <Typography variant="body2" color="textSecondary" gutterBottom>
+            {date} | Freeom Evenden
+          </Typography>
+          <Typography variant="body1" gutterBottom color="textPrimary">
+            {article.summary}
+          </Typography>
+        </Box>
+        <Button
+          onClick={handleClick}
+          endIcon={<ArrowRightAltIcon />}
+          color="primary"
+          className={styles.button}
+        >
+          Read More
+        </Button>
+        <Divider />
+      </Grid>
     </>
   );
 }
