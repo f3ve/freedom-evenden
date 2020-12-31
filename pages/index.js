@@ -8,8 +8,9 @@ const useStyles = makeStyles((theme) => ({
   },
   grid: {
     display: 'flex',
+    flexDirection: 'column',
+    justifyContent: theme.breakpoints.down('sm') ? 'flexStart' : 'center',
     alignItems: 'center',
-    justify: 'center',
   },
   gridContainer: {
     display: 'flex',
@@ -47,14 +48,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth="sm">
-        <Box
-          display="flex"
-          flexDirection="column"
-          paddingTop={10}
-          alignItems="center"
-          height="100%"
-          width="100%"
-        >
+        <Box className={styles.grid}>
           <Typography
             variant="h2"
             color="Secondary"
