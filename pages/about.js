@@ -6,7 +6,6 @@ import EmailIcon from '@material-ui/icons/Email';
 import { makeStyles } from '@material-ui/styles';
 import Image from 'next/image';
 import Head from 'next/head';
-import { colors } from '../Theme';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,8 +15,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: theme.spacing(20),
-    background: colors.background,
-    boxShadow: `0 0 50px 50px ${colors.background}`,
   },
   img: {
     borderRadius: 100,
@@ -57,14 +54,28 @@ export default function About() {
         <Box component="address">
           <IconButton
             color="primary"
+            target="_blank"
             href="https://www.linkedin.com/in/freedom-evenden-dev/"
+            aria-label="Freedom's LinkedIn"
+            rel="noreferrer"
           >
             <LinkedIn />
           </IconButton>
-          <IconButton color="primary" href="https://github.com/f3ve">
+          <IconButton
+            color="primary"
+            href="https://github.com/f3ve"
+            target="_blank"
+            aria-label="Freedom's GitHub Profile"
+            rel="noreferrer"
+          >
             <GitHubIcon />
           </IconButton>
-          <IconButton color="primary" href="mailto:free.eve@pm.me">
+          <IconButton
+            color="primary"
+            href="mailto:free.eve@pm.me"
+            aria-label="email Freedom"
+            rel="noreferrer"
+          >
             <EmailIcon />
           </IconButton>
         </Box>

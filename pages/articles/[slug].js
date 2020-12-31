@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
 
   container: {
     backgroundColor: colors.background,
-    boxShadow: `0 0 100px 100px ${colors.background}`,
     borderRadius: 20,
     position: 'relative',
     zIndex: 1,

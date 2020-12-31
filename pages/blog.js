@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     zIndex: 1,
     backgroundColor: colors.background,
-    boxShadow: `0 0 50px 50px ${colors.background}`,
+    marginTop: theme.spacing(15),
   },
 }));
 

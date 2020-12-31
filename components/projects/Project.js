@@ -34,7 +34,7 @@ export default function Project({ p }) {
   const styles = useStyles();
 
   return (
-    <Box className={styles.container}>
+    <Box className={styles.container} component="li">
       <Card compont="li" className={styles.card}>
         <CardMedia image={p.img} className={styles.media} />
         <Divider />
@@ -46,11 +46,23 @@ export default function Project({ p }) {
         </CardContent>
         <CardActionArea>
           {p.clientRepo !== null && (
-            <IconButton href={p.clientRepo} color="primary">
+            <IconButton
+              href={p.clientRepo}
+              color="primary"
+              target="_blank"
+              aria-label="GitHub Repo"
+              rel="noreferrer"
+            >
               <GitHubIcon />
             </IconButton>
           )}
-          <IconButton href={p.live} color="primary">
+          <IconButton
+            href={p.live}
+            color="primary"
+            aria-label="Live website"
+            target="_blank"
+            rel="noreferrer"
+          >
             <WebIcon />
           </IconButton>
         </CardActionArea>
