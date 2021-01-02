@@ -52,7 +52,7 @@ async function generateSitemap() {
   const formattedSitemap = formatted(generatedSitemap);
 
   fs.writeFileSync(
-    './public/sitemaps/sitemap-common.xml',
+    './public/sitemap/sitemap-common.xml',
     formattedSitemap,
     'utf8'
   );

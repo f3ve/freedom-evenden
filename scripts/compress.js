@@ -4,7 +4,7 @@ const fs = require('fs');
 const zlib = require('zlib');
 
 async function compress() {
-  const dirs = ['./public/sitemaps'];
+  const dirs = ['./public/sitemap'];
   console.log(dirs);
 
   dirs.forEach((dir) => {
