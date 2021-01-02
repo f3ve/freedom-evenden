@@ -1,5 +1,5 @@
 User-agent: *
 Disallow:
 Sitemap: https://freedomevenden.com/sitemap.xml
-Sitemap: https://freedomevenden.com/sitemap-common.xml.gz
-Sitemap: https://freedomevenden.com/sitemap-articles.xml.gz
+Sitemap: https://freedomevenden.com/sitemap/sitemap-common.xml.gz
+Sitemap: https://freedomevenden.com/sitemap/sitemap-articles.xml.gz
