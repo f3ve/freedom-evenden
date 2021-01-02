@@ -27,7 +27,7 @@ async function generatePostsSitemap() {
       (slug) =>
         `
       <url>
-      <loc>${`${domain}/articles/$${slug}`}</loc>
+      <loc>${`${domain}/articles/${slug}`}</loc>
       <lastmod>${getDate}</lastmod>
       </url>
       </urlset>
