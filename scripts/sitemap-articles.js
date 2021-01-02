@@ -1,10 +1,13 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
+const prettier = require('prettier');
 
 const getDate = new Date().toISOString();
 const domain = 'https://freedomevenden.com';
 const fetchURL =
   'https://freedom-blog.herokuapp.com/api/articles/?page_size=20';
+
+const formatted = (sitemap) => prettier.format(sitemap, { parser: 'html' });
 
 async function generatePostsSitemap() {
   const res = await fetch(fetchURL)
@@ -32,7 +35,13 @@ async function generatePostsSitemap() {
     )}
 `;
 
-  fs.writeFileSync('./public/sitemap-articles.xml', sitemap, 'utf8');
+  const formattedSitemap = formatted(sitemap);
+
+  fs.writeFileSync(
+    './public/sitemap/sitemap-articles.xml',
+    formattedSitemap,
+    'utf8'
+  );
 }
 
 generatePostsSitemap();

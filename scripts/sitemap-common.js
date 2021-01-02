@@ -1,5 +1,6 @@
 const fs = require('fs');
 const globby = require('globby');
+const prettier = require('prettier');
 
 /* 
   generates a sitemap for SEO
@@ -8,6 +9,8 @@ const globby = require('globby');
 const getDate = new Date().toISOString();
 
 const domain = 'https://freedomevenden.com';
+
+const formatted = (sitemap) => prettier.format(sitemap, { parser: 'html' });
 
 async function generateSitemap() {
   const pages = await globby([
@@ -46,9 +49,13 @@ async function generateSitemap() {
     </urlset>
   `;
 
-  const formattedSitemap = generatedSitemap;
+  const formattedSitemap = formatted(generatedSitemap);
 
-  fs.writeFileSync('./public/sitemap-common.xml', formattedSitemap, 'utf8');
+  fs.writeFileSync(
+    './public/sitemaps/sitemap-common.xml',
+    formattedSitemap,
+    'utf8'
+  );
 }
 
 generateSitemap();
