@@ -1,21 +1,21 @@
 const fs = require('fs');
 const globby = require('globby');
-// eslint-disable-next-line import/no-extraneous-dependencies
-const prettier = require('prettier');
+
+/* 
+  generates a sitemap for SEO
+*/
 
 const getDate = new Date().toISOString();
 
-const YOUR_AWESOME_DOMAIN = 'https://freedomevenden.com';
-
-const formatted = (sitemap) => prettier.format(sitemap, { parser: 'html' });
+const domain = 'https://freedomevenden.com';
 
 async function generateSitemap() {
   const pages = await globby([
     './pages/**/*.js',
     './pages/*.js',
     '!./pages/_*.js',
+    '!./pages/[slug].js',
   ]);
-  console.log(pages);
 
   const pagesSitemap = `
     ${pages
@@ -27,7 +27,7 @@ async function generateSitemap() {
         const routePath = path === 'index' ? '' : path;
         return `
           <url>
-            <loc>${YOUR_AWESOME_DOMAIN}/${routePath}</loc>
+            <loc>${domain}/${routePath}</loc>
             <lastmod>${getDate}</lastmod>
           </url>
         `;
