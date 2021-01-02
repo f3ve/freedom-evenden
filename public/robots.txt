@@ -2,4 +2,4 @@ User-agent: *
 Disallow:
 Sitemap: /sitemap.xml
 Sitemap: /sitemap-common.xml.gz
-Sitemap: /sitemap-articles.gz
+Sitemap: /sitemap-articles.xml.gz
