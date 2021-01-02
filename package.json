@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "generate-sitemaps": "rm -rf public/sitemap/* && node scripts/sitemap-common.js && node scripts/sitemap-articles.js && node scripts/compress.js && node scripts/sitemap.js && rm -rf public/sitemap/*.xml",
+    "delete-sitemaps": "rm -rf public/sitemap/* public/sitemap.js",
+    "generate-sitemaps": "npm run delete-sitemaps && node scripts/sitemap-common.js && node scripts/sitemap-articles.js && node scripts/compress.js && node scripts/sitemap.js && rm -rf public/sitemap/*.xml",
     "save-sitemaps": "git add public/sitemap.xml public/sitemap/ && git commit -m 'generated new sitemaps'",
     "deploy": "npm run generate-sitemaps && npm run save-sitemaps && git push"
   },
