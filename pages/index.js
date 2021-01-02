@@ -51,7 +51,7 @@ export default function Home() {
         <Box className={styles.grid}>
           <Typography
             variant="h2"
-            color="Secondary"
+            color="secondary"
             gutterBottom={false}
             align="center"
           >
