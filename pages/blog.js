@@ -1,6 +1,7 @@
 import { Box, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
+import { useState } from 'react';
 import ArticleCard from '../components/home/ArticleCard';
 import { apiGet } from '../services/ArticleApiService';
 import { colors } from '../Theme';
@@ -18,8 +19,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function blog({ data }) {
+export default function blog({ articles, categories }) {
   const styles = useStyles();
+  const [state, setState] = useState(null);
+
+  async function handleSelectCategory(cat) {
+    const res = await apiGet(`articles/?page_size=20&category=${cat}`);
+    setState(res);
+  }
+
+  function clearCategoryFilter() {
+    setState(null);
+  }
 
   return (
     <>
@@ -37,8 +48,22 @@ export default function blog({ data }) {
         />
       </Head>
       <Container maxWidth="md" component="ul" className={styles.container}>
-        {data &&
-          data.results.map((article) => (
+        <button onClick={clearCategoryFilter}>Clear</button>
+        {categories &&
+          categories.map((cat) => (
+            <button onClick={() => handleSelectCategory(cat.id)} key={cat.slug}>
+              {cat.name}
+            </button>
+          ))}
+        {articles &&
+          state === null &&
+          articles.results.map((article) => (
+            <Box className={styles.box} component="li" key={article.id}>
+              <ArticleCard article={article} />
+            </Box>
+          ))}
+        {state !== null &&
+          state.results.map((article) => (
             <Box className={styles.box} component="li" key={article.id}>
               <ArticleCard article={article} />
             </Box>
@@ -49,9 +74,10 @@ export default function blog({ data }) {
 }
 
 export async function getStaticProps() {
-  const data = await apiGet('articles/?page_size=20');
+  const articles = await apiGet('articles/?page_size=20');
+  const categories = await apiGet('categories/');
   return {
-    props: { data },
+    props: { articles, categories },
     revalidate: 1,
   };
 }
