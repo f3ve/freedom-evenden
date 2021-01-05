@@ -1,4 +1,4 @@
-import { Box, Container } from '@material-ui/core';
+import { Box, Chip, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -17,19 +17,30 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: colors.background,
     marginTop: theme.spacing(15),
   },
+  chipContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flexStart',
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
+  },
 }));
 
 export default function blog({ articles, categories }) {
   const styles = useStyles();
   const [state, setState] = useState(null);
+  const [category, setCategory] = useState(null);
 
   async function handleSelectCategory(cat) {
     const res = await apiGet(`articles/?page_size=20&category=${cat}`);
+    setCategory(cat);
     setState(res);
   }
 
   function clearCategoryFilter() {
     setState(null);
+    setCategory(null);
   }
 
   return (
@@ -48,13 +59,24 @@ export default function blog({ articles, categories }) {
         />
       </Head>
       <Container maxWidth="md" component="ul" className={styles.container}>
-        <button onClick={clearCategoryFilter}>Clear</button>
-        {categories &&
-          categories.map((cat) => (
-            <button onClick={() => handleSelectCategory(cat.id)} key={cat.slug}>
-              {cat.name}
-            </button>
-          ))}
+        <div className={styles.chipContainer}>
+          <Chip
+            label="All"
+            onClick={() => clearCategoryFilter()}
+            color={category === null ? 'secondary' : 'primary'}
+            disabled={category === null}
+          />
+          {categories &&
+            categories.map((cat) => (
+              <Chip
+                label={cat.name}
+                key={cat.id}
+                onClick={() => handleSelectCategory(cat.id)}
+                color={category === cat.id ? 'secondary' : 'primary'}
+                disabled={category === cat.id}
+              />
+            ))}
+        </div>
         {articles &&
           state === null &&
           articles.results.map((article) => (
