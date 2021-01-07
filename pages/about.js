@@ -85,8 +85,7 @@ export default function About() {
           Engineer course and then landed my first job as a Lead Engineer to a
           subscription-based video streaming service. Lately I have been working
           on mobile app development with React Native and experimenting with web
-          design and UX. I like sharing my knowledge via my blog and making
-          tutorials on YouTube.
+          design and UX. I like sharing my knowledge via my blog.
         </Typography>
 
         <Box>
