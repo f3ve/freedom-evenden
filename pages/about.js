@@ -72,7 +72,7 @@ export default function About() {
           </IconButton>
           <IconButton
             color="primary"
-            href="mailto:free.eve@pm.me"
+            href="mailto:free.eve@protonmail.com"
             aria-label="email Freedom"
             rel="noreferrer"
           >
