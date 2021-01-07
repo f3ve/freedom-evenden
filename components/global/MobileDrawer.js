@@ -1,6 +1,5 @@
 import {
   Divider,
-  Drawer,
   List,
   ListItem,
   ListItemIcon,
@@ -13,7 +12,6 @@ import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import { colors } from '../../Theme';
-import RouterLink from './RouterLinks';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -68,26 +66,6 @@ export default function MobileDrawer({ open, showDrawer }) {
         </ListItem>
         <Divider />
       </List>
-      {/* <RouterLink
-        onClick={() => handleLinkClick('/about')}
-        text="About Me"
-        className={styles.link}
-        variant="h5"
-      />
-      <Divider />
-      <RouterLink
-        href="/blog"
-        text="Blog"
-        className={styles.link}
-        variant="h5"
-      />
-      <Divider />
-      <RouterLink
-        text="Portfolio"
-        href="/portfolio"
-        className={styles.link}
-        variant="h5"
-      /> */}
     </SwipeableDrawer>
   );
 }
