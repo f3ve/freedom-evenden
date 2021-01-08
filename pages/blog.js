@@ -4,7 +4,6 @@ import Head from 'next/head';
 import { useState } from 'react';
 import ArticleCard from '../components/home/ArticleCard';
 import { apiGet } from '../services/ArticleApiService';
-import { colors } from '../Theme';
 
 const useStyles = makeStyles((theme) => ({
   box: {

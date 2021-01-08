@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     backgroundColor: colors.background,
-    boxShadow: `0 0 10px 10px ${colors.background}`,
+    boxShadow: `0 0 5px 5px ${colors.background}`,
     zIndex: 2,
   },
 }));
