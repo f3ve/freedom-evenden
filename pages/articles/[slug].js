@@ -144,8 +144,8 @@ export default function ArticlePage({ article }) {
               <Grid item>
                 <Typography variant="body1" color="textPrimary" align="left">
                   Freedom is a Full-Stack Web Developer specializing in React
-                  and Python. he first learned how to code as an apprentice in
-                  Thinkful's Full-Stack Engineer course and then landed his
+                  and Python. He first learned how to code as an apprentice in
+                  Thinkful&apos;s Full-Stack Engineer course and then landed his
                   first job as a Lead Engineer to a subscription-based video
                   streaming service. Lately he&apos;s have been working on
                   mobile app development with React Native and experimenting
