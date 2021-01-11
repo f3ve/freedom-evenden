@@ -77,9 +77,9 @@ export default function ArticlePage({ article }) {
     <>
       <Head>
         <title>{article.title}</title>
-        <meta name="description" content={article.summary} />
+        <meta name="description" content={article.description} />
         <meta name="author" content="Freedom Evenden" />
-        <meta name="keywords" content={article.keywords} />
+        {/* <meta name="keywords" content={article.keywords} /> */}
       </Head>
       <Container
         maxWidth="md"
@@ -161,9 +161,9 @@ export default function ArticlePage({ article }) {
 }
 
 export async function getStaticPaths() {
-  const data = await apiGet('articles/?page_size=20');
+  const data = await apiGet('articles/');
 
-  const paths = data.results.map((article) => ({
+  const paths = data.map((article) => ({
     params: { slug: article.slug },
   }));
 
