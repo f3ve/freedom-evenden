@@ -77,7 +77,7 @@ export default function blog({ articles, categories }) {
         </div>
         {articles &&
           state === null &&
-          articles.results.map((article) => (
+          articles.map((article) => (
             <Box className={styles.box} component="li" key={article.id}>
               <ArticleCard article={article} />
             </Box>
@@ -94,8 +94,10 @@ export default function blog({ articles, categories }) {
 }
 
 export async function getStaticProps() {
-  const articles = await apiGet('articles/?page_size=20');
-  const categories = await apiGet('categories/');
+  const articles = await apiGet('articles/');
+  console.log(articles);
+  // const categories = await apiGet('categories/');
+  const categories = [];
   return {
     props: { articles, categories },
     revalidate: 1,

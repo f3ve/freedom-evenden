@@ -31,7 +31,7 @@ export default function ArticleCard({ article }, props) {
             {date} | Freeom Evenden
           </Typography>
           <Typography variant="body1" gutterBottom color="textPrimary">
-            {article.summary}
+            {article.description}
           </Typography>
         </Box>
         <Button
