@@ -40,7 +40,7 @@ export const projects = [
     JavaScript, and jQuery.`,
     clientRepo: 'https://github.com/Fevenden/Spacey',
     apiRepo: null,
-    live: 'https://fevenden.github.io/Spacey/',
+    live: 'https://f3ve.github.io/Spacey/',
   },
 ];
 

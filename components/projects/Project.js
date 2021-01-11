@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
   },
   container: {
+    listStyle: 'none',
     marginBottom: 50,
     position: 'relative',
     zIndex: 1,
@@ -35,7 +36,7 @@ export default function Project({ p }) {
 
   return (
     <Box className={styles.container} component="li">
-      <Card compont="li" className={styles.card}>
+      <Card className={styles.card}>
         <CardMedia image={p.img} className={styles.media} />
         <Divider />
         <CardHeader title={p.title} />
