@@ -163,7 +163,7 @@ export default function ArticlePage({ article }) {
 export async function getStaticPaths() {
   const data = await apiGet('articles/');
 
-  const paths = data.map((article) => ({
+  const paths = data.results.map((article) => ({
     params: { slug: article.slug },
   }));
 
