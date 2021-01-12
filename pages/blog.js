@@ -31,7 +31,7 @@ export default function blog({ articles, categories }) {
   const [category, setCategory] = useState(null);
 
   async function handleSelectCategory(cat) {
-    const res = await apiGet(`articles/?page_size=20&category=${cat}`);
+    const res = await apiGet(`articles?category=${cat}`);
     setCategory(cat);
     setState(res);
   }
@@ -77,7 +77,7 @@ export default function blog({ articles, categories }) {
         </div>
         {articles &&
           state === null &&
-          articles.map((article) => (
+          articles.results.map((article) => (
             <Box className={styles.box} component="li" key={article.id}>
               <ArticleCard article={article} />
             </Box>
@@ -95,9 +95,7 @@ export default function blog({ articles, categories }) {
 
 export async function getStaticProps() {
   const articles = await apiGet('articles/');
-  console.log(articles);
-  // const categories = await apiGet('categories/');
-  const categories = [];
+  const categories = await apiGet('categories/');
   return {
     props: { articles, categories },
     revalidate: 1,
