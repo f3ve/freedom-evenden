@@ -24,4 +24,16 @@ async function apiGet(endpoint) {
   return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
 }
 
-export { apiGet, postArticle };
+async function apiPostLogin(endpoint, data) {
+  const res = await fetch(`${config.API_BASE_URL}/${endpoint}/`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  return !res.ok ? res.json().then((e) => Promise.reject(e)) : 'yeet';
+}
+
+export { apiGet, postArticle, apiPostLogin };
