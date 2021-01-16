@@ -6,6 +6,7 @@ async function postArticle(endpoint, data) {
   */
   const res = await fetch(`${config.API_BASE_URL}/${endpoint}/`, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'content-type': 'application/json',
     },
