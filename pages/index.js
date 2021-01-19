@@ -41,7 +41,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="/Screenshot from 2020-12-20 12-51-49.png"
+          content="https://freedomevenden.com/Screenshot from 2020-12-20 12-51-49.png"
         />
         {/* End twitter meta tags */}
 
