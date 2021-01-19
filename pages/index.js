@@ -57,7 +57,16 @@ export default function Home() {
           name="google-site-verification"
           content="Lp9a1YPrBv963HrvdTAhuI1-nyyOZq1nNVRqA8lC1ao"
         />
-        <meta property="og:image" content="/preview.png" />
+        <meta
+          property="og:image"
+          content="https://freedomevenden.com/preview.png"
+        />
+        <meta property="og:title" content="Freedom Evenden" />
+        <meta
+          property="og:description"
+          content="Freedom Evenden's Web Development blog and portfolio"
+        />
+        <meta property="og:url" content="https://freedomevenden.com/" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth="sm">
