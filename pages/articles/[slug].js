@@ -80,6 +80,18 @@ export default function ArticlePage({ article }) {
         <meta name="description" content={article.summary} />
         <meta name="author" content="Freedom Evenden" />
         <meta name="keywords" content={article.keywords} />
+
+        {/* --- twitter meta tags --- */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Freedom Evenden" />
+        <meta name="twitter:site" content="@f3veDev" />
+        <meta name="twitter:creator" content="@f3veDev" />
+        <meta name="twitter:description" content={article.summary} />
+        <meta
+          name="twitter:image"
+          content="https://freedomevenden.com/preview.png"
+        />
+        {/* --- end twitter metta tags --- */}
       </Head>
       <Container
         maxWidth="md"
