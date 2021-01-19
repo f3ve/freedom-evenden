@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
@@ -32,6 +32,11 @@ export default function Editor() {
     format(new Date(), 'yyyy-MM-dd')
   );
   const [description, setdescription] = useState('');
+
+  useEffect(() => {
+    const { cookie } = document;
+    console.log(cookie);
+  }, []);
 
   function submitArticle(draft) {
     const data = {
