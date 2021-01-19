@@ -29,6 +29,22 @@ export default function Home() {
       <Head>
         <title>Freedom Evenden</title>
         <meta name="author" content="Freedom Evenden" />
+
+        {/* Twitter meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Freedom Evenden" />
+        <meta name="twitter:site" content="@f3veDev" />
+        <meta name="twitter:creator" content="@f3veDev" />
+        <meta
+          name="twitter:description"
+          content="Freedom Evenden's Web Development blog and portfolio"
+        />
+        <meta
+          name="twitter:image"
+          content="/Screenshot from 2020-12-20 12-51-49.png"
+        />
+        {/* End twitter meta tags */}
+
         <meta
           name="description"
           content="Freedom Evenden's Web Development blog and portfolio"
