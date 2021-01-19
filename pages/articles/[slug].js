@@ -83,7 +83,7 @@ export default function ArticlePage({ article }) {
 
         {/* --- twitter meta tags --- */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Freedom Evenden" />
+        <meta name="twitter:title" content={article.title} />
         <meta name="twitter:site" content="@f3veDev" />
         <meta name="twitter:creator" content="@f3veDev" />
         <meta name="twitter:description" content={article.summary} />
