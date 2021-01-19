@@ -92,6 +92,18 @@ export default function ArticlePage({ article }) {
           content="https://freedomevenden.com/preview.png"
         />
         {/* --- end twitter metta tags --- */}
+
+        <meta
+          property="og:image"
+          content="https://freedomevenden.com/preview.png"
+        />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.summary} />
+        <meta
+          property="og:url"
+          content={`https://freedomevenden.com/articles/${article.slug}`}
+        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container
         maxWidth="md"
