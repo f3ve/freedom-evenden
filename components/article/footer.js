@@ -21,6 +21,11 @@ const useStyles = makeStyles(() => ({
     maxWidth: 800,
     textAlign: 'center',
   },
+
+  authorImage: {
+    borderRadius: 10,
+    objectFit: 'cover',
+  },
 }));
 
 export default function Footer() {

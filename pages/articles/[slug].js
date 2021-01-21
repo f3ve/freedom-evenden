@@ -17,11 +17,6 @@ const useStyles = makeStyles(() => ({
     color: colors.white,
   },
 
-  footer: {
-    maxWidth: 800,
-    textAlign: 'center',
-  },
-
   container: {
     backgroundColor: colors.background,
     borderRadius: 20,
@@ -35,11 +30,6 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-
-  authorImage: {
-    borderRadius: 10,
-    objectFit: 'cover',
   },
 }));
 
