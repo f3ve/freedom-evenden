@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Box, Container, IconButton, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import EmailIcon from '@material-ui/icons/Email';
-import { makeStyles } from '@material-ui/styles';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -69,6 +70,15 @@ export default function About() {
             rel="noreferrer"
           >
             <GitHubIcon />
+          </IconButton>
+          <IconButton
+            color="primary"
+            href="https://twitter.com/f3veDev"
+            aria-label="Freedom's twitter account"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <TwitterIcon />
           </IconButton>
           <IconButton
             color="primary"

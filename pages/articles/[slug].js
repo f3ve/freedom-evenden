@@ -16,6 +16,7 @@ import Head from 'next/head';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MailIcon from '@material-ui/icons/Mail';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from '../../components/editor/CodeBlock';
 import Heading from '../../components/editor/Heading';
@@ -127,15 +128,34 @@ export default function ArticlePage({ article }) {
                   <IconButton
                     color="primary"
                     href="https://www.linkedin.com/in/freedom-evenden-dev/"
+                    target="_blank"
+                    aria-label="Freedom's LinkedIn profile."
+                    rel="noreferrer"
                   >
                     <LinkedInIcon />
                   </IconButton>
-                  <IconButton color="primary" href="https://github.com/f3ve">
+                  <IconButton
+                    color="primary"
+                    href="https://github.com/f3ve"
+                    rel="noreferrer"
+                    target="_blank"
+                    aria-label="Freedom's GitHub Profile"
+                  >
                     <GitHubIcon />
                   </IconButton>
                   <IconButton
                     color="primary"
+                    href="https://twitter.com/f3veDev"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Freedom's twitter profile"
+                  >
+                    <TwitterIcon />
+                  </IconButton>
+                  <IconButton
+                    color="primary"
                     href="mailto:free.eve@protonmail.com"
+                    aria-label="Email Freedom"
                   >
                     <MailIcon />
                   </IconButton>
