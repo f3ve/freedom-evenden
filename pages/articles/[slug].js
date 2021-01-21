@@ -23,6 +23,11 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     zIndex: 1,
     marginBottom: 20,
+    fontFamily: 'Roboto Condensed',
+    fontSize: 20,
+    '& h1 h2 h3 h4 h5 h6 h7': {
+      fontFamily: 'Roboto Slab',
+    },
   },
 
   loading: {
@@ -92,9 +97,9 @@ export default function ArticlePage({ article }) {
           source={article.content}
           renderers={{
             code: CodeBlock,
-            paragraph: Paragraph,
-            heading: Heading,
-            link: markdownLink,
+            // paragraph: Paragraph,
+            // heading: Heading,
+            // link: markdownLink,
           }}
         />
       </Container>
