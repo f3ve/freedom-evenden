@@ -5,8 +5,6 @@ import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from '../../components/editor/CodeBlock';
 import Heading from '../../components/editor/Heading';
-import markdownLink from '../../components/editor/markdownLink';
-import Paragraph from '../../components/editor/Paragraph';
 import { apiGet } from '../../services/ArticleApiService';
 import { colors } from '../../Theme';
 import Footer from '../../components/article/footer';
@@ -25,8 +23,26 @@ const useStyles = makeStyles(() => ({
     marginBottom: 20,
     fontFamily: 'Roboto Condensed',
     fontSize: 20,
-    '& h1 h2 h3 h4 h5 h6 h7': {
-      fontFamily: 'Roboto Slab',
+    '& p': {
+      lineHeight: 1.5,
+    },
+    '& a': {
+      color: colors.primary,
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
+
+    '& p code': {
+      backgroundColor: 'rgb(40, 44, 52)',
+      borderRadius: 5,
+      paddingRight: 2,
+      paddingLeft: 2,
+      color: colors.secondary,
+    },
+    '& img': {
+      maxWidth: '100%',
+      borderRadius: 10,
     },
   },
 
@@ -98,7 +114,7 @@ export default function ArticlePage({ article }) {
           renderers={{
             code: CodeBlock,
             // paragraph: Paragraph,
-            // heading: Heading,
+            heading: Heading,
             // link: markdownLink,
           }}
         />
