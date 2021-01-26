@@ -4,6 +4,7 @@ import {
   Chip,
   CircularProgress,
   Container,
+  Hidden,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
@@ -28,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(0.5),
     },
+  },
+  backdrop: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flexStart',
   },
 }));
 
@@ -83,10 +90,8 @@ export default function blog({ articles, categories }) {
                 disabled={category === cat.id}
               />
             ))}
+          {loading && <CircularProgress color="primary" size={30} />}
         </div>
-        <Backdrop open={loading}>
-          <CircularProgress color="primary" />
-        </Backdrop>
         {articles &&
           state === null &&
           articles.results.map((article) => (
