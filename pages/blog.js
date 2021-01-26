@@ -46,8 +46,8 @@ export default function blog({ articles, categories }) {
 
   async function handleSelectCategory(cat) {
     setLoading(true);
-    const res = await apiGet(`articles/?page_size=20&category=${cat}`);
     setCategory(cat);
+    const res = await apiGet(`articles/?page_size=20&category=${cat}`);
     setState(res);
     setLoading(false);
   }
