@@ -8,7 +8,9 @@ function theme(mode) {
         main: '#1ba098',
       },
       secondary: {
-        main: '#deb992',
+        light: '#c58c4d',
+        main: mode === 'dark' ? '#deb992' : '#c58c4d',
+        dark: '#deb992',
       },
       black: {
         main: '000000',
@@ -27,7 +29,7 @@ function theme(mode) {
       },
       background: {
         light: '#ffffff',
-        main: '#051622',
+        main: mode === 'dark' ? '#051622' : '#ffffff',
         dark: '#051622',
       },
     },

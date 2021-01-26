@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme) => {
     },
     appBar: {
       backgroundColor: theme.palette.background[lightDark],
-      boxShadow: `0 0 5px 5px ${theme.palette.background[lightDark]}`,
+      borderBottom: `1px solid ${theme.palette.divider}`,
+      boxShadow: 'none',
       zIndex: 2,
     },
   };

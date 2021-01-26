@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   container: {
-    backgroundColor: theme.palette.background,
-    borderRadius: 20,
+    backgroundColor: theme.palette.background.main,
+    borderLeft: `1px solid ${theme.palette.divider}`,
+    borderRight: `1px solid ${theme.palette.divider}`,
     position: 'relative',
     zIndex: 1,
     marginBottom: 20,
@@ -112,9 +113,7 @@ export default function ArticlePage({ article }) {
           source={article.content}
           renderers={{
             code: CodeBlock,
-            // paragraph: Paragraph,
             heading: Heading,
-            // link: markdownLink,
           }}
         />
       </Container>
