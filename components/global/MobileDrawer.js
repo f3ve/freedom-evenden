@@ -1,10 +1,10 @@
 import {
   Divider,
+  Drawer,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  SwipeableDrawer,
 } from '@material-ui/core';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -14,8 +14,11 @@ import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    backgroundColor: theme.palette.overlay,
+    backgroundColor: theme.palette.overlay.main,
     padding: theme.spacing(2),
+    '& li': {
+      color: theme.palette.primary.main,
+    },
   },
   link: {
     marginTop: theme.spacing(2),
@@ -34,7 +37,7 @@ export default function MobileDrawer({ open, showDrawer }) {
   }
 
   return (
-    <SwipeableDrawer
+    <Drawer
       open={open}
       onClose={() => showDrawer(false)}
       anchor="left"
@@ -45,26 +48,26 @@ export default function MobileDrawer({ open, showDrawer }) {
       <List>
         <ListItem onClick={() => handleLinkClick('/about')}>
           <ListItemIcon>
-            <InsertEmoticonIcon />
+            <InsertEmoticonIcon color="primary" />
           </ListItemIcon>
           <ListItemText>About Me</ListItemText>
         </ListItem>
         <Divider />
         <ListItem onClick={() => handleLinkClick('/blog')}>
           <ListItemIcon>
-            <DescriptionIcon />
+            <DescriptionIcon color="primary" />
           </ListItemIcon>
           <ListItemText>Blog</ListItemText>
         </ListItem>
         <Divider />
         <ListItem onClick={() => handleLinkClick('/portfolio')}>
           <ListItemIcon>
-            <BusinessCenterIcon />
+            <BusinessCenterIcon color="primary" />
           </ListItemIcon>
           <ListItemText>Portfolio</ListItemText>
         </ListItem>
         <Divider />
       </List>
-    </SwipeableDrawer>
+    </Drawer>
   );
 }
