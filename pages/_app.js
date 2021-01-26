@@ -13,8 +13,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const windowMode = window.localStorage.getItem('themeMode');
     const color = windowMode === 'light' ? '#ffffff' : '#051622';
-    console.log(color);
-    document.documentElement.style.setProperty('--backroundColor', color);
+    document.body.style.backgroundColor = color;
 
     if (windowMode && mode !== windowMode) {
       setMode(windowMode);
@@ -24,19 +23,11 @@ function MyApp({ Component, pageProps }) {
   function changeTheme() {
     if (mode === 'dark') {
       window.localStorage.setItem('themeMode', 'light');
-      document.documentElement.style.setProperty(
-        '--backgroundColor',
-        '#ffffff'
-      );
       setMode('light');
     }
 
     if (mode === 'light') {
       window.localStorage.setItem('themeMode', 'dark');
-      document.documentElement.style.setProperty(
-        '--backgroundColor',
-        '#051622'
-      );
       setMode('dark');
     }
   }

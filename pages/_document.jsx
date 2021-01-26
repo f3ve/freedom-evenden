@@ -11,7 +11,14 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta
+            name="theme-color"
+            content={
+              theme.palette.type === 'dark'
+                ? theme.palette.background.dark
+                : theme.palette.background.light
+            }
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
@@ -26,7 +33,6 @@ class MyDocument extends Document {
               body {
                 height: 100%;
                 width: 100%;
-                
               }
               *,
               *:after,
@@ -37,6 +43,9 @@ class MyDocument extends Document {
                 font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
                 font-size: 1rem;
                 margin: 0;
+                background-color: ${theme.palette.type === 'dark'
+                  ? theme.palette.background.dark
+                  : theme.palette.background.light};
               }
               a {
                 color: inherit;

@@ -1,16 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-// const colors = {
-//   secondary: '#deb992',
-//   primary: '#1ba098',
-//   accent: '#F4DB7D',
-//   black: '#000000',
-//   white: '#ffffff',
-//   overlay: 'rgba(0, 0, 0, 0.7)',
-//   darkGray: '#1f0530',
-//   background: '#051622',
-// };
-
 function theme(mode) {
   return createMuiTheme({
     palette: {
