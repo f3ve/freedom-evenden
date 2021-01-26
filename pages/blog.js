@@ -1,4 +1,10 @@
-import { Box, Chip, Container } from '@material-ui/core';
+import {
+  Backdrop,
+  Box,
+  Chip,
+  CircularProgress,
+  Container,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -29,11 +35,14 @@ export default function blog({ articles, categories }) {
   const styles = useStyles();
   const [state, setState] = useState(null);
   const [category, setCategory] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   async function handleSelectCategory(cat) {
+    setLoading(true);
     const res = await apiGet(`articles/?page_size=20&category=${cat}`);
     setCategory(cat);
     setState(res);
+    setLoading(false);
   }
 
   function clearCategoryFilter() {
@@ -75,6 +84,9 @@ export default function blog({ articles, categories }) {
               />
             ))}
         </div>
+        <Backdrop open={loading}>
+          <CircularProgress color="primary" />
+        </Backdrop>
         {articles &&
           state === null &&
           articles.results.map((article) => (
