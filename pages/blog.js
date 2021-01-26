@@ -1,11 +1,4 @@
-import {
-  Backdrop,
-  Box,
-  Chip,
-  CircularProgress,
-  Container,
-  Hidden,
-} from '@material-ui/core';
+import { Box, Chip, CircularProgress, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import { useState } from 'react';
