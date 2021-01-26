@@ -11,7 +11,7 @@ import Footer from '../../components/article/footer';
 const useStyles = makeStyles((theme) => ({
   mdWidth: {
     maxWidth: 800,
-    color: theme.palette.white.main,
+    color: theme.palette.text.primary,
   },
 
   container: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 5,
       paddingRight: 2,
       paddingLeft: 2,
-      color: theme.palette.secondary,
+      color: theme.palette.secondary.main,
     },
     '& img': {
       maxWidth: '100%',

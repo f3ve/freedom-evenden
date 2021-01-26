@@ -26,7 +26,7 @@ class MyDocument extends Document {
               body {
                 height: 100%;
                 width: 100%;
-                background-color: #051622;
+                
               }
               *,
               *:after,

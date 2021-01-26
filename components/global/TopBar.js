@@ -9,35 +9,41 @@ import {
   Slide,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
 import { useRouter } from 'next/router';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import RouterLink from './RouterLinks';
 import MobileDrawer from './MobileDrawer';
+import ThemeContext from '../../context/theme';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    marginBottom: theme.spacing(10),
-    height: '100%',
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  titleLink: {
-    flexGrow: 1,
-  },
-  link: {
-    marginRight: theme.spacing(1),
-    marginLeft: theme.spacing(2),
-  },
-  appBar: {
-    backgroundColor: theme.palette.background.main,
-    boxShadow: `0 0 5px 5px ${theme.palette.background.main}`,
-    zIndex: 2,
-  },
-}));
+const useStyles = makeStyles((theme) => {
+  const lightDark = theme.palette.type;
+  return {
+    root: {
+      flexGrow: 1,
+      marginBottom: theme.spacing(10),
+      height: '100%',
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    titleLink: {
+      flexGrow: 1,
+    },
+    link: {
+      marginRight: theme.spacing(1),
+      marginLeft: theme.spacing(2),
+    },
+    appBar: {
+      backgroundColor: theme.palette.background[lightDark],
+      boxShadow: `0 0 5px 5px ${theme.palette.background[lightDark]}`,
+      zIndex: 2,
+    },
+  };
+});
 
 export default function TopBar() {
   const styles = useStyles();
@@ -46,6 +52,7 @@ export default function TopBar() {
   const [drawer, showDrawer] = useState(false);
   const [topbar, showTopbar] = useState(false);
   const router = useRouter();
+  const themeContext = useContext(ThemeContext);
 
   useEffect(() => {
     if (router.pathname !== '/') {
@@ -96,6 +103,16 @@ export default function TopBar() {
               )}
               {matches && (
                 <>
+                  <IconButton
+                    color="primary"
+                    onClick={() => themeContext.changeTheme()}
+                  >
+                    {themeContext.mode === 'dark' ? (
+                      <Brightness4Icon />
+                    ) : (
+                      <Brightness7Icon />
+                    )}
+                  </IconButton>
                   <RouterLink
                     href="/blog"
                     text="Blog"

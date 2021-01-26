@@ -37,7 +37,9 @@ function theme(mode) {
         main: '#1f0530',
       },
       background: {
+        light: '#ffffff',
         main: '#051622',
+        dark: '#051622',
       },
     },
     overrides: {

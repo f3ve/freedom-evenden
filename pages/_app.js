@@ -11,22 +11,33 @@ function MyApp({ Component, pageProps }) {
   const [mode, setMode] = useState('dark');
 
   useEffect(() => {
-    const windowMode = window.localStorage.getItem('mode');
+    const windowMode = window.localStorage.getItem('themeMode');
+    const color = windowMode === 'light' ? '#ffffff' : '#051622';
+    console.log(color);
+    document.documentElement.style.setProperty('--backroundColor', color);
 
-    if (windowMode) {
+    if (windowMode && mode !== windowMode) {
       setMode(windowMode);
     }
-  }, []);
+  }, [mode]);
 
   function changeTheme() {
     if (mode === 'dark') {
+      window.localStorage.setItem('themeMode', 'light');
+      document.documentElement.style.setProperty(
+        '--backgroundColor',
+        '#ffffff'
+      );
       setMode('light');
-      window.localStorage.setItem('mode', 'light');
     }
 
     if (mode === 'light') {
+      window.localStorage.setItem('themeMode', 'dark');
+      document.documentElement.style.setProperty(
+        '--backgroundColor',
+        '#051622'
+      );
       setMode('dark');
-      window.localStorage.setItem('mode', 'dark');
     }
   }
 
