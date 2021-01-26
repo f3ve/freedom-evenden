@@ -118,17 +118,30 @@ export default function TopBar() {
                     href="/blog"
                     text="Blog"
                     className={styles.link}
-                    variant=""
+                    variant={
+                      router.pathname === '/blog' ? 'contained' : 'outlined'
+                    }
+                    disabled={router.pathname === '/blog'}
                   />
                   <RouterLink
                     text="Portfolio"
                     href="/portfolio"
                     className={styles.link}
+                    variant={
+                      router.pathname === '/portfolio'
+                        ? 'contained'
+                        : 'outlined'
+                    }
+                    disabled={router.pathname === '/portfolio'}
                   />
                   <RouterLink
                     href="/about"
                     text="About"
                     className={styles.link}
+                    variant={
+                      router.pathname === '/about' ? 'contained' : 'outlined'
+                    }
+                    disabled={router.pathname === '/about'}
                   />
                 </>
               )}

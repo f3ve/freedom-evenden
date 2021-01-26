@@ -1,7 +1,10 @@
 import { useRouter } from 'next/router';
 import { Button } from '@material-ui/core';
 
-export default function RouterLink({ href, text, className }, props) {
+export default function RouterLink(
+  { href, text, className, variant, disabled, classes },
+  props
+) {
   const router = useRouter();
 
   const handleLinkClick = (e) => {
@@ -15,6 +18,9 @@ export default function RouterLink({ href, text, className }, props) {
       {...props}
       onClick={handleLinkClick}
       className={className}
+      variant={variant}
+      disabled={disabled}
+      classes={{ ...classes }}
     >
       {text}
     </Button>
