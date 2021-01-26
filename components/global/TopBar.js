@@ -109,9 +109,9 @@ export default function TopBar() {
                     onClick={() => themeContext.changeTheme()}
                   >
                     {themeContext.mode === 'dark' ? (
-                      <Brightness4Icon />
-                    ) : (
                       <Brightness7Icon />
+                    ) : (
+                      <Brightness4Icon />
                     )}
                   </IconButton>
                   <RouterLink
