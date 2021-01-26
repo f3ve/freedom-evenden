@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     borderRight: `1px solid ${theme.palette.divider}`,
     position: 'relative',
     zIndex: 1,
-    marginBottom: 20,
     fontFamily: 'Roboto Condensed',
     fontSize: 20,
     '& p': {

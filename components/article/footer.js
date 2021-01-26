@@ -16,10 +16,17 @@ import MailIcon from '@material-ui/icons/Mail';
 import Image from 'next/image';
 import Heading from '../editor/Heading';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   footer: {
-    maxWidth: 800,
     textAlign: 'center',
+    position: 'relative',
+  },
+
+  main: {
+    position: 'relative',
+    zIndex: 1,
+    width: '100%',
+    backgroundColor: theme.palette.background.main,
   },
 
   authorImage: {
@@ -34,7 +41,7 @@ export default function Footer() {
   const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <>
+    <footer className={styles.main}>
       <Divider />
       <Container
         maxWidth="md"
@@ -100,15 +107,15 @@ export default function Footer() {
                 <Typography variant="body1" color="textPrimary" align="left">
                   Freedom is a full-stack web developer with experience building
                   responsive, mobile-first applications using React.js, Node.js,
-                  Express, Python, Django, and PostgreSQL. When he's not writing
-                  code he's usualy spending time with his wife, at the gym, or
-                  conquering his foes in strategy games.
+                  Express, Python, Django, and PostgreSQL. When he&apos;s not
+                  writing code he&apos;s usualy spending time with his wife, at
+                  the gym, or conquering his foes in strategy games.
                 </Typography>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Container>
-    </>
+    </footer>
   );
 }
