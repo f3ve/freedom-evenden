@@ -1,6 +1,16 @@
+import { useContext } from 'react';
 import Head from 'next/head';
-import { Box, Container, makeStyles, Typography } from '@material-ui/core';
+import {
+  Box,
+  Container,
+  IconButton,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
 import RouterLink from '../components/global/RouterLinks';
+import ThemeContext from '../context/theme';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -24,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home() {
   const styles = useStyles();
+  const themeContext = useContext(ThemeContext);
+
   return (
     <>
       <Head>
@@ -95,6 +107,16 @@ export default function Home() {
             text="Portfolio"
             className={styles.link}
           />
+          <IconButton
+            color="primary"
+            onClick={() => themeContext.changeTheme()}
+          >
+            {themeContext.mode === 'dark' ? (
+              <Brightness7Icon />
+            ) : (
+              <Brightness4Icon />
+            )}
+          </IconButton>
         </Box>
       </Container>
     </>
