@@ -11,11 +11,10 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
-import { colors } from '../../Theme';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    backgroundColor: colors.overlay,
+    backgroundColor: theme.palette.overlay,
     padding: theme.spacing(2),
   },
   link: {

@@ -15,7 +15,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import RouterLink from './RouterLinks';
 import MobileDrawer from './MobileDrawer';
-import { colors } from '../../Theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
   },
   appBar: {
-    backgroundColor: colors.background,
-    boxShadow: `0 0 5px 5px ${colors.background}`,
+    backgroundColor: theme.palette.background.main,
+    boxShadow: `0 0 5px 5px ${theme.palette.background.main}`,
     zIndex: 2,
   },
 }));

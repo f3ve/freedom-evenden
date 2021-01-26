@@ -6,17 +6,16 @@ import ReactMarkdown from 'react-markdown';
 import CodeBlock from '../../components/editor/CodeBlock';
 import Heading from '../../components/editor/Heading';
 import { apiGet } from '../../services/ArticleApiService';
-import { colors } from '../../Theme';
 import Footer from '../../components/article/footer';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   mdWidth: {
     maxWidth: 800,
-    color: colors.white,
+    color: theme.palette.white.main,
   },
 
   container: {
-    backgroundColor: colors.background,
+    backgroundColor: theme.palette.background,
     borderRadius: 20,
     position: 'relative',
     zIndex: 1,
@@ -27,7 +26,7 @@ const useStyles = makeStyles(() => ({
       lineHeight: 1.5,
     },
     '& a': {
-      color: colors.primary,
+      color: theme.palette.primary,
       '&:hover': {
         textDecoration: 'underline',
       },
@@ -38,7 +37,7 @@ const useStyles = makeStyles(() => ({
       borderRadius: 5,
       paddingRight: 2,
       paddingLeft: 2,
-      color: colors.secondary,
+      color: theme.palette.secondary,
     },
     '& img': {
       maxWidth: '100%',
