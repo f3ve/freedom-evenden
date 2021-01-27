@@ -1,4 +1,4 @@
-import { Box, Chip, Container } from '@material-ui/core';
+import { Box, Chip, CircularProgress, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -23,17 +23,26 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0.5),
     },
   },
+  backdrop: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flexStart',
+  },
 }));
 
 export default function blog({ articles, categories }) {
   const styles = useStyles();
   const [state, setState] = useState(null);
   const [category, setCategory] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   async function handleSelectCategory(cat) {
-    const res = await apiGet(`articles?category=${cat}`);
+    setLoading(true);
     setCategory(cat);
+    const res = await apiGet(`articles/?page_size=20&category=${cat}`);
     setState(res);
+    setLoading(false);
   }
 
   function clearCategoryFilter() {
@@ -74,6 +83,7 @@ export default function blog({ articles, categories }) {
                 disabled={category === cat.id}
               />
             ))}
+          {loading && <CircularProgress color="primary" size={30} />}
         </div>
         {articles &&
           state === null &&
@@ -96,6 +106,7 @@ export default function blog({ articles, categories }) {
 export async function getStaticProps() {
   const articles = await apiGet('articles/');
   const categories = await apiGet('categories/');
+  console.log(categories);
   return {
     props: { articles, categories },
     revalidate: 1,

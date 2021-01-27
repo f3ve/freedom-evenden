@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Box, Container, IconButton, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import EmailIcon from '@material-ui/icons/Email';
-import { makeStyles } from '@material-ui/styles';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: theme.spacing(20),
+    '& p': {
+      marginBottom: 20,
+    },
   },
   img: {
     borderRadius: 100,
@@ -66,9 +70,18 @@ export default function About() {
             href="https://github.com/f3ve"
             target="_blank"
             aria-label="Freedom's GitHub Profile"
-            rel="noreferrer"
+            rel="noopener"
           >
             <GitHubIcon />
+          </IconButton>
+          <IconButton
+            color="primary"
+            href="https://twitter.com/f3veDev"
+            aria-label="Freedom's twitter account"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <TwitterIcon />
           </IconButton>
           <IconButton
             color="primary"
@@ -80,28 +93,15 @@ export default function About() {
           </IconButton>
         </Box>
         <Typography color="textPrimary" zIndex={1} gutterBottom>
-          I am a Full-Stack Web Developer specializing in React and Python. I
-          first learned how to code as an apprentice in Thinkful's Full-Stack
-          Engineer course and then landed my first job as a Lead Engineer to a
-          subscription-based video streaming service. Lately I have been working
-          on mobile app development with React Native and experimenting with web
-          design and UX. I like sharing my knowledge via my blog.
+          Freedom is a full-stack web developer with experience building
+          responsive, mobile-first applications using React.js, Node.js,
+          Express, Python, Django, and PostgreSQL.
         </Typography>
 
-        <Box>
-          <Typography color="textPrimary">
-            Also this is my cat, Oliver!
-          </Typography>
-
-          <Image
-            src="/images/IMG_1248.jpg"
-            alt="A picture of Freedom's cat"
-            width={200}
-            height={200}
-            priority
-            className={styles.img}
-          />
-        </Box>
+        <Typography color="textPrimary" zIndex={1} gutterBottom>
+          When he's not writing code he's usualy spending time with his wife, at
+          the gym, or conquering his foes in strategy games.
+        </Typography>
       </Container>
     </>
   );

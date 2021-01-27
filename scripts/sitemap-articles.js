@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
 const fetch = require('node-fetch');
 const prettier = require('prettier');

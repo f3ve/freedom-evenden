@@ -52,6 +52,8 @@ export default function CustomBackground() {
               },
               {
                 src: '/images/react.png',
+                width: 50,
+                height: 50,
               },
             ],
           },

@@ -1,5 +1,14 @@
 export const projects = [
   {
+    title: 'Treasure Hunting AK',
+    img: '/images/treasure.png',
+    description:
+      'Treasure Hunting AK is an eCommerce site for a local Alaska reseller. I built the site using React.js, Next.js, Material-ui, and the eBay Developer API. The code is publicly available so please checkout the GitHub Link if you want to see some samples.',
+    clientRepo: 'https://github.com/Treasure-Hunting-AK/treasurehuntingak',
+    apiRepo: null,
+    live: 'https://treasurehuntingak.com',
+  },
+  {
     title: 'Avybe',
     img: '/images/Screenshot from 2020-12-20 12-14-41.png',
     description:
@@ -40,7 +49,7 @@ export const projects = [
     JavaScript, and jQuery.`,
     clientRepo: 'https://github.com/Fevenden/Spacey',
     apiRepo: null,
-    live: 'https://fevenden.github.io/Spacey/',
+    live: 'https://f3ve.github.io/Spacey/',
   },
 ];
 

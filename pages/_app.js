@@ -1,15 +1,40 @@
 import { ThemeProvider, Typography } from '@material-ui/core';
-import { CookiesProvider } from 'react-cookie';
+import { useState, useEffect } from 'react';
 import { theme } from '../Theme';
 import '../styles/globals.css';
 import 'fontsource-roboto';
 import TopBar from '../components/global/TopBar';
 import CustomBackground from '../components/global/CustomBackground';
+import ThemeContext from '../context/theme';
 
 function MyApp({ Component, pageProps }) {
+  const [mode, setMode] = useState('dark');
+
+  useEffect(() => {
+    const windowMode = window.localStorage.getItem('themeMode');
+    const color = windowMode === 'light' ? '#ffffff' : '#051622';
+    document.body.style.backgroundColor = color;
+
+    if (windowMode && mode !== windowMode) {
+      setMode(windowMode);
+    }
+  }, [mode]);
+
+  function changeTheme() {
+    if (mode === 'dark') {
+      window.localStorage.setItem('themeMode', 'light');
+      setMode('light');
+    }
+
+    if (mode === 'light') {
+      window.localStorage.setItem('themeMode', 'dark');
+      setMode('dark');
+    }
+  }
+
   return (
-    <CookiesProvider>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme(mode)}>
+      <ThemeContext.Provider value={{ mode, changeTheme }}>
         <noscript>
           <Typography color="textPrimary">
             It looks like JavaScript has been disabled in your browser. This
@@ -20,8 +45,8 @@ function MyApp({ Component, pageProps }) {
         <CustomBackground />
         <TopBar />
         <Component {...pageProps} />
-      </ThemeProvider>
-    </CookiesProvider>
+      </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 
