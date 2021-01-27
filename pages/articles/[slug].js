@@ -74,9 +74,6 @@ export default function ArticlePage({ article }) {
         <title>{article.title}</title>
         <meta name="description" content={article.description} />
         <meta name="author" content="Freedom Evenden" />
-<<<<<<< HEAD
-        {/* <meta name="keywords" content={article.keywords} /> */}
-=======
         <meta name="keywords" content={article.keywords} />
 
         {/* --- twitter meta tags --- */}
@@ -102,7 +99,6 @@ export default function ArticlePage({ article }) {
           content={`https://freedomevenden.com/articles/${article.slug}`}
         />
         <link rel="icon" href="/favicon.ico" />
->>>>>>> axios
       </Head>
       <Container
         maxWidth="md"
