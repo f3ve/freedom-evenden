@@ -86,7 +86,7 @@ export default function ArticlePage({ article }) {
           name="twitter:image"
           content="https://freedomevenden.com/preview.png"
         />
-        {/* --- end twitter metta tags --- */}
+        {/* --- end twitter meta tags --- */}
 
         <meta
           property="og:image"

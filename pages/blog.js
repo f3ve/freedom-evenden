@@ -106,6 +106,7 @@ export default function blog({ articles, categories }) {
 export async function getStaticProps() {
   const articles = await apiGet('articles/?page_size=20');
   const categories = await apiGet('categories/');
+  console.log(categories);
   return {
     props: { articles, categories },
     revalidate: 1,
