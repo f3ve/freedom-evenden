@@ -4,21 +4,18 @@ import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
 import { Button, Container, Grid, TextField } from '@material-ui/core';
 import CodeBlock from '../../components/editor/CodeBlock';
-import Paragraph from '../../components/editor/Paragraph';
 import Heading from '../../components/editor/Heading';
 import { postArticle } from '../../services/ArticleApiService';
-import markdownLink from '../../components/editor/markdownLink';
-import { colors } from '../../Theme';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   input: {
     width: '100%',
   },
   grid: {
-    backgroundColor: colors.background,
+    backgroundColor: theme.palette.background.main,
     height: '100%',
-    color: colors.white,
-    boxShadow: `0 0 100px 100px ${colors.background}`,
+    color: theme.palette.text.primary,
+    boxShadow: `0 0 100px 100px ${theme.palette.background.main}`,
   },
 }));
 
@@ -121,9 +118,7 @@ export default function Editor() {
             source={value}
             renderers={{
               code: CodeBlock,
-              paragraph: Paragraph,
               heading: Heading,
-              link: markdownLink,
             }}
           />
         </Container>

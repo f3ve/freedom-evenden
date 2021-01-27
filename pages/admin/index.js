@@ -19,17 +19,14 @@ export default function Admin() {
   });
   const [error, setError] = useState(null);
 
-  function handleLogin() {
-    apiPostLogin('auth/login', creds)
-      .then((woo) => {
-        console.log(woo);
-        setCreds({
-          email: '',
-          password: '',
-        });
-        router.push('/admin/editor');
-      })
-      .catch((err) => setError(err.error));
+  async function handleLogin() {
+    const res = await apiPostLogin('auth/login', creds);
+    if (res.status === 200) {
+      setCreds({ email: '', password: '' });
+      router.push('/admin/editor');
+    } else {
+      setError(res.error);
+    }
   }
 
   function handleUpdateCreds(key, val) {

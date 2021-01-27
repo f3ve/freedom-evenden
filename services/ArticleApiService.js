@@ -28,15 +28,18 @@ async function apiGet(endpoint) {
 }
 
 async function apiPostLogin(endpoint, data) {
-  const res = await fetch(`${config.API_BASE_URL}/${endpoint}/`, {
-    method: 'POST',
-    credentials: 'include',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-  return !res.ok ? res.json().then((e) => Promise.reject(e)) : 'yeet';
+  /*
+    Posts login data
+  */
+
+  try {
+    const res = await axios.post(`${config.API_BASE_URL}/${endpoint}/`, data, {
+      withCredentials: true,
+    });
+    return res;
+  } catch (err) {
+    return err.response.data;
+  }
 }
 
 export { apiGet, postArticle, apiPostLogin };
