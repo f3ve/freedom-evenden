@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { format } from 'date-fns';
+import cookie from 'cookie';
 import ReactMarkdown from 'react-markdown';
 import { makeStyles } from '@material-ui/styles';
 import { Button, Container, Grid, TextField } from '@material-ui/core';
+import jwt from 'jsonwebtoken';
 import CodeBlock from '../../components/editor/CodeBlock';
 import Heading from '../../components/editor/Heading';
 import { postArticle } from '../../services/ArticleApiService';
@@ -29,11 +31,6 @@ export default function Editor() {
     format(new Date(), 'yyyy-MM-dd')
   );
   const [description, setdescription] = useState('');
-
-  useEffect(() => {
-    const { cookie } = document;
-    console.log(cookie);
-  }, []);
 
   function submitArticle(draft) {
     const data = {
@@ -79,7 +76,7 @@ export default function Editor() {
             color="secondary"
             variant="filled"
             multiline
-            defaultValue="Summurize your article. Keep in mind this is the first thing users will read."
+            defaultValue="Summarize your article. Keep in mind this is the first thing users will read."
             onChange={(e) => {
               setdescription(e.target.value);
             }}
@@ -125,4 +122,18 @@ export default function Editor() {
       </Grid>
     </Grid>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  const cookies = cookie.parse(req.headers.cookie);
+  return jwt.verify(cookies.authcookie, process.env.JWT_SECRET, (err, data) => {
+    if (err) {
+      return { redirect: { destination: '/admin', permanent: false } };
+    }
+    if (data.user) {
+      return {
+        props: { user: data.user },
+      };
+    }
+  });
 }

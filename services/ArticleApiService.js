@@ -7,7 +7,9 @@ async function postArticle(endpoint, data) {
   */
 
   try {
-    const res = await axios.post(`${config.API_BASE_URL}/${endpoint}/`, data);
+    const res = await axios.post(`${config.API_BASE_URL}/${endpoint}/`, data, {
+      withCredentials: true,
+    });
     return res.data;
   } catch (err) {
     return err.data;
