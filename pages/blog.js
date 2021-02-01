@@ -10,12 +10,16 @@ const getPostsQuery = `*[_type == "post" ]{
   title,
   slug,
   publishedAt,
-  summary
+  summary,
+  'categories': categories[]->title
 }`;
 
-// const filterByCategory = `*[_type == "post" && $category in categories]`;
+const filterByCategory = `*[_type == "post" && $category._id in categories[]->_id]{
+  title, slug, publishedAt, summary, categories
+}`;
 
 const categoryQuery = `*[_type == "category" ]{
+  _id,
   title,
   description
 }`;
@@ -54,8 +58,11 @@ export default function blog({ articles, categories }) {
 
   async function handleSelectCategory(cat) {
     setLoading(true);
-    setCategory(cat);
-    const res = await apiGet(`articles/?page_size=20&category=${cat}`);
+    setCategory(cat._id);
+    console.log(cat);
+    // const res = await apiGet(`articles/?page_size=20&category=${cat}`);
+    const res = await Sanity.fetch(filterByCategory, { category: cat });
+    console.log(res);
     setState(res);
     setLoading(false);
   }
@@ -92,10 +99,10 @@ export default function blog({ articles, categories }) {
             categories.map((cat) => (
               <Chip
                 label={cat.title}
-                key={cat.id}
-                onClick={() => handleSelectCategory(cat.id)}
-                color={category === cat.id ? 'secondary' : 'primary'}
-                disabled={category === cat.id}
+                key={cat._id}
+                onClick={() => handleSelectCategory(cat)}
+                color={category === cat._id ? 'secondary' : 'primary'}
+                disabled={category === cat._id}
               />
             ))}
           {loading && <CircularProgress color="primary" size={30} />}
