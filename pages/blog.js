@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import { useState } from 'react';
 import ArticleCard from '../components/home/ArticleCard';
-import { apiGet } from '../services/ArticleApiService';
 import Sanity from '../sanity';
 
 const getPostsQuery = `*[_type == "post" ]{
@@ -14,7 +13,7 @@ const getPostsQuery = `*[_type == "post" ]{
   'categories': categories[]->title
 }`;
 
-const filterByCategory = `*[_type == "post" && $category._id in categories[]->_id]{
+const filterByCategory = `*[_type == "post" && $category in categories[]->_id]{
   title, slug, publishedAt, summary, categories
 }`;
 
@@ -59,10 +58,7 @@ export default function blog({ articles, categories }) {
   async function handleSelectCategory(cat) {
     setLoading(true);
     setCategory(cat._id);
-    console.log(cat);
-    // const res = await apiGet(`articles/?page_size=20&category=${cat}`);
-    const res = await Sanity.fetch(filterByCategory, { category: cat });
-    console.log(res);
+    const res = await Sanity.fetch(filterByCategory, { category: cat._id });
     setState(res);
     setLoading(false);
   }
