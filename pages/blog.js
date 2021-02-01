@@ -5,6 +5,7 @@ import { useState } from 'react';
 import ArticleCard from '../components/home/ArticleCard';
 import Sanity from '../sanity';
 
+// get all posts
 const getPostsQuery = `*[_type == "post" ]{
   title,
   slug,
@@ -13,10 +14,12 @@ const getPostsQuery = `*[_type == "post" ]{
   'categories': categories[]->title
 }`;
 
+// get posts for category
 const filterByCategory = `*[_type == "post" && $category in categories[]->_id]{
   title, slug, publishedAt, summary, categories
 }`;
 
+// get all categories
 const categoryQuery = `*[_type == "category" ]{
   _id,
   title,
@@ -142,6 +145,6 @@ export async function getStaticProps() {
   const categories = await Sanity.fetch(categoryQuery);
   return {
     props: { articles, categories },
-    revalidate: 1,
+    revalidate: 60,
   };
 }
