@@ -52,14 +52,30 @@ const useStyles = makeStyles((theme) => ({
 export default function blog({ articles, categories }) {
   const styles = useStyles();
   const [state, setState] = useState(null);
+  const [results, setResults] = useState({});
   const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(false);
 
   async function handleSelectCategory(cat) {
     setLoading(true);
     setCategory(cat._id);
+
+    // if results already cached populate state with saved results
+    if (results[cat._id]) {
+      setState(results[cat._id]);
+      setLoading(false);
+      return;
+    }
+
+    // else fetch results
     const res = await Sanity.fetch(filterByCategory, { category: cat._id });
     setState(res);
+
+    // save results in state be used later
+    setResults((cur) => ({
+      ...cur,
+      [cat._id]: res,
+    }));
     setLoading(false);
   }
 
