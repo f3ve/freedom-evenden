@@ -9,8 +9,11 @@ import Sanity from '../sanity';
 const getPostsQuery = `*[_type == "post" ]{
   title,
   slug,
-  publishedAt
+  publishedAt,
+  summary
 }`;
+
+// const filterByCategory = `*[_type == "post" && $category in categories]`;
 
 const categoryQuery = `*[_type == "category" ]{
   title,

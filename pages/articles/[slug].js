@@ -125,19 +125,13 @@ export default function ArticlePage({ article }) {
         }}
       >
         <Heading text={article.title} level={2} />
-        {/* <ReactMarkdown
-          source={article.body}
-          renderers={{
-            code: CodeBlock,
-            heading: Heading,
-          }}
-        /> */}
 
         <BlockContent
           blocks={article.body}
           serializers={{
             types: {
-              code: (props) => <CodeBlock {...props} />,
+              // eslint-disable-next-line react/display-name
+              code: CodeBlock,
             },
           }}
         />
