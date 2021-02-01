@@ -2,11 +2,20 @@ import { CircularProgress, Container, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import ReactMarkdown from 'react-markdown';
+import BlockContent from '@sanity/block-content-to-react';
 import CodeBlock from '../../components/editor/CodeBlock';
 import Heading from '../../components/editor/Heading';
-import { apiGet } from '../../services/ArticleApiService';
 import Footer from '../../components/article/footer';
+import Sanity from '../../sanity';
+
+const getPostsQuery = `*[_type == "post" ]{
+  slug
+}`;
+
+const singPostQuery = `*[_type == "post" && slug.current == $slug ]{
+  title,
+  body
+}[0]`;
 
 const useStyles = makeStyles((theme) => ({
   mdWidth: {
@@ -26,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: 1.5,
     },
     '& a': {
-      color: theme.palette.primary,
+      color: theme.palette.primary.main,
       '&:hover': {
         textDecoration: 'underline',
       },
@@ -42,6 +51,14 @@ const useStyles = makeStyles((theme) => ({
     '& img': {
       maxWidth: '100%',
       borderRadius: 10,
+    },
+    '& h1, h2, h3, h4': {
+      color: theme.palette.secondary.main,
+      fontFamily: 'Roboto Slab',
+      fontWeight: 'normal',
+    },
+    '& blockquote': {
+      fontStyle: 'italic',
     },
   },
 
@@ -108,11 +125,20 @@ export default function ArticlePage({ article }) {
         }}
       >
         <Heading text={article.title} level={2} />
-        <ReactMarkdown
-          source={article.content}
+        {/* <ReactMarkdown
+          source={article.body}
           renderers={{
             code: CodeBlock,
             heading: Heading,
+          }}
+        /> */}
+
+        <BlockContent
+          blocks={article.body}
+          serializers={{
+            types: {
+              code: (props) => <CodeBlock {...props} />,
+            },
           }}
         />
       </Container>
@@ -122,17 +148,15 @@ export default function ArticlePage({ article }) {
 }
 
 export async function getStaticPaths() {
-  const data = await apiGet('articles/?page_size=20');
-
-  const paths = data.results.map((article) => ({
-    params: { slug: article.slug },
+  const data = await Sanity.fetch(getPostsQuery);
+  const paths = data.map((article) => ({
+    params: { slug: article.slug.current },
   }));
-
   return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
-  const data = await apiGet(`articles/${params.slug}`);
+  const data = await Sanity.fetch(singPostQuery, { slug: params.slug });
   return {
     props: { article: data },
   };

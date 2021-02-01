@@ -17,10 +17,11 @@ export default function ArticleCard({ article }, props) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    router.push(`/articles/${article.slug}`);
+    console.log(article);
+    router.push(`/articles/${article.slug.current}`);
   };
 
-  const date = format(new Date(article.publish_date), 'MMMM d, yyyy');
+  const date = format(new Date(article.publishedAt), 'MMMM d, yyyy');
 
   return (
     <>

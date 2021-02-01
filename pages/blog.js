@@ -4,6 +4,18 @@ import Head from 'next/head';
 import { useState } from 'react';
 import ArticleCard from '../components/home/ArticleCard';
 import { apiGet } from '../services/ArticleApiService';
+import Sanity from '../sanity';
+
+const getPostsQuery = `*[_type == "post" ]{
+  title,
+  slug,
+  publishedAt
+}`;
+
+const categoryQuery = `*[_type == "category" ]{
+  title,
+  description
+}`;
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -76,7 +88,7 @@ export default function blog({ articles, categories }) {
           {categories &&
             categories.map((cat) => (
               <Chip
-                label={cat.name}
+                label={cat.title}
                 key={cat.id}
                 onClick={() => handleSelectCategory(cat.id)}
                 color={category === cat.id ? 'secondary' : 'primary'}
@@ -87,13 +99,13 @@ export default function blog({ articles, categories }) {
         </div>
         {articles &&
           state === null &&
-          articles.results.map((article) => (
+          articles.map((article) => (
             <Box className={styles.box} component="li" key={article.id}>
               <ArticleCard article={article} />
             </Box>
           ))}
         {state !== null &&
-          state.results.map((article) => (
+          state.map((article) => (
             <Box className={styles.box} component="li" key={article.id}>
               <ArticleCard article={article} />
             </Box>
@@ -104,8 +116,8 @@ export default function blog({ articles, categories }) {
 }
 
 export async function getStaticProps() {
-  const articles = await apiGet('articles/?page_size=20');
-  const categories = await apiGet('categories/');
+  const articles = await Sanity.fetch(getPostsQuery);
+  const categories = await Sanity.fetch(categoryQuery);
   return {
     props: { articles, categories },
     revalidate: 1,

@@ -1,10 +1,10 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-export default function constructor(props) {
+export default function CodeBlock(props) {
   return (
     <SyntaxHighlighter
-      language={props.language}
+      language={props.node.language}
       style={atomOneDark}
       showLineNumbers
       customStyle={{
@@ -12,7 +12,7 @@ export default function constructor(props) {
         fontSize: 16,
       }}
     >
-      {props.value || ''}
+      {props.node.code || ''}
     </SyntaxHighlighter>
   );
 }
