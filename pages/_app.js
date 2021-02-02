@@ -1,4 +1,4 @@
-import { ThemeProvider, Typography } from '@material-ui/core';
+import { makeStyles, ThemeProvider, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import '../styles/globals.css';
 import 'fontsource-roboto';
@@ -6,8 +6,22 @@ import { theme } from '../Theme';
 import TopBar from '../components/global/TopBar';
 import CustomBackground from '../components/global/CustomBackground';
 import ThemeContext from '../context/theme';
+import Footer from '../components/global/Footer';
+
+const useStyles = makeStyles(() => ({
+  pageContainer: {
+    position: 'relative',
+    minHeight: '100vh',
+  },
+
+  contentContainer: {
+    height: 'fit-content',
+    paddingBottom: '2.5rem',
+  },
+}));
 
 function MyApp({ Component, pageProps }) {
+  const styles = useStyles();
   const [mode, setMode] = useState('dark');
 
   useEffect(() => {
@@ -42,9 +56,14 @@ function MyApp({ Component, pageProps }) {
             experience it as it was intended!
           </Typography>
         </noscript>
-        <CustomBackground />
-        <TopBar />
-        <Component {...pageProps} />
+        <div className={styles.pageContainer}>
+          <CustomBackground />
+          <div className={styles.contentContainer}>
+            <TopBar />
+            <Component {...pageProps} />
+          </div>
+          <Footer />
+        </div>
       </ThemeContext.Provider>
     </ThemeProvider>
   );
