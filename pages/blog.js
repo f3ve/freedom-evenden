@@ -37,37 +37,51 @@ const useStyles = makeStyles((theme) => ({
 
 export default function blog({ articles, categories }) {
   const styles = useStyles();
-  const [state, setState] = useState(null);
   const [results, setResults] = useState({});
-  const [category, setCategory] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState({
+    data: null,
+    loading: false,
+    category: null,
+  });
 
   async function handleSelectCategory(cat) {
-    setLoading(true);
-    setCategory(cat._id);
+    setState((cur) => ({
+      ...cur,
+      loading: true,
+      category: cat._id,
+    }));
 
     // if results already cached populate state with saved results
     if (results[cat._id]) {
-      setState(results[cat._id]);
-      setLoading(false);
+      setState((cur) => ({
+        ...cur,
+        loading: false,
+        data: results[cat._id],
+      }));
       return;
     }
 
     // else fetch results
     const res = await getPostsByCategory(cat._id);
-    setState(res);
+    setState((cur) => ({
+      ...cur,
+      loading: false,
+      data: res,
+    }));
 
     // save results in state be used later
     setResults((cur) => ({
       ...cur,
       [cat._id]: res,
     }));
-    setLoading(false);
   }
 
   function clearCategoryFilter() {
-    setState(null);
-    setCategory(null);
+    setState({
+      data: null,
+      loading: false,
+      category: null,
+    });
   }
 
   return (
@@ -90,8 +104,8 @@ export default function blog({ articles, categories }) {
           <Chip
             label="All"
             onClick={() => clearCategoryFilter()}
-            color={category === null ? 'secondary' : 'primary'}
-            disabled={category === null}
+            color={state.category === null ? 'secondary' : 'primary'}
+            disabled={state.category === null}
           />
           {categories &&
             categories.map((cat) => (
@@ -99,21 +113,21 @@ export default function blog({ articles, categories }) {
                 label={cat.title}
                 key={cat._id}
                 onClick={() => handleSelectCategory(cat)}
-                color={category === cat._id ? 'secondary' : 'primary'}
-                disabled={category === cat._id}
+                color={state.category === cat._id ? 'secondary' : 'primary'}
+                disabled={state.category === cat._id}
               />
             ))}
-          {loading && <CircularProgress color="primary" size={30} />}
+          {state.loading && <CircularProgress color="primary" size={30} />}
         </div>
         {articles &&
-          state === null &&
+          state.data === null &&
           articles.map((article) => (
             <Box className={styles.box} component="li" key={article.id}>
               <ArticleCard article={article} />
             </Box>
           ))}
-        {state !== null &&
-          state.map((article) => (
+        {state.data !== null &&
+          state.data.map((article) => (
             <Box className={styles.box} component="li" key={article.id}>
               <ArticleCard article={article} />
             </Box>
