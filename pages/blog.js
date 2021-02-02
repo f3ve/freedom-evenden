@@ -3,28 +3,11 @@ import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import { useState } from 'react';
 import ArticleCard from '../components/home/ArticleCard';
-import Sanity from '../sanity';
-
-// get all posts
-const getPostsQuery = `*[_type == "post" ]{
-  title,
-  slug,
-  publishedAt,
-  summary,
-  'categories': categories[]->title
-}`;
-
-// get posts for category
-const filterByCategory = `*[_type == "post" && $category in categories[]->_id]{
-  title, slug, publishedAt, summary, categories
-}`;
-
-// get all categories
-const categoryQuery = `*[_type == "category" ]{
-  _id,
-  title,
-  description
-}`;
+import {
+  getCategories,
+  getPosts,
+  getPostsByCategory,
+} from '../services/ArticleApiService';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -71,7 +54,7 @@ export default function blog({ articles, categories }) {
     }
 
     // else fetch results
-    const res = await Sanity.fetch(filterByCategory, { category: cat._id });
+    const res = await getPostsByCategory(cat._id);
     setState(res);
 
     // save results in state be used later
@@ -141,8 +124,8 @@ export default function blog({ articles, categories }) {
 }
 
 export async function getStaticProps() {
-  const articles = await Sanity.fetch(getPostsQuery);
-  const categories = await Sanity.fetch(categoryQuery);
+  const articles = await getPosts();
+  const categories = await getCategories();
   return {
     props: { articles, categories },
     revalidate: 60,

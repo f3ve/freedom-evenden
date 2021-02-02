@@ -12,12 +12,12 @@ function getPosts() {
   return Sanity.fetch(query);
 }
 
-function getPostsByCategory(cat) {
+function getPostsByCategory(category) {
   const query = `*[_type == "post" && $category in categories[]->_id]{
     title, slug, publishedAt, summary, categories
   }`;
 
-  return Sanity.fetch(query, { category: cat._id });
+  return Sanity.fetch(query, { category });
 }
 
 function getCategories() {
@@ -29,13 +29,13 @@ function getCategories() {
   return Sanity.fetch(categoryQuery);
 }
 
-function getArticle() {
+function getArticle(slug) {
   const query = `*[_type == "post" && slug.current == $slug ]{
     title,
     body
   }[0]`;
 
-  return Sanity.fetch(query);
+  return Sanity.fetch(query, { slug });
 }
 
 function getPostSlugs() {

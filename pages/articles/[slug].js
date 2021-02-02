@@ -6,16 +6,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import CodeBlock from '../../components/editor/CodeBlock';
 import Heading from '../../components/editor/Heading';
 import Footer from '../../components/article/footer';
-import Sanity from '../../sanity';
-
-const getPostsQuery = `*[_type == "post" ]{
-  slug
-}`;
-
-const singPostQuery = `*[_type == "post" && slug.current == $slug ]{
-  title,
-  body
-}[0]`;
+import { getArticle, getPostSlugs } from '../../services/ArticleApiService';
 
 const useStyles = makeStyles((theme) => ({
   mdWidth: {
@@ -142,7 +133,7 @@ export default function ArticlePage({ article }) {
 }
 
 export async function getStaticPaths() {
-  const data = await Sanity.fetch(getPostsQuery);
+  const data = await getPostSlugs();
   const paths = data.map((article) => ({
     params: { slug: article.slug.current },
   }));
@@ -150,7 +141,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await Sanity.fetch(singPostQuery, { slug: params.slug });
+  const data = await getArticle(params.slug);
   return {
     props: { article: data },
   };
