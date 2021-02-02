@@ -1,9 +1,16 @@
-import { Container } from '@material-ui/core';
+import { Container, makeStyles } from '@material-ui/core';
 import Head from 'next/head';
 import { projects } from '../store';
 import Project from '../components/projects/Project';
 
+const useStyles = makeStyles((theme) => ({
+  container: {
+    paddingTop: theme.spacing(8),
+  },
+}));
+
 export default function portfolio() {
+  const styles = useStyles();
   return (
     <>
       <Head>
@@ -19,7 +26,7 @@ export default function portfolio() {
           key="app"
         />
       </Head>
-      <Container maxWidth="md" component="ul">
+      <Container maxWidth="md" component="ul" className={styles.container}>
         {projects.map((p) => (
           <Project p={p} key={p.title} />
         ))}

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     position: 'relative',
     zIndex: 1,
-    marginTop: theme.spacing(15),
+    marginTop: theme.spacing(10),
   },
   chipContainer: {
     display: 'flex',

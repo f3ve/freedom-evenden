@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: theme.breakpoints.down('sm') ? 'flexStart' : 'center',
+    marginTop: theme.spacing(10),
     alignItems: 'center',
   },
   gridContainer: {

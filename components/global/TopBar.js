@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => {
 export default function TopBar() {
   const styles = useStyles();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   const [drawer, showDrawer] = useState(false);
   const [topbar, showTopbar] = useState(false);
   const router = useRouter();

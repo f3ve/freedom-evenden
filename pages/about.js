@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
+    paddingTop: theme.spacing(10),
     alignItems: 'center',
     paddingBottom: theme.spacing(20),
     '& p': {
