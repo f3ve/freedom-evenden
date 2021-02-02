@@ -102,21 +102,6 @@ export default function About() {
           When he's not writing code he's usualy spending time with his wife, at
           the gym, or conquering his foes in strategy games.
         </Typography>
-
-        {/* <Box>
-          <Typography color="textPrimary">
-            Also this is my cat, Oliver!
-          </Typography>
-
-          <Image
-            src="/images/IMG_1248.jpg"
-            alt="A picture of Freedom's cat"
-            width={200}
-            height={200}
-            priority
-            className={styles.img}
-          />
-        </Box> */}
       </Container>
     </>
   );

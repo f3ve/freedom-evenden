@@ -104,7 +104,12 @@ export default function Footer() {
                 </ButtonGroup>
               </Grid>
               <Grid item>
-                <Typography variant="body1" color="textPrimary" align="left">
+                <Typography
+                  variant="body1"
+                  color="textPrimary"
+                  align="left"
+                  gutterBottom
+                >
                   Freedom is a full-stack web developer with experience building
                   responsive, mobile-first applications using React.js, Node.js,
                   Express, Python, Django, and PostgreSQL. When he&apos;s not

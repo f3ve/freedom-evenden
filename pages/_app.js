@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
 
   contentContainer: {
     height: 'fit-content',
-    paddingBottom: '2.5rem',
+    paddingBottom: '3rem',
   },
 }));
 

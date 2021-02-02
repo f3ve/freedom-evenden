@@ -4,11 +4,14 @@ import format from 'date-fns/format';
 const useStyles = makeStyles((theme) => ({
   footer: {
     position: 'absolute',
+    height: '3rem',
     width: '100%',
     display: 'flex',
     bottom: 0,
     padding: 5,
     alignItems: 'center',
+    backgroundColor: theme.palette.background.main,
+    borderTop: `1px solid ${theme.palette.divider}`,
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
       flexDirection: 'column',

@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     fontFamily: 'Roboto Condensed',
     fontSize: 20,
+    paddingBottom: 20,
     '& p': {
       lineHeight: 1.5,
     },
