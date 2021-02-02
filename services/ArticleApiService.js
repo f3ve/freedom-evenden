@@ -1,27 +1,55 @@
-import config from '../config';
+import Sanity from '../sanity';
 
-async function postArticle(endpoint, data) {
-  /* 
-    Posts data to specified endpoint
-  */
-  const res = await fetch(`${config.API_BASE_URL}/${endpoint}/`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-  return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
+function getPosts() {
+  const query = `*[_type == "post" ]{
+    title,
+    slug,
+    publishedAt,
+    summary,
+    'categories': categories[]->title
+  }`;
+
+  return Sanity.fetch(query);
 }
 
-async function apiGet(endpoint) {
-  /* 
-    fetches data from requested endpoint
-  */
-  const res = await fetch(`${config.API_BASE_URL}/${endpoint}`, {
-    method: 'GET',
-  });
-  return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
+function getPostsByCategory(cat) {
+  const query = `*[_type == "post" && $category in categories[]->_id]{
+    title, slug, publishedAt, summary, categories
+  }`;
+
+  return Sanity.fetch(query, { category: cat._id });
 }
 
-export { apiGet, postArticle };
+function getCategories() {
+  const categoryQuery = `*[_type == "category" ]{
+    _id,
+    title,
+    description
+  }`;
+  return Sanity.fetch(categoryQuery);
+}
+
+function getArticle() {
+  const query = `*[_type == "post" && slug.current == $slug ]{
+    title,
+    body
+  }[0]`;
+
+  return Sanity.fetch(query);
+}
+
+function getPostSlugs() {
+  const query = `*[_type == "post" ]{
+    slug
+  }`;
+
+  return Sanity.fetch(query);
+}
+
+export {
+  getPosts,
+  getPostsByCategory,
+  getCategories,
+  getArticle,
+  getPostSlugs,
+};
