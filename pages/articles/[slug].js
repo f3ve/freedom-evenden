@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.main,
     borderLeft: `1px solid ${theme.palette.divider}`,
     borderRight: `1px solid ${theme.palette.divider}`,
+    paddingTop: 80,
     position: 'relative',
     zIndex: 1,
     fontFamily: 'Roboto Condensed',
