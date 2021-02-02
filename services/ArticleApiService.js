@@ -1,7 +1,7 @@
 import Sanity from '../sanity';
 
 function getPosts() {
-  const query = `*[_type == "post" ]{
+  const query = `*[_type == "post" ] | order(publishedAt desc){
     title,
     slug,
     publishedAt,
@@ -13,7 +13,7 @@ function getPosts() {
 }
 
 function getPostsByCategory(category) {
-  const query = `*[_type == "post" && $category in categories[]->_id]{
+  const query = `*[_type == "post" && $category in categories[]->_id] | order(publishedAt desc){
     title, slug, publishedAt, summary, categories
   }`;
 
