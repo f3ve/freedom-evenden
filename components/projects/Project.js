@@ -46,13 +46,13 @@ export default function Project({ p }) {
           </Typography>
         </CardContent>
         <CardActionArea>
-          {p.clientRepo !== null && (
+          {p.clientRepo && (
             <IconButton
               href={p.clientRepo}
               color="primary"
               target="_blank"
               aria-label="GitHub Repo"
-              rel="noreferrer"
+              // rel="noreferrer"
             >
               <GitHubIcon />
             </IconButton>
@@ -62,7 +62,7 @@ export default function Project({ p }) {
             color="primary"
             aria-label="Live website"
             target="_blank"
-            rel="noreferrer"
+            // rel="noreferrer"
           >
             <WebIcon />
           </IconButton>

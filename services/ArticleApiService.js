@@ -46,10 +46,22 @@ function getPostSlugs() {
   return Sanity.fetch(query);
 }
 
+function getProjects() {
+  const query = `*[_type == 'project'] | order(dateCompleted desc) {
+    title,
+    description,
+    clientRepo,
+    live,
+    'img': image.asset->url
+  }`;
+  return Sanity.fetch(query);
+}
+
 export {
   getPosts,
   getPostsByCategory,
   getCategories,
   getArticle,
   getPostSlugs,
+  getProjects,
 };

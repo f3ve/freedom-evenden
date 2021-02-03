@@ -1,7 +1,8 @@
 import { Container, makeStyles } from '@material-ui/core';
 import Head from 'next/head';
-import { projects } from '../store';
+// import { projects } from '../store';
 import Project from '../components/projects/Project';
+import { getProjects } from '../services/ArticleApiService';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -9,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function portfolio() {
+export default function portfolio({ projects }) {
   const styles = useStyles();
   return (
     <>
@@ -33,4 +34,11 @@ export default function portfolio() {
       </Container>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const projects = await getProjects();
+  return {
+    props: { projects },
+  };
 }
