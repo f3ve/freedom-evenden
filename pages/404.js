@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Avatar, Container, makeStyles, Typography } from '@material-ui/core';
+import Image from 'next/image';
+import { Container, makeStyles, Typography } from '@material-ui/core';
 import RouterLinks from '../components/global/RouterLinks';
 
 const useStyles = makeStyles(() => ({
@@ -9,8 +10,8 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
   },
   img: {
-    height: 200,
-    width: 200,
+    objectFit: 'cover',
+    borderRadius: 150,
   },
 }));
 
@@ -24,12 +25,13 @@ export default function NotFound() {
       </Typography>
       <Typography variant="body1" color="textPrimary" gutterBottom>
         Oops, Looks like this page doesn't exist. But don't worry! Here is a
-        picture of my cat.
+        picture of my cat to make it better.
       </Typography>
-      <Avatar
+      <Image
         src="/images/IMG_1248.jpg"
         className={styles.img}
-        variant="rounded"
+        width={300}
+        height={300}
       />
       <RouterLinks text="Click here to go back to the site" href="/" />
     </Container>

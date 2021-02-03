@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   authorImage: {
-    borderRadius: 10,
+    borderRadius: 125,
     objectFit: 'cover',
   },
 }));
