@@ -12,12 +12,9 @@ import {
 import { makeStyles } from '@material-ui/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import WebIcon from '@material-ui/icons/Web';
+import Image from 'next/image';
 
 const useStyles = makeStyles((theme) => ({
-  media: {
-    height: 0,
-    paddingTop: '56.25%',
-  },
   card: {
     margin: theme.spacing(2),
     backgroundColor: 'transparent',
@@ -37,7 +34,11 @@ export default function Project({ p }) {
   return (
     <Box className={styles.container} component="li">
       <Card className={styles.card}>
-        <CardMedia image={p.img} className={styles.media} />
+        <CardMedia
+          component={() => (
+            <Image src={p.img} width={1280} height={720} priority />
+          )}
+        />
         <Divider />
         <CardHeader title={p.title} />
         <CardContent className={styles.content}>
