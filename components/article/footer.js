@@ -72,14 +72,14 @@ export default function Footer() {
                     href="https://www.linkedin.com/in/freedom-evenden-dev/"
                     target="_blank"
                     aria-label="Freedom's LinkedIn profile."
-                    rel="noreferrer"
+                    rel="noopener"
                   >
                     <LinkedInIcon />
                   </IconButton>
                   <IconButton
                     color="primary"
                     href="https://github.com/f3ve"
-                    rel="noreferrer"
+                    rel="noopener"
                     target="_blank"
                     aria-label="Freedom's GitHub Profile"
                   >
@@ -89,7 +89,7 @@ export default function Footer() {
                     color="primary"
                     href="https://twitter.com/f3veDev"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener"
                     aria-label="Freedom's twitter profile"
                   >
                     <TwitterIcon />

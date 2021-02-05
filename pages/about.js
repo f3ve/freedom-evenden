@@ -63,7 +63,7 @@ export default function About() {
             target="_blank"
             href="https://www.linkedin.com/in/freedom-evenden-dev/"
             aria-label="Freedom's LinkedIn"
-            rel="noreferrer"
+            rel="noopener"
           >
             <LinkedIn />
           </IconButton>
@@ -72,7 +72,7 @@ export default function About() {
             href="https://github.com/f3ve"
             target="_blank"
             aria-label="Freedom's GitHub Profile"
-            rel="noreferrer"
+            rel="noopener"
           >
             <GitHubIcon />
           </IconButton>
@@ -81,7 +81,7 @@ export default function About() {
             href="https://twitter.com/f3veDev"
             aria-label="Freedom's twitter account"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener"
           >
             <TwitterIcon />
           </IconButton>
@@ -89,7 +89,7 @@ export default function About() {
             color="primary"
             href="mailto:free.eve@protonmail.com"
             aria-label="email Freedom"
-            rel="noreferrer"
+            rel="noopener"
           >
             <EmailIcon />
           </IconButton>

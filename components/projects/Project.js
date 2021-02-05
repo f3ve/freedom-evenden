@@ -53,7 +53,7 @@ export default function Project({ p }) {
               color="primary"
               target="_blank"
               aria-label="GitHub Repo"
-              // rel="noreferrer"
+              rel="noopener"
             >
               <GitHubIcon />
             </IconButton>
@@ -63,7 +63,7 @@ export default function Project({ p }) {
             color="primary"
             aria-label="Live website"
             target="_blank"
-            // rel="noreferrer"
+            rel="noopener"
           >
             <WebIcon />
           </IconButton>
