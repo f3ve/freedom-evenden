@@ -4,7 +4,6 @@ import {
   CardActionArea,
   CardContent,
   CardHeader,
-  CardMedia,
   Divider,
   IconButton,
   Typography,
@@ -26,6 +25,26 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     zIndex: 1,
   },
+  placeholderImg: {
+    position: 'absolute',
+    height: 495,
+    maxHeight: '100%',
+    /* Adjust the content to fit */
+    objectFit: 'contain',
+    objectPosition: 'center',
+    /* Blur the image and scale to avoid transparent corners */
+    filter: 'blur(20px)',
+    transform: 'scale(1.1)',
+    borderRadius: 100,
+  },
+
+  imgContainer: {
+    position: 'relative',
+    width: '100%',
+    height: 495,
+    maxHeight: '56.26%',
+    overflow: 'hidden',
+  },
 }));
 
 export default function Project({ p }) {
@@ -34,11 +53,14 @@ export default function Project({ p }) {
   return (
     <Box className={styles.container} component="li">
       <Card className={styles.card}>
-        <CardMedia
-          component={() => (
-            <Image src={p.img} width={1280} height={720} priority />
-          )}
-        />
+        <div className={styles.imgContainer}>
+          <img
+            src={p.placeholderImg}
+            alt="0"
+            className={styles.placeholderImg}
+          />
+          <Image src={p.img} width={1280} height={720} priority />
+        </div>
         <Divider />
         <CardHeader title={p.title} />
         <CardContent className={styles.content}>

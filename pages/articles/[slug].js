@@ -1,6 +1,8 @@
 import { CircularProgress, Container, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';
+import { getBase64 } from '@plaiceholder/base64';
+import { getImage } from '@plaiceholder/next';
 import Head from 'next/head';
 import BlockContent from '@sanity/block-content-to-react';
 import CodeBlock from '../../components/editor/CodeBlock';
@@ -63,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ArticlePage({ article }) {
+export default function ArticlePage({ article, imgBase64, imgSrc }) {
   const styles = useStyles();
   const router = useRouter();
 
@@ -129,7 +131,7 @@ export default function ArticlePage({ article }) {
           }}
         />
       </Container>
-      <Footer />
+      <Footer imgBase64={imgBase64} imgSrc={imgSrc} />
     </>
   );
 }
@@ -143,8 +145,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await getArticle(params.slug);
+  const article = await getArticle(params.slug);
+  const imgSrc = '/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg';
+  const img = await getImage(imgSrc);
+  const imgBase64 = await getBase64(img);
+
   return {
-    props: { article: data },
+    props: { article, imgSrc, imgBase64 },
   };
 }

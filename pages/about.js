@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/styles';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import EmailIcon from '@material-ui/icons/Email';
+import { getImage } from '@plaiceholder/next';
+import { getBase64 } from '@plaiceholder/base64';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -26,10 +28,34 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 100,
     objectFit: 'cover',
   },
+  imgPlaceholder: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: 200,
+    height: 200,
+    /* Adjust the content to fit */
+    objectFit: 'cover',
+    objectPosition: 'center',
+    /* Blur the image and scale to avoid transparent corners */
+    filter: 'blur(8px)',
+    transform: 'scale(1.1)',
+    borderRadius: 100,
+  },
+  imgContainer: {
+    position: 'relative',
+    width: 200,
+    height: 200,
+    overflow: 'hidden',
+    borderRadius: 100,
+  },
 }));
 
-export default function About() {
+export default function About({ imgBase64, imgSrc }) {
   const styles = useStyles();
+
   return (
     <>
       <Head>
@@ -45,16 +71,24 @@ export default function About() {
       </Head>
       <Container maxWidth="sm" className={styles.container}>
         <Box>
-          <Image
-            src="/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg"
-            alt="a picture of Freeedom Evenden"
-            width={200}
-            height={200}
-            priority
-            className={styles.img}
-          />
+          <div className={styles.imgContainer}>
+            <img
+              aria-hidden="true"
+              alt=""
+              src={imgBase64}
+              className={styles.imgPlaceholder}
+            />
+            <Image
+              src={imgSrc}
+              alt="a picture of Freeedom Evenden"
+              width={200}
+              height={200}
+              priority
+              className={styles.img}
+            />
+          </div>
         </Box>
-        <Typography color="secondary" variant="h2" gutterBottom zIndex={1}>
+        <Typography color="secondary" variant="h2" gutterBottom>
           About Me
         </Typography>
         <Box component="address">
@@ -94,17 +128,30 @@ export default function About() {
             <EmailIcon />
           </IconButton>
         </Box>
-        <Typography color="textPrimary" zIndex={1} gutterBottom>
+        <Typography color="textPrimary" gutterBottom>
           Freedom is a full-stack web developer with experience building
           responsive, mobile-first applications using React.js, Node.js,
           Express, Python, Django, and PostgreSQL.
         </Typography>
 
-        <Typography color="textPrimary" zIndex={1} gutterBottom>
+        <Typography color="textPrimary" gutterBottom>
           When he's not writing code he's usualy spending time with his wife, at
           the gym, or conquering his foes in strategy games.
         </Typography>
       </Container>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const imgSrc = '/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg';
+  const img = await getImage(imgSrc);
+  const imgBase64 = await getBase64(img);
+
+  return {
+    props: {
+      imgBase64,
+      imgSrc,
+    },
+  };
 }

@@ -33,9 +33,27 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 125,
     objectFit: 'cover',
   },
+
+  imgContainer: {
+    position: 'relative',
+    width: 250,
+    height: 250,
+    overflow: 'hidden',
+    borderRadius: 125,
+  },
+
+  placeholderImg: {
+    position: 'absolute',
+    height: 250,
+    width: 250,
+    filter: 'blur(20px)',
+    borderRadius: 125,
+    transform: 'scale(1.1)',
+    objectFit: 'cover',
+  },
 }));
 
-export default function Footer() {
+export default function Footer({ imgBase64, imgSrc }) {
   const styles = useStyles();
   const theme = useTheme();
   const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -51,13 +69,21 @@ export default function Footer() {
         <Heading text="About the Author" level={2} />
         <Grid container spacing={2} justify="center" alignItems="center">
           <Grid item md={4} sm={12}>
-            <Image
-              alt="picture of the author"
-              src="/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg"
-              width={250}
-              height={250}
-              className={styles.authorImage}
-            />
+            <div className={styles.imgContainer}>
+              <img
+                aria-hidden="true"
+                alt=""
+                src={imgBase64}
+                className={styles.placeholderImg}
+              />
+              <Image
+                alt="picture of the author"
+                src={imgSrc}
+                width={250}
+                height={250}
+                className={styles.authorImage}
+              />
+            </div>
           </Grid>
           <Grid item md={8}>
             <Grid

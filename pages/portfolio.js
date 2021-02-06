@@ -1,6 +1,6 @@
 import { Container, makeStyles } from '@material-ui/core';
+import { getBase64 } from '@plaiceholder/base64';
 import Head from 'next/head';
-// import { projects } from '../store';
 import Project from '../components/projects/Project';
 import { getProjects } from '../services/ArticleApiService';
 
@@ -38,6 +38,15 @@ export default function portfolio({ projects }) {
 
 export async function getStaticProps() {
   const projects = await getProjects();
+  await Promise.all(
+    projects.map(async (p, i) => {
+      const res = await fetch(p.img);
+      const buffer = await res.buffer();
+      const img = await getBase64(buffer);
+      projects[i].placeholderImg = img;
+    })
+  );
+
   return {
     props: { projects },
   };
