@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     height: 495,
     maxHeight: '100%',
     /* Adjust the content to fit */
-    objectFit: 'contain',
+    objectFit: 'cover',
     objectPosition: 'center',
     /* Blur the image and scale to avoid transparent corners */
     filter: 'blur(20px)',
@@ -41,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
   imgContainer: {
     position: 'relative',
     width: '100%',
-    height: 495,
-    maxHeight: '56.26%',
+    maxHeight: 495,
+    height: '56.26%',
     overflow: 'hidden',
   },
 }));
