@@ -64,10 +64,6 @@ export default function About({ imgBase64, imgSrc }) {
           name="description"
           content="Learn about Freedom and how to contact him, also see a cute picture of his cat!"
         />
-        <meta
-          name="keywords"
-          content="freedom evenden, freedom, evenden, react, javascript, python, django, rest, react native, how to, react-native, web development, web, development, web developer, developer, software engineer, engineer, software, code, coding, coder, how to code, react.js, js, java script, java, script, portfolio, freedoms portfolio, freedom portfolio, blog, freedoms blog, freedom blog, web developer blog, web development blog, coding blog, code blog, about freedom evenden, contact freedom evenden, contact, about, about freedom, contact freedom"
-        />
       </Head>
       <Container maxWidth="sm" className={styles.container}>
         <Box>
