@@ -1,3 +1,7 @@
+/* 
+  custom code block component used for rendering codeblocks in blog posts
+*/
+
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 

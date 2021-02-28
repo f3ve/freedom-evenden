@@ -1,3 +1,7 @@
+/* 
+  renders an individual project on the portfolio page.
+*/
+
 import {
   Box,
   Card,

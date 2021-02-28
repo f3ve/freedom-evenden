@@ -1,3 +1,7 @@
+/* 
+  footer component for Article pages
+*/
+
 import {
   Container,
   Divider,

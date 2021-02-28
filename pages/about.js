@@ -144,14 +144,18 @@ export default function About({ imgBase64, imgSrc }) {
 }
 
 export async function getStaticProps() {
-  const imgSrc = '/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg';
+  const imgSrc = '/images/9A1C5BC0-339D-43CD-816A-3E9C3CD47FA0.jpg'; // image from public directory
+
+  /* 
+    Generate LQIP
+  */
   const img = await getImage(imgSrc);
   const imgBase64 = await getBase64(img);
 
   return {
     props: {
-      imgBase64,
-      imgSrc,
+      imgBase64, // placeholder image
+      imgSrc, // main image
     },
   };
 }

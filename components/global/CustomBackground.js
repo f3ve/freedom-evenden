@@ -1,3 +1,7 @@
+/* 
+  This renders the floating icons in the background
+*/
+
 import { useMediaQuery, useTheme } from '@material-ui/core';
 import Particles from 'react-particles-js';
 import { makeStyles } from '@material-ui/styles';

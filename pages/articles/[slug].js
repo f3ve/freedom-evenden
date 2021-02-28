@@ -1,3 +1,7 @@
+/* 
+  Dynamic article page rendered after clicking read more in the blog page
+*/
+
 import { CircularProgress, Container, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { useRouter } from 'next/router';

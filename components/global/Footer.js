@@ -1,3 +1,7 @@
+/* 
+  this is the main footer component present on all pages
+*/
+
 import { Link, makeStyles, Typography } from '@material-ui/core';
 import format from 'date-fns/format';
 

@@ -1,3 +1,7 @@
+/* 
+  Renders an individual card on the blog page.
+*/
+
 import { Grid, Button, Typography, Divider, Box } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { makeStyles } from '@material-ui/styles';

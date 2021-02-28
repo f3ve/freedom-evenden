@@ -36,8 +36,12 @@ export default function portfolio({ projects }) {
 }
 
 export async function getStaticProps() {
-  const projects = await getProjects();
+  const projects = await getProjects(); // get projects from API
+
   await Promise.all(
+    /* 
+      this generates a LQIP for all projects
+    */
     projects.map(async (p, i) => {
       const res = await fetch(p.img);
       const buffer = await res.buffer();

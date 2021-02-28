@@ -1,3 +1,7 @@
+/* 
+  Side drawer for mobile devices, only rendered on small screens
+*/
+
 import {
   Divider,
   Drawer,

@@ -1,3 +1,8 @@
+/* 
+  main topbar component present on all screens, used for branding and site 
+  navigation.
+*/
+
 import {
   AppBar,
   Toolbar,
