@@ -1,3 +1,8 @@
+/* 
+  This is a custom document file. The main reason I created this is to make 
+  Material-ui styles work with NextJS.
+*/
+
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';

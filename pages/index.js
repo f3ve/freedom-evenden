@@ -1,3 +1,7 @@
+/* 
+  This is the main landing page
+*/
+
 import { useContext } from 'react';
 import Head from 'next/head';
 import {

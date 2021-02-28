@@ -1,3 +1,7 @@
+/* 
+  Blog page. Renders a list of all my recent blog posts
+*/
+
 import { Box, Chip, CircularProgress, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';

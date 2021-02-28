@@ -1,3 +1,7 @@
+/* 
+  About page. Display my picture and links to my socials and email.
+*/
+
 /* eslint-disable react/no-unescaped-entities */
 import { Box, Container, IconButton, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';

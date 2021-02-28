@@ -1,3 +1,7 @@
+/* 
+  custom 404 page that renders when a page is requested that does not exist
+*/
+
 /* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 import { Container, makeStyles, Typography } from '@material-ui/core';

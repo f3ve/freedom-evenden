@@ -1,3 +1,7 @@
+/* 
+  custom portfolio page that displays a list of my recent projects
+*/
+
 import { Container, makeStyles } from '@material-ui/core';
 import { getBase64 } from '@plaiceholder/base64';
 import Head from 'next/head';

@@ -1,3 +1,9 @@
+/* 
+  This is a base app component that renders all pages as it's children, 
+  any components that are persistent between pages should be rendered in this 
+  file.
+*/
+
 import { makeStyles, ThemeProvider, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import '../styles/globals.css';
@@ -25,9 +31,9 @@ function MyApp({ Component, pageProps }) {
   const [mode, setMode] = useState('dark');
 
   useEffect(() => {
-    const windowMode = window.localStorage.getItem('themeMode');
-    const color = windowMode === 'light' ? '#ffffff' : '#051622';
-    document.body.style.backgroundColor = color;
+    const windowMode = window.localStorage.getItem('themeMode'); // find theme
+    const color = windowMode === 'light' ? '#ffffff' : '#051622'; // determine theme color
+    document.body.style.backgroundColor = color; // set background color
 
     if (windowMode && mode !== windowMode) {
       setMode(windowMode);
@@ -35,6 +41,9 @@ function MyApp({ Component, pageProps }) {
   }, [mode]);
 
   function changeTheme() {
+    /* 
+      toggles between dark and light mode
+    */
     if (mode === 'dark') {
       window.localStorage.setItem('themeMode', 'light');
       setMode('light');
