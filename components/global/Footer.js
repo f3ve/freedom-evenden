@@ -37,7 +37,7 @@ export default function Footer() {
       <Typography variant="caption" color="textPrimary">
         Designed and built by{' '}
         <Link
-          href="https://twitter.com/f3veDev"
+          href="https://www.linkedin.com/in/freedom-evenden-dev/"
           color="primary"
           variant="caption"
           target="_blank"

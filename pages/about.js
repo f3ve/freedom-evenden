@@ -10,7 +10,6 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import EmailIcon from '@material-ui/icons/Email';
 import { getImage } from '@plaiceholder/next';
 import { getBase64 } from '@plaiceholder/base64';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -112,15 +111,6 @@ export default function About({ imgBase64, imgSrc }) {
           </IconButton>
           <IconButton
             color="primary"
-            href="https://twitter.com/f3veDev"
-            aria-label="Freedom's twitter account"
-            target="_blank"
-            rel="noopener"
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            color="primary"
             href="mailto:free.eve@protonmail.com"
             aria-label="email Freedom"
             rel="noopener"
@@ -130,7 +120,7 @@ export default function About({ imgBase64, imgSrc }) {
         </Box>
         <Typography color="textPrimary" gutterBottom>
           Freedom is a full-stack web developer with experience building
-          responsive, mobile-first applications using React.js, Node.js,
+          responsive, mobile-first applications with Vue.js, React.js, Node.js,
           Express, Python, Django, and PostgreSQL.
         </Typography>
 

@@ -15,7 +15,6 @@ import {
 } from '@material-ui/core';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import MailIcon from '@material-ui/icons/Mail';
 import Image from 'next/image';
 import Heading from '../editor/Heading';
@@ -114,15 +113,6 @@ export default function Footer({ imgBase64, imgSrc }) {
                     aria-label="Freedom's GitHub Profile"
                   >
                     <GitHubIcon />
-                  </IconButton>
-                  <IconButton
-                    color="primary"
-                    href="https://twitter.com/f3veDev"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Freedom's twitter profile"
-                  >
-                    <TwitterIcon />
                   </IconButton>
                   <IconButton
                     color="primary"
