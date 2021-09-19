@@ -39,10 +39,8 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     width: 200,
     height: 200,
-    /* Adjust the content to fit */
     objectFit: 'cover',
     objectPosition: 'center',
-    /* Blur the image and scale to avoid transparent corners */
     filter: 'blur(8px)',
     transform: 'scale(1.1)',
     borderRadius: 100,

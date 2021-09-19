@@ -45,8 +45,8 @@ export async function getStaticProps() {
     projects.map(async (p, i) => {
       const res = await fetch(p.img);
       const buffer = await res.buffer();
-      const img = await getBase64(buffer);
-      projects[i].placeholderImg = img;
+
+      projects[i].placeholderImg = await getBase64(buffer);
     })
   );
 
