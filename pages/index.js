@@ -101,13 +101,13 @@ export default function Home() {
           >
             I write code and I love cats
           </Typography>
-          <RouterLink href="/blog" text="Blog" className={styles.link} />
-          <RouterLink href="/about" text="About" className={styles.link} />
           <RouterLink
             href="/portfolio"
             text="Portfolio"
             className={styles.link}
           />
+          <RouterLink href="/about" text="About" className={styles.link} />
+          <RouterLink href="/blog" text="Blog" className={styles.link} />
           <IconButton
             color="primary"
             onClick={() => themeContext.changeTheme()}
